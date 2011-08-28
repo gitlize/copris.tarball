@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Copris: Constraint Programming in Scala</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-08-28 12:25:06 JST"/>
+<meta name="author" content="Naoyuki Tamura"/>
+<meta name="description" content="Copris provides a constraint programming DSL embedded in Scala language."/>
+<meta name="keywords" content="Constraint programming, Scala, Copris, Sugar, SAT-based constraint solver"/>
+
+<link rel="stylesheet" type="text/css" href="/include/org-common.css">
+<link rel="stylesheet" type="text/css" href="/include/org-toc-right.css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Copris: Constraint Programming in Scala</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Overview</a></li>
+<li><a href="#sec-2">Requirements</a></li>
+<li><a href="#sec-3">Downloads</a></li>
+<li><a href="#sec-4">How to use Copris</a></li>
+<li><a href="#sec-5">Documents</a></li>
+<li><a href="#sec-6">License</a></li>
+<li><a href="#sec-7">Links</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Overview</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Copris provides a <a href="http://en.wikipedia.org/wiki/Constraint_programming">constraint programming</a> DSL (Domain-Specific Language)
+embedded in <a href="http://www.scala-lang.org">Scala language</a>.
+</p>
+<p>
+The following is an example program using Copris.
+</p>
+
+
+<pre class="src src-scala"><span class="linenr"> 1:  </span><span class="org-keyword">import</span> jp.kobe_u.copris._
+<span class="linenr"> 2:  </span><span class="org-keyword">import</span> jp.kobe_u.copris.dsl._
+<span class="linenr"> 3:  </span>
+<span class="linenr"> 4:  </span><span class="org-keyword">object</span> <span class="org-variable-name">FirstStep</span> {
+<span class="linenr"> 5:  </span>  <span class="org-keyword">def</span> <span class="org-function-name">main</span>(<span class="org-variable-name">args</span>: <span class="org-type">Array[String]</span>) = {
+<span class="linenr"> 6:  </span>    <span class="org-keyword">val</span> <span class="org-variable-name">x</span> = int('x, 0, 7)
+<span class="linenr"> 7:  </span>    <span class="org-keyword">val</span> <span class="org-variable-name">y</span> = int('y, 0, 7)
+<span class="linenr"> 8:  </span>    add(x + y === 7)
+<span class="linenr"> 9:  </span>    add(x * 2 + y * 4 === 20)
+<span class="linenr">10:  </span>    <span class="org-keyword">if</span> (find) {
+<span class="linenr">11:  </span>      println(solution)
+<span class="linenr">12:  </span>    }
+<span class="linenr">13:  </span>  }
+<span class="linenr">14:  </span>}
+</pre>
+
+
+<ul>
+<li>
+The sixth line declares a CSP variable x &isin; {0,1,2,&hellip;,7}, and
+assigns it to the Scala variable x.
+</li>
+<li>
+The seventh line declares a CSP variable y &isin; {0,1,2,&hellip;,7}, and
+assigns it to the Scala variable y.
+</li>
+<li>
+The eighth line adds a CSP constraint x + y = 7.
+</li>
+<li>
+The ninth line adds a CSP constraint 2x + 4y = 20.
+</li>
+<li>
+The tenth line finds a first solution, and the next line
+displays the solution as follows.
+<pre class="example">
+Solution(Map(x -&gt; 4, y -&gt; 3),Map())
+</pre>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Requirements</h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li>
+<a href="http://java.sun.com/j2se/desktopjava/jre/">Java JRE</a>:
+Java JRE 6 or higher
+</li>
+<li>
+<a href="http://www.scala-lang.org">Scala</a>:
+Scala version 2.9 or higher
+</li>
+<li>
+<a href="http://bach.istc.kobe-u.ac.jp/sugar/">Sugar</a>:
+Copris uses Sugar (A SAT-based Constraint Solver) version 1.15 or higher
+as a default constraint solver. It is included in Copris package.
+</li>
+<li>
+SAT solver:
+Sugar is a SAT-based Constraint solver, therefore it requires a SAT solver
+to be installed.
+Please install at least one of the followings.
+<ul>
+<li>
+<a href="http://www.sat4j.org">Sat4j</a> core (Java based)
+</li>
+<li>
+<a href="http://minisat.se">MiniSat</a>
+</li>
+<li>
+<a href="http://fmv.jku.at/precosat/">PrecoSAT</a>
+</li>
+<li>
+<a href="http://www.lri.fr/~simon/glucose/">glucose</a>
+</li>
+<li>
+<a href="https://sites.google.com/a/nabelab.org/glueminisat/">GlueMiniSat</a>
+</li>
+<li>
+Any other SAT solver participated to <a href="http://www.satcompetition.org">SAT competitions</a>
+
+</li>
+</ul>
+</li>
+</ul>
+
+<p>Here are some remarks how to choose SAT solver.
+</p><ul>
+<li>
+We recommend to use SAT solvers which have a good performance on
+the Application category in SAT competitions.
+</li>
+<li>
+Sat4j is a Java-based SAT solver,
+therefore it is called from Copris through Java API, and
+there are no overheads of process invocation.
+However it maybe two or three times slower than other SAT solvers.
+</li>
+<li>
+SAT solvers other than Sat4j is invoked as an external process
+from Copris, and therefore there are some overheads of external
+process invocation.
+However they are usually much faster, and suitable to solver difficult problems.
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Downloads</h2>
+<div class="outline-text-2" id="text-3">
+
+<ul>
+<li>
+<a href="copris-v1-0-0.zip">copris-v1-0-0.zip</a> (version 1.0.0, released <span class="timestamp-wrapper"> <span class="timestamp">2011-08-28 Sun</span></span>)
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">How to use Copris</h2>
+<div class="outline-text-2" id="text-4">
+
+<ol>
+<li>
+Download Copris package
+<pre class="example">
+$ wget http://bach.istc.kobe-u.ac.jp/copris/copris-v1-0-0.zip
+</pre>
+
+</li>
+<li>
+Unzip Copris package
+<pre class="example">
+$ unzip copris-v1-0-0.zip
+</pre>
+
+</li>
+<li>
+Download Sat4j core package from <a href="http://www.sat4j.org">Sat4j</a> web page
+</li>
+<li>
+Unzip Sat4j core package
+<pre class="example">
+$ unzip sat4j-core-v20110329.zip
+</pre>
+
+</li>
+<li>
+Copy Sat4j core jar file to Copris library directory
+<pre class="example">
+$ cp org.sat4j.core.jar copris-v1-0-0/lib
+</pre>
+
+</li>
+<li>
+Move to Copris examples directory
+<pre class="example">
+$ cd copris-v1-0-0/examples
+</pre>
+
+</li>
+<li>
+Compile Examples.scala
+<pre class="example">
+$ ./coprisc Examples.scala
+</pre>
+
+<p>The <code>coprisc</code> command just invokes Scala compiler with class path setting.
+You can directly compile the program as follows.
+</p><pre class="example">
+$ scalac -cp ../lib/copris-v1-0-0.jar:../lib/sugar-v1-15-0.jar:../lib/org.sat4j.core.jar -d classes Examples.scala
+</pre>
+
+</li>
+<li>
+Run the program
+<pre class="example">
+$ ./copris FirstStep
+</pre>
+
+<p>The <code>copris</code> command just invokes Scala with class path setting.
+You can directly run the program as follows.
+</p><pre class="example">
+$ scala -cp classes:../lib/copris-v1-0-0.jar:../lib/sugar-v1-15-0.jar:../lib/org.sat4j.core.jar FirstStep
+</pre>
+
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Documents</h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li>
+<a href="copris-v1-0-0/docs/api/index.html">Copris API</a> (version 1.0.0)
+</li>
+<li>
+Naoyuki Tamura, Tomoya Tanjo, and Mutsunori Banbara: 
+"A SAT-based constraint solver Sugar and its Scala interface"
+(in Japanese, <a href="http://bach.istc.kobe-u.ac.jp/papers/pdf/jssst11.pdf">PDF</a>)
+</li>
+<li>
+<a href="http://bach.istc.kobe-u.ac.jp/papers/tamura.html?q=@en+@sugar">Papers/presentations on Sugar</a>
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">License</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>This software is distributed under <a href="http://www.opensource.org/licenses/bsd-license.php">the BSD Lincense</a>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Links</h2>
+<div class="outline-text-2" id="text-7">
+
+<ul>
+<li>
+<a href="http://bach.istc.kobe-u.ac.jp/sugar/">Sugar: A SAT-based Constraint Solver</a>
+</li>
+<li>
+<a href="http://bach.istc.kobe-u.ac.jp/cream/">Cream: Class Library for Constraint Programming in Java</a>
+
+</li>
+</ul>
+
+<p></p ><p >
+<div class="counter" style="text-align: right">
+<img src="http://bach.istc.kobe-u.ac.jp/cgi-bin/Count.cgi?dd=D&df=copris.dat&tr=Y&ft=0&srgb=00ff00&prgb=000060" alt="?????" align=absmiddle>
+</div>
+
+</p></div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Naoyuki Tamura
+</p>
+<p class="date"> Date: 2011-08-28 12:25:06 JST</p>
+<p class="creator">HTML generated by org-mode 7.3 in emacs 23</p>
+</div>
+</div>
+</body>
+</html>
