@@ -118,7 +118,10 @@ case class Vec(xs: Seq[Term]) extends Iterable[Term] {
   /** Returns dot product of vectors */
   def dot(that: Vec) = (this * that).sum
   /** Returns dot product of vectors */
+  @deprecated("use :* instead", "1.0.1")
   def *+ (that: Vec) = dot(that)
+  /** Returns dot product of vectors */
+  def :* (that: Vec) = dot(that)
   /** Duplicates the vector `n` times */
   def dup(n: Int): Vec = if (n <= 1) this else Vec(xs ++ dup(n-1).xs)
 }
@@ -219,11 +222,20 @@ case class Matrix(vs: Seq[Vec]) extends Iterable[Vec] {
   /** Returns the min of row vectors */
   def min = vs.reduceLeft(_ min _)
   /** Returns the product with the given vector */
-  def *+ (v: Vec): Vec = Vec(vs.map(_ *+ v))
+  def :* (v: Vec): Vec = Vec(vs.map(_ dot v))
   /** Returns the product with the given matrix */
+  def :* (m: Matrix): Matrix = {
+    val t = m.transpose
+    Matrix(vs.map(t :* _))
+  }
+  /** Returns the product with the given vector */
+  @deprecated("use :* instead", "1.0.1")
+  def *+ (v: Vec): Vec = Vec(vs.map(_ dot v))
+  /** Returns the product with the given matrix */
+  @deprecated("use :* instead", "1.0.1")
   def *+ (m: Matrix): Matrix = {
     val t = m.transpose
-    Matrix(vs.map(v => Vec(t.map(v *+ _).toSeq)))
+    Matrix(vs.map(v => Vec(t.map(v dot _).toSeq)))
   }
 }
 /**

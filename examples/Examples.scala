@@ -1,5 +1,13 @@
+/*
+ * This program is a part of Copris software package.
+ * http://bach.istc.kobe-u.ac.jp/copris/
+ */
+
 import jp.kobe_u.copris._
 
+/**
+ * First-step program in Copris
+ */
 object FirstStep {
   import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
@@ -13,6 +21,10 @@ object FirstStep {
   }
 }
 
+/**
+ * 4-Queens problem solver
+ * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
+ */
 object Queens4 {
   import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
@@ -29,6 +41,10 @@ object Queens4 {
   }
 }
 
+/**
+ * n-Queens problem solver
+ * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
+ */
 object Queens {
   import jp.kobe_u.copris.dsl._
   def queens(n: Int) = {
@@ -48,6 +64,11 @@ object Queens {
   }
 }
 
+/**
+ * n-Queens problem solver
+ * comparing Sat4j and MiniSat
+ * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
+ */
 object QueensBench {
   import jp.kobe_u.copris.sugar._
   import jp.kobe_u.copris.sugar.dsl._
@@ -78,6 +99,10 @@ object QueensBench {
   }
 }
 
+/**
+ * 3 x 3 Magic square problem solver
+ * @see [[http://en.wikipedia.org/wiki/Magic_square]]
+ */
 object MagicSquare3 {
   import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
@@ -95,15 +120,19 @@ object MagicSquare3 {
     add('x13 + 'x22 + 'x31 === 15)
     if (find) {
       do {
-        println(values('x11, 'x12, 'x13).mkString(""))
-        println(values('x21, 'x22, 'x23).mkString(""))
-        println(values('x31, 'x32, 'x33).mkString(""))
+        println(solution('x11, 'x12, 'x13).mkString(""))
+        println(solution('x21, 'x22, 'x23).mkString(""))
+        println(solution('x31, 'x32, 'x33).mkString(""))
         println
       } while (findNext)
     }
   }
 }
 
+/**
+ * n x n Magic square problem solver
+ * @see [[http://en.wikipedia.org/wiki/Magic_square]]
+ */
 object MagicSquare {
   import jp.kobe_u.copris.dsl._
   def magicSquare(n: Int) = {
@@ -124,7 +153,7 @@ object MagicSquare {
     add(Add(for (i <- 1 to n) yield 'x(i,n-i+1)) === sum)
     if (find) {
       for (i <- 1 to n) {
-        val as = for (j <- 1 to n) yield value('x(i,j))
+        val as = for (j <- 1 to n) yield solution('x(i,j))
         println(as.map("%3d".format(_)).mkString(""))
       }
     }
@@ -135,6 +164,11 @@ object MagicSquare {
   }
 }
 
+/**
+ * Knight's tour problem solver
+ * MiniSat is used in this program.
+ * @see [[http://en.wikipedia.org/wiki/Knight_tour]]
+ */
 object KnightTour {
   import jp.kobe_u.copris.sugar.dsl._
   def knightTour(n: Int) = {
@@ -154,7 +188,7 @@ object KnightTour {
     use(sugar.MiniSat)
     if (find) {
       for (i <- 1 to n) {
-        val as = for (j <- 1 to n) yield value('x(i,j))
+        val as = for (j <- 1 to n) yield solution('x(i,j))
         println(as.map("%3d".format(_)).mkString(""))
       }
     }
@@ -165,6 +199,13 @@ object KnightTour {
   }
 }
 
+/**
+ * Perfect square packing problem solver.
+ * This program finds a tiling of given 21 squares with different sizes
+ * fitting in one large square whose size is 112 x 112.
+ * MiniSat is used in this program.
+ * @see [[http://en.wikipedia.org/wiki/Squaring_the_square]]
+ */
 object PerfectSquare {
   import jp.kobe_u.copris.sugar.dsl._
   def main(args: Array[String]) = {
@@ -184,8 +225,8 @@ object PerfectSquare {
     if (find) {
       val a = Array.ofDim[Char](size, size)
       for {i <- 0 to n-1
-           x <- value('x(i)) to value('x(i))+s(i)-1
-           y <- value('y(i)) to value('y(i))+s(i)-1}
+           x <- solution('x(i)) to solution('x(i))+s(i)-1
+           y <- solution('y(i)) to solution('y(i))+s(i)-1}
         a(x)(y) = ('A' to 'Z')(i)
       for (x <- 0 to size-1)
         println((0 to size-1).map(a(x)(_)).mkString(""))
@@ -193,6 +234,12 @@ object PerfectSquare {
   }
 }
 
+/**
+ * Square packing problem solver.
+ * This program finds a square of the minimum size containing
+ * all n squares whose sizes are from 1 x 1 to n x n.
+ * MiniSat is used in this program.
+ */
 object SquarePacking {
   import jp.kobe_u.copris.sugar.dsl._
   def showSolution(n: Int, size: Int) {
@@ -201,8 +248,8 @@ object SquarePacking {
       a(x)(y) = '.'
     for {
       i <- 1 to n
-      x <- value('x(i)) to value('x(i))+i-1
-      y <- value('y(i)) to value('y(i))+i-1
+      x <- solution('x(i)) to solution('x(i))+i-1
+      y <- solution('y(i)) to solution('y(i))+i-1
     } a(x)(y) = ('A' to 'Z')((i-1) % 26)
     for (x <- 0 to size-1)
       println((0 to size-1).map(a(x)(_)).mkString(""))
@@ -238,6 +285,10 @@ object SquarePacking {
   }
 }
 
+/**
+ * Open-Shop Scheduling problem solver.
+ * MiniSat is used in this program.
+ */
 object OSS {
   import jp.kobe_u.copris.sugar.dsl._
   val gp03_01 = Seq(
@@ -283,12 +334,5 @@ object OSS {
     if (findOpt) {
       println(solution)
     }
-    /*
-    for (stat <- stats) {
-      println
-      for (name <- stat.keys)
-        println(name + " -> " + stat(name))
-    }
-    */
   }
 }

@@ -1,9 +1,9 @@
-VER = v1-0-0
-VERSION = 1.0.0
+VER = v1-0-1
+VERSION = 1.0.1
 
 APP0 = copris
 APP = $(APP0)-$(VER)
-JAR = lib/$(APP).jar
+JAR = $(APP).jar
 ZIP = $(APP).zip
 
 WEBPAGE = http://bach.istc.kobe-u.ac.jp/copris/
@@ -18,6 +18,7 @@ SCALADOC  = scaladoc \
 	-doc-version '$(VERSION)' \
 	-classpath classes:$(JARS) \
 	-sourcepath src
+#	-doc-source-url 'http://bach.istc.kobe-u.ac.jp/copris/current/src/€{FILE_PATH}.scala'
 
 all: scalac jar scaladoc zip
 
@@ -27,27 +28,24 @@ scalac:
 #	scalac -sourcepath src -d classes -cp $(JARS) -optimise $(SRCS)
 
 jar:
-	jar cf $(JAR) -C classes .
+	jar cf ../$(JAR) -C classes .
+	cp -p ../$(JAR) lib/
 
 scaladoc:
 	rm -rf docs/api/*
 	$(SCALADOC) $(SRCS)
 
 zip:
-	rm -f $(ZIP)
+	rm -f ../$(ZIP)
 	rm -rf $(APP)
 	mkdir $(APP)
 	cp -pr Makefile src lib docs examples $(APP)
-	rm -f $(APP)/lib/org.sat4j.core.jar $(APP)/examples/classes/*
+	rm -f $(APP)/lib/copris*.jar $(APP)/lib/org.sat4j.core.jar $(APP)/examples/classes/*
+	cp -pr ../$(JAR) $(APP)/lib
 	find $(APP) \( -name .svn -o -name CVS -o -name .cvsignore -o -name '*~' \) -exec rm -r '{}' '+'
-	zip -q -r $(ZIP) $(APP)
+	zip -q -r ../$(ZIP) $(APP)
 	rm -rf $(APP)
-
-copy:
-	scp -p copris-v1-0-0.zip lib/copris-v1-0-0.jar docs/index.html bach:html/copris/
-	ssh bach 'cd html/copris; rm -rf copris-v1-0-0; unzip copris-v1-0-0.zip'
 
 clean:
 	rm -rf classes/*
 	rm -rf docs/api/*
-	rm -rf $(ZIP) $(JAR)

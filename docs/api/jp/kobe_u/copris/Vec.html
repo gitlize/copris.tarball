@@ -191,17 +191,6 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <p class="shortcomment cmt">Element-wise multiplication of vectors (see <a name="jp.kobe_u.copris.Mul" class="extype" href="Mul.html">Mul</a>)</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#*+" data-isabs="false">
-      <a id="*+(Vec):Add"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">*+</span>
-        
-        <span class="params">(<span name="that">that: <a name="jp.kobe_u.copris.Vec" class="extype" href="">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Add" class="extype" href="Add.html">Add</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns dot product of vectors</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.Vec#+" data-isabs="false">
       <a id="+(Int):Vec"></a>
       <h4 class="signature">
@@ -381,6 +370,17 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenTraversableOnce</dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#:*" data-isabs="false">
+      <a id=":*(Vec):Add"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">:*</span>
+        
+        <span class="params">(<span name="that">that: <a name="jp.kobe_u.copris.Vec" class="extype" href="">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Add" class="extype" href="Add.html">Add</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns dot product of vectors</p>
     </li><li visbl="pub" name="scala.collection.TraversableOnce#:\" data-isabs="false">
       <a id=":\[B](B)((Term, B) ⇒ B):B"></a>
       <h4 class="signature">
@@ -829,7 +829,7 @@ Companion object provies other factory methods.
         <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li visbl="pub" name="scala.collection.TraversableLike#groupBy" data-isabs="false">
       <a id="groupBy[K]((Term) ⇒ K):Map[K, Iterable[Term]]"></a>
       <h4 class="signature">
@@ -1987,6 +1987,25 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>IterableLike → GenIterableLike</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Deprecated Value Members</h3>
+              <ol><li visbl="pub" name="jp.kobe_u.copris.Vec#*+" data-isabs="false">
+      <a id="*+(Vec):Add"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name deprecated">*+</span>
+        
+        <span class="params">(<span name="that">that: <a name="jp.kobe_u.copris.Vec" class="extype" href="">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Add" class="extype" href="Add.html">Add</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns dot product of vectors</p><div class="fullcomment"><div class="comment cmt"><p>Returns dot product of vectors</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p>use :* instead</p></dd></dl></div>
     </li><li visbl="pub" name="scala.collection.IterableLike#elements" data-isabs="false">
       <a id="elements:Iterator[Term]"></a>
       <h4 class="signature">

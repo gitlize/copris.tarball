@@ -191,28 +191,6 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <p class="shortcomment cmt">Element-wise multiplication</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#*+" data-isabs="false">
-      <a id="*+(Matrix):Matrix"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">*+</span>
-        
-        <span class="params">(<span name="m">m: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns the product with the given matrix</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#*+" data-isabs="false">
-      <a id="*+(Vec):Vec"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">*+</span>
-        
-        <span class="params">(<span name="v">v: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns the product with the given vector</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#+" data-isabs="false">
       <a id="+(Int):Matrix"></a>
       <h4 class="signature">
@@ -381,6 +359,28 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenTraversableOnce</dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#:*" data-isabs="false">
+      <a id=":*(Matrix):Matrix"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">:*</span>
+        
+        <span class="params">(<span name="m">m: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the product with the given matrix</p>
+    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#:*" data-isabs="false">
+      <a id=":*(Vec):Vec"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">:*</span>
+        
+        <span class="params">(<span name="v">v: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the product with the given vector</p>
     </li><li visbl="pub" name="scala.collection.TraversableOnce#:\" data-isabs="false">
       <a id=":\[B](B)((Vec, B) ⇒ B):B"></a>
       <h4 class="signature">
@@ -829,7 +829,7 @@ Companion object provies other factory methods.
         <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li visbl="pub" name="scala.collection.TraversableLike#groupBy" data-isabs="false">
       <a id="groupBy[K]((Vec) ⇒ K):Map[K, Iterable[Vec]]"></a>
       <h4 class="signature">
@@ -2031,6 +2031,39 @@ Companion object provies other factory methods.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>IterableLike → GenIterableLike</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members" id="values">
+              <h3>Deprecated Value Members</h3>
+              <ol><li visbl="pub" name="jp.kobe_u.copris.Matrix#*+" data-isabs="false">
+      <a id="*+(Matrix):Matrix"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name deprecated">*+</span>
+        
+        <span class="params">(<span name="m">m: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Matrix" class="extype" href="">Matrix</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the product with the given matrix</p><div class="fullcomment"><div class="comment cmt"><p>Returns the product with the given matrix</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p>use :* instead</p></dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix#*+" data-isabs="false">
+      <a id="*+(Vec):Vec"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name deprecated">*+</span>
+        
+        <span class="params">(<span name="v">v: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the product with the given vector</p><div class="fullcomment"><div class="comment cmt"><p>Returns the product with the given vector</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p>use :* instead</p></dd></dl></div>
     </li><li visbl="pub" name="scala.collection.IterableLike#elements" data-isabs="false">
       <a id="elements:Iterator[Vec]"></a>
       <h4 class="signature">

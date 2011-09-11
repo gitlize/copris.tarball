@@ -30,6 +30,8 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   /* */
   def maximize(x: Var) = csp.maximize(x)
   /* */
+  def satisfiedBy(solution: Solution) = csp.satisfiedBy(solution)
+  /* */
   def find = solver.find
   /* */
   def findNext = solver.findNext

@@ -498,9 +498,9 @@ class Solver(csp: CSP,
   def findNextBody: Boolean = {
     measureTime("time", "encode") {
       val cs1 = for (x <- csp.variables)
-                yield Eq(x, Num(value(x)))
+                yield Eq(x, Num(solution(x)))
       val cs2 = for (p <- csp.bools)
-                yield if (value(p)) p else Not(p)
+                yield if (solution(p)) p else Not(p)
       csp.add(Not(And(And(cs1), And(cs2))))
       addDelta
       commit
@@ -518,22 +518,22 @@ class Solver(csp: CSP,
       if (sat) {
         var lastSolution = solution
         if (csp.isMinimize) {
-          ub = value(v)
+          ub = solution(v)
           while (lb < ub) {
             val mid = (lb + ub) / 2
             if (findOptBound(lb, mid)) {
-              ub = value(v)
+              ub = solution(v)
               lastSolution = solution
             } else {
               lb = mid + 1
             }
           }
         } else {
-          lb = value(v)
+          lb = solution(v)
           while (lb < ub) {
             val mid = (lb + ub + 1) / 2
             if (findOptBound(mid, ub)) {
-              lb = value(v)
+              lb = solution(v)
               lastSolution = solution
             } else {
               ub = mid - 1
