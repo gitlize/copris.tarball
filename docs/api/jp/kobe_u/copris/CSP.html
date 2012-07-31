@@ -24,11 +24,15 @@
       <span class="symbol"> 
         <span class="name">CSP</span>
         
-        <span class="params">(<span name="variables">variables: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>, <span name="bools">bools: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>, <span name="dom">dom: <span name="scala.collection.Map" class="extype">Map</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>, <a name="jp.kobe_u.copris.Domain" class="extype" href="Domain.html">Domain</a>]</span>, <span name="constraints">constraints: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>)</span><span class="result"> extends <a name="jp.kobe_u.copris.CSPTrait" class="extype" href="CSPTrait.html">CSPTrait</a> with <span name="scala.Product" class="extype">Product</span> with <span name="scala.Serializable" class="extype">Serializable</span></span>
+        <span class="params">(<span name="variables">variables: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>, <span name="bools">bools: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>, <span name="dom">dom: <span name="scala.collection.Map" class="extype">Map</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>, <a name="jp.kobe_u.copris.Domain" class="extype" href="Domain.html">Domain</a>]</span>, <span name="constraints">constraints: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>)</span><span class="result"> extends <a name="jp.kobe_u.copris.CSPTrait" class="extype" href="CSPTrait.html">CSPTrait</a> with <span name="scala.Product" class="extype">Product</span> with <span name="scala.Serializable" class="extype">Serializable</span></span>
       </span>
       </h4>
       
           <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Case class of CSP (Constraint Satisfaction Problem)</p></div><dl class="paramcmts block"><dt class="param">variables</dt><dd class="cmt"><p>integer variables</p></dd><dt class="param">bools</dt><dd class="cmt"><p>Boolean variables</p></dd><dt class="param">dom</dt><dd class="cmt"><p>domains of integer variables</p></dd><dt class="param">constraints</dt><dd class="cmt"><p>constraints
+case class CSP(var variables: Seq[Var] = Seq.empty,
+               var bools: Seq[Bool] = Seq.empty,
+               var dom: Map[Var,Domain] = Map.empty,
+               var constraints: Seq[Constraint] = Seq.empty)
 </p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span name="scala.Serializable" class="extype">Serializable</span>, <span name="java.io.Serializable" class="extype">Serializable</span>, <span name="scala.Product" class="extype">Product</span>, <span name="scala.Equals" class="extype">Equals</span>, <a name="jp.kobe_u.copris.CSPTrait" class="extype" href="CSPTrait.html">CSPTrait</a>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
@@ -76,10 +80,14 @@
       <span class="symbol"> 
         <span class="name">CSP</span>
         
-        <span class="params">(<span name="variables">variables: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>, <span name="bools">bools: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>, <span name="dom">dom: <span name="scala.collection.Map" class="extype">Map</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>, <a name="jp.kobe_u.copris.Domain" class="extype" href="Domain.html">Domain</a>]</span>, <span name="constraints">constraints: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>)</span>
+        <span class="params">(<span name="variables">variables: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>, <span name="bools">bools: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>, <span name="dom">dom: <span name="scala.collection.Map" class="extype">Map</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>, <a name="jp.kobe_u.copris.Domain" class="extype" href="Domain.html">Domain</a>]</span>, <span name="constraints">constraints: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>)</span>
       </span>
       </h4>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">variables</dt><dd class="cmt"><p>integer variables</p></dd><dt class="param">bools</dt><dd class="cmt"><p>Boolean variables</p></dd><dt class="param">dom</dt><dd class="cmt"><p>domains of integer variables</p></dd><dt class="param">constraints</dt><dd class="cmt"><p>constraints
+case class CSP(var variables: Seq[Var] = Seq.empty,
+               var bools: Seq[Bool] = Seq.empty,
+               var dom: Map[Var,Domain] = Map.empty,
+               var constraints: Seq[Constraint] = Seq.empty)
 </p></dd></dl></div>
     </li></ol>
             </div>
@@ -205,24 +213,24 @@
       </h4>
       <p class="shortcomment cmt">Adds Boolean variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds Boolean variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.CSPTrait" class="extype" href="CSPTrait.html">CSPTrait</a></dd></dl></div>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#bools" data-isabs="false">
-      <a id="bools:Seq[Bool]"></a>
+      <a id="bools:IndexedSeq[Bool]"></a>
       <h4 class="signature">
       <span class="kind">var</span>
       <span class="symbol"> 
         <span class="name">bools</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Boolean variables</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#boolsDelta" data-isabs="false">
-      <a id="boolsDelta:Seq[Bool]"></a>
+      <a id="boolsDelta:IndexedSeq[Bool]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">boolsDelta</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Bool" class="extype" href="Bool.html">Bool</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the Boolean variables added after the last commit.</p>
@@ -274,25 +282,30 @@
       </h4>
       <p class="shortcomment cmt">Commits the changes made for the CSP.</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#constraints" data-isabs="false">
-      <a id="constraints:Seq[Constraint]"></a>
+      <a id="constraints:IndexedSeq[Constraint]"></a>
       <h4 class="signature">
       <span class="kind">var</span>
       <span class="symbol"> 
         <span class="name">constraints</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">constraints
-</p>
+case class CSP(var variables: Seq[Var] = Seq.</p><div class="fullcomment"><div class="comment cmt"><p>constraints
+case class CSP(var variables: Seq[Var] = Seq.empty,
+               var bools: Seq[Bool] = Seq.empty,
+               var dom: Map[Var,Domain] = Map.empty,
+               var constraints: Seq[Constraint] = Seq.empty)
+</p></div></div>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#constraintsDelta" data-isabs="false">
-      <a id="constraintsDelta:Seq[Constraint]"></a>
+      <a id="constraintsDelta:IndexedSeq[Constraint]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">constraintsDelta</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Constraint" class="extype" href="Constraint.html">Constraint</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the constraints added after the last commit.</p>
@@ -662,24 +675,24 @@ constraints to be empty.</p>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.CSP" class="extype" href="">CSP</a> → AnyRef → Any</dd></dl></div>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#variables" data-isabs="false">
-      <a id="variables:Seq[Var]"></a>
+      <a id="variables:IndexedSeq[Var]"></a>
       <h4 class="signature">
       <span class="kind">var</span>
       <span class="symbol"> 
         <span class="name">variables</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">integer variables</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.CSP#variablesDelta" data-isabs="false">
-      <a id="variablesDelta:Seq[Var]"></a>
+      <a id="variablesDelta:IndexedSeq[Var]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">variablesDelta</span>
         
-        <span class="result">: <span name="scala.collection.Seq" class="extype">Seq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>
+        <span class="result">: <span name="scala.collection.immutable.IndexedSeq" class="extype">IndexedSeq</span>[<a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the integer variables added after the last commit.</p>

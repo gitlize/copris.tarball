@@ -136,7 +136,7 @@ object FirstStep {
       <span class="symbol"> 
         <a href="CSP.html"><span class="name">CSP</span></a>
         
-        <span class="params">(<span name="variables">variables: Seq[Var]</span>, <span name="bools">bools: Seq[Bool]</span>, <span name="dom">dom: Map[Var, Domain]</span>, <span name="constraints">constraints: Seq[Constraint]</span>)</span><span class="result"> extends CSPTrait with Product with Serializable</span>
+        <span class="params">(<span name="variables">variables: IndexedSeq[Var]</span>, <span name="bools">bools: IndexedSeq[Bool]</span>, <span name="dom">dom: Map[Var, Domain]</span>, <span name="constraints">constraints: IndexedSeq[Constraint]</span>)</span><span class="result"> extends CSPTrait with Product with Serializable</span>
       </span>
       </h4>
       <p class="comment cmt">Case class of CSP (Constraint Satisfaction Problem)</p>
@@ -791,7 +791,7 @@ object FirstStep {
         <span class="result"> extends Serializable</span>
       </span>
       </h4>
-      
+      <p class="comment cmt">Factory for multiplication of terms.</p>
     </li><li visbl="pub" name="jp.kobe_u.copris.NIL" data-isabs="false">
       <a id="NIL:NIL"></a>
       <h4 class="signature">

@@ -1,5 +1,5 @@
-VER = v1-0-1
-VERSION = 1.0.1
+VER = v1-0-3
+VERSION = 1.0.3
 
 APP0 = copris
 APP = $(APP0)-$(VER)
@@ -8,7 +8,7 @@ ZIP = $(APP).zip
 
 WEBPAGE = http://bach.istc.kobe-u.ac.jp/copris/
 WEBTITLE = Copris: Constraint Programming in Scala
-JARS = lib/sugar-v1-15-0.jar:lib/org.sat4j.core.jar
+JARS = lib/sugar-v1-15-1.jar:lib/org.sat4j.core.jar
 SRCS = src/jp/kobe_u/*.scala src/jp/kobe_u/copris/*.scala src/jp/kobe_u/copris/sugar/*.scala
 
 DOCTITLE = Copris version $(VERSION) Core API Specification

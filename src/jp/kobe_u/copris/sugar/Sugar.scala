@@ -48,7 +48,7 @@ abstract class SatSolver(command: String, opts: Seq[String]) {
 /**
  * Class for SAT solvers with one argument
  */
-class SatSolver1(command: String, opts: Seq[String]) extends SatSolver(command, opts) {
+class SatSolver1(command: String, opts: Seq[String] = Seq.empty) extends SatSolver(command, opts) {
   import scala.sys.process._
   def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
     val outFile = new java.io.File(outFileName)
@@ -60,7 +60,7 @@ class SatSolver1(command: String, opts: Seq[String]) extends SatSolver(command, 
 /**
  * Class for SAT solvers with two arguments
  */
-class SatSolver2(command: String, opts: Seq[String]) extends SatSolver(command, opts) {
+class SatSolver2(command: String, opts: Seq[String] = Seq.empty) extends SatSolver(command, opts) {
   import scala.sys.process._
   def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
     val logger = ProcessLogger(new java.io.File(logFileName))

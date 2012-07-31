@@ -1,6 +1,7 @@
 package jp.kobe_u.copris
 
 import scala.collection._
+import scala.collection.immutable.IndexedSeq
 
 /**
  * Abstract class of expressions.
@@ -117,8 +118,11 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
     else if (x1.is == x2.is)
       0
     else
-      (0 until x1.is.size).map(i => x1.is(i).compare(x2.is(i))).
-        find(_ != 0).getOrElse(0)
+      (0 until x1.is.size) find {
+	i => x1.is(i).compare(x2.is(i)) != 0
+      } map {
+	i => x1.is(i).compare(x2.is(i))
+      } getOrElse(0)
   }
   def value(solution: Solution): Int = solution(this)
   override def toString =
@@ -127,7 +131,7 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
 object Var {
   private var count = 0
   /** Returns a new anonymous variable */
-  def apply() = { count += 1; new Var("_" + count) }
+  def apply() = { count += 1; new Var("_I_" + count) }
 }
 /**
  * Case class for absolute value of term.
@@ -180,10 +184,10 @@ object Sub {
 case class Mul(xs: Term*) extends Term {
   def value(solution: Solution): Int = xs.map(_.value(solution)).product
   override def toString = xs.mkString(productPrefix + "(", ",", ")")
+}
 /**
  * Factory for multiplication of terms.
  */
-}
 object Mul {
   def apply(xs: Iterable[Term]) = new Mul(xs.toSeq: _*)
 }
@@ -314,7 +318,7 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
 object Bool {
   private var count = 0
   /** Returns a new anonymous variable */
-  def apply() = { count += 1; new Bool("_" + count) }
+  def apply() = { count += 1; new Bool("_B_" + count) }
 }
 /**
  * Case class for logical negation of constaint.
@@ -711,13 +715,19 @@ trait CSPTrait {
  * @param bools Boolean variables
  * @param dom domains of integer variables
  * @param constraints constraints
- */
 case class CSP(var variables: Seq[Var] = Seq.empty,
                var bools: Seq[Bool] = Seq.empty,
                var dom: Map[Var,Domain] = Map.empty,
                var constraints: Seq[Constraint] = Seq.empty)
+ */
+case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
+               var bools: IndexedSeq[Bool] = IndexedSeq(),
+               var dom: Map[Var,Domain] = Map(),
+               var constraints: IndexedSeq[Constraint] = IndexedSeq())
   extends CSPTrait {
+  private var variablesSet: Set[Var] = Set()
   private var variablesSize = 0
+  private var boolsSet: Set[Bool] = Set()
   private var boolsSize = 0
   private var constraintsSize = 0
   /** Objective variable.  `null` if not defined */
@@ -739,16 +749,20 @@ case class CSP(var variables: Seq[Var] = Seq.empty,
    * constraints to be empty.
    */
   def init: Unit = {
-    variables = Seq.empty; bools = Seq.empty
-    dom = Map.empty; constraints = Seq.empty
+    variables = IndexedSeq.empty; bools = IndexedSeq.empty
+    dom = Map.empty; constraints = IndexedSeq.empty
+    variablesSet = Set.empty; variablesSize = 0
+    boolsSet = Set.empty; boolsSize = 0
+    constraintsSize = 0
+    objective = null; target = 0
   }
   /**
    * Adds an integer variable
    */
   def int(x: Var, d: Domain): Var = {
-    if (variables.contains(x))
+    if (variablesSet.contains(x))
       throw new IllegalArgumentException("duplicate int " + x)
-    variables :+= x; dom += x -> d; x
+    variablesSet += x; variables = variables :+ x; dom += x -> d; x
   }
   /**
    * Adds a Boolean variable
@@ -756,13 +770,16 @@ case class CSP(var variables: Seq[Var] = Seq.empty,
   def bool(p: Bool): Bool = {
     if (bools.contains(p))
       throw new IllegalArgumentException("duplicate bool " + p)
-    bools :+= p; p
+    boolsSet += p; bools = bools :+ p; p
   }
   /**
    * Adds constraints
    */
   def add(cs: Constraint*): Unit =
-    constraints = constraints ++ cs
+    if (cs.size == 1)
+      constraints = constraints :+ cs(0)
+    else
+      constraints = constraints ++ cs
   /**
    * Commits the changes made for the CSP.
    */
@@ -776,7 +793,9 @@ case class CSP(var variables: Seq[Var] = Seq.empty,
    */
   def cancel: Unit = {
     variables = variables.take(variablesSize)
+    variablesSet = variables.toSet
     bools = bools.take(boolsSize)
+    boolsSet = bools.toSet
     constraints = constraints.take(constraintsSize)
   }
   /**

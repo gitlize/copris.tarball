@@ -12,6 +12,8 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 1.0.2 [2012-06-08 Fri]
+  - Performance improvement for adding variables and constraints
 * Version 1.0.1 [2011-09-11 Sun]
   - ~value~ and ~values~ methods of solvers are now deprecated.
     Use ~apply~ methods of ~Solution~ class instead.
