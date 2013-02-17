@@ -254,9 +254,8 @@ object SquarePacking {
     for (x <- 0 to size-1)
       println((0 to size-1).map(a(x)(_)).mkString(""))
   }
-  def squares(n: Int) = {
-    val area = (1 to n).map(i => i*i).sum
-    var size = math.ceil(math.sqrt(area)).toInt
+  def squares(n: Int, size0: Int) = {
+    var size = size0
     var found = false
     while (! found) {
       println(size)
@@ -281,7 +280,9 @@ object SquarePacking {
   }
   def main(args: Array[String]) = {
     val n = if (args.size > 0) args(0).toInt else 4
-    squares(n)
+    val area = (1 to n).map(i => i*i).sum
+    val size = if (args.size > 1) args(1).toInt else math.ceil(math.sqrt(area)).toInt
+    squares(n, size)
   }
 }
 
@@ -312,8 +313,8 @@ object OSS {
   def ub =
     (0 until n).map(k => (0 until n).map(i => pt(i)((i + k) % n)).max).sum
   def main(args: Array[String]) = {
-    pt = gp03_01
-    // pt = gp10_10
+    // pt = gp03_01
+    pt = gp10_10
     int('makespan, lb, ub)
     minimize('makespan)
     for (i <- 0 until n; j <- 0 until n) {

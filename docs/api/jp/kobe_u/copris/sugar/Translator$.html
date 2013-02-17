@@ -150,7 +150,7 @@
       <span class="symbol"> 
         <span class="name">createSugarExpr</span>
         
-        <span class="params">(<span name="x">x: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>, <span name="xs">xs: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span>*</span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="x">x: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>, <span name="xs">xs: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span>*</span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       
@@ -279,13 +279,13 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Translator#toSugar" data-isabs="false">
-      <a id="toSugar(CSP):Iterable[Expression]"></a>
+      <a id="toSugar(CSP):ArrayList[Expression]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">toSugar</span>
         
-        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>)</span><span class="result">: <span name="scala.collection.Iterable" class="extype">Iterable</span>[<span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span>]</span>
+        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>)</span><span class="result">: <span name="java.util.ArrayList" class="extype">ArrayList</span>[<span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span>]</span>
       </span>
       </h4>
       
@@ -296,7 +296,7 @@
       <span class="symbol"> 
         <span class="name">toSugar</span>
         
-        <span class="params">(<span name="c">c: <a name="jp.kobe_u.copris.Constraint" class="extype" href="../Constraint.html">Constraint</a></span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="c">c: <a name="jp.kobe_u.copris.Constraint" class="extype" href="../Constraint.html">Constraint</a></span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       
@@ -307,7 +307,7 @@
       <span class="symbol"> 
         <span class="name">toSugar</span>
         
-        <span class="params">(<span name="x">x: <a name="jp.kobe_u.copris.Term" class="extype" href="../Term.html">Term</a></span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="x">x: <a name="jp.kobe_u.copris.Term" class="extype" href="../Term.html">Term</a></span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       
@@ -318,7 +318,7 @@
       <span class="symbol"> 
         <span class="name">toSugarAny</span>
         
-        <span class="params">(<span name="a">a: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="a">a: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       
@@ -329,18 +329,18 @@
       <span class="symbol"> 
         <span class="name">toSugarBool</span>
         
-        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>, <span name="p">p: <a name="jp.kobe_u.copris.Bool" class="extype" href="../Bool.html">Bool</a></span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>, <span name="p">p: <a name="jp.kobe_u.copris.Bool" class="extype" href="../Bool.html">Bool</a></span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       
     </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Translator#toSugarDelta" data-isabs="false">
-      <a id="toSugarDelta(CSP):Iterable[Expression]"></a>
+      <a id="toSugarDelta(CSP):ArrayList[Expression]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">toSugarDelta</span>
         
-        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>)</span><span class="result">: <span name="scala.collection.Iterable" class="extype">Iterable</span>[<span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span>]</span>
+        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>)</span><span class="result">: <span name="java.util.ArrayList" class="extype">ArrayList</span>[<span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span>]</span>
       </span>
       </h4>
       
@@ -351,7 +351,7 @@
       <span class="symbol"> 
         <span class="name">toSugarInt</span>
         
-        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>, <span name="x">x: <a name="jp.kobe_u.copris.Var" class="extype" href="../Var.html">Var</a></span>)</span><span class="result">: <span name="jp.ac.kobe_u.cs.sugar.expression.Expression" class="extype">Expression</span></span>
+        <span class="params">(<span name="csp">csp: <a name="jp.kobe_u.copris.CSP" class="extype" href="../CSP.html">CSP</a></span>, <span name="x">x: <a name="jp.kobe_u.copris.Var" class="extype" href="../Var.html">Var</a></span>)</span><span class="result">: <span name="jp.kobe_u.sugar.expression.Expression" class="extype">Expression</span></span>
       </span>
       </h4>
       

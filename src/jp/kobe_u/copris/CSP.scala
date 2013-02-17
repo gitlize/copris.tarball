@@ -2,6 +2,7 @@ package jp.kobe_u.copris
 
 import scala.collection._
 import scala.collection.immutable.IndexedSeq
+import scala.collection.immutable.SortedSet
 
 /**
  * Abstract class of expressions.
@@ -106,23 +107,21 @@ object ONE extends Num(1)
  * @param is the indices of the variable (optional)
  */
 case class Var(name: String, is: String*) extends Term with Ordering[Var] {
+  private val str = name + " " + is.mkString(" ")
+  /** Returns true when the variable auxiliary */
+  var aux = false
   /** Returns a new variable with extra indices given by `is1` */
-  def apply(is1: Any*) =
-    Var(name, is ++ is1.map(_.toString): _*)
+  def apply(is1: Any*) = {
+    val v = Var(name, is ++ is1.map(_.toString): _*)
+    v.aux = aux
+    v
+  }
   /** Compares variables */
   def compare(x1: Var, x2: Var) = {
-    if (x1.name != x2.name)
-      x1.name.compare(x2.name)
-    else if (x1.is.size != x2.is.size)
+    if (x1.is.size != x2.is.size)
       x1.is.size.compare(x2.is.size)
-    else if (x1.is == x2.is)
-      0
     else
-      (0 until x1.is.size) find {
-	i => x1.is(i).compare(x2.is(i)) != 0
-      } map {
-	i => x1.is(i).compare(x2.is(i))
-      } getOrElse(0)
+      x1.str.compare(x2.str)
   }
   def value(solution: Solution): Int = solution(this)
   override def toString =
@@ -131,7 +130,12 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
 object Var {
   private var count = 0
   /** Returns a new anonymous variable */
-  def apply() = { count += 1; new Var("_I_" + count) }
+  def apply() = {
+    count += 1
+    val v = new Var("_I" + count)
+    v.aux = true
+    v
+  }
 }
 /**
  * Case class for absolute value of term.
@@ -296,20 +300,21 @@ object TRUE extends Constraint {
  * @param is the indices of the variable (optional)
  */
 case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool] {
+  private val str = name + " " + is.mkString(" ")
+  /** Returns true when the variable auxiliary */
+  var aux = false
   /** Returns a new variable with extra indices given by `is1` */
-  def apply(is1: Any*) =
-    Bool(name, is ++ is1.map(_.toString): _*)
+  def apply(is1: Any*) = {
+    val p = Bool(name, is ++ is1.map(_.toString): _*)
+    p.aux = aux
+    p
+  }
   /** Compares variables */
   def compare(x1: Bool, x2: Bool) = {
-    if (x1.name != x2.name)
-      x1.name.compare(x2.name)
-    else if (x1.is.size != x2.is.size)
+    if (x1.is.size != x2.is.size)
       x1.is.size.compare(x2.is.size)
-    else if (x1.is == x2.is)
-      0
     else
-      (0 until x1.is.size).map(i => x1.is(i).compare(x2.is(i))).
-        find(_ != 0).getOrElse(0)
+      x1.str.compare(x2.str)
   }
   def value(solution: Solution): Boolean = solution(this)
   override def toString =
@@ -318,7 +323,12 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
 object Bool {
   private var count = 0
   /** Returns a new anonymous variable */
-  def apply() = { count += 1; new Bool("_B_" + count) }
+  def apply() = {
+    count += 1
+    val p = new Bool("_B" + count)
+    p.aux = true
+    p
+  }
 }
 /**
  * Case class for logical negation of constaint.
@@ -725,9 +735,9 @@ case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
                var dom: Map[Var,Domain] = Map(),
                var constraints: IndexedSeq[Constraint] = IndexedSeq())
   extends CSPTrait {
-  private var variablesSet: Set[Var] = Set()
+  private var variablesSet: Set[Var] = Set.empty
   private var variablesSize = 0
-  private var boolsSet: Set[Bool] = Set()
+  private var boolsSet: Set[Bool] = Set.empty
   private var boolsSize = 0
   private var constraintsSize = 0
   /** Objective variable.  `null` if not defined */
@@ -768,7 +778,7 @@ case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
    * Adds a Boolean variable
    */
   def bool(p: Bool): Bool = {
-    if (bools.contains(p))
+    if (boolsSet.contains(p))
       throw new IllegalArgumentException("duplicate bool " + p)
     boolsSet += p; bools = bools :+ p; p
   }

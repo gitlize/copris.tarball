@@ -12,6 +12,11 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.0.0 [2013-02-15 Fri]
+  - Using Sugar version 2.0.0 and Sat4j version 2.3.3
+  - Jar files of Sugar and Sat4j are included to Copris package
+* Version 1.0.3 [2012-06-08 Fri]
+  - Names of temporary variables are changed
 * Version 1.0.2 [2012-06-08 Fri]
   - Performance improvement for adding variables and constraints
 * Version 1.0.1 [2011-09-11 Sun]

@@ -1,9 +1,10 @@
 package jp.kobe_u.copris.sugar
 
 import jp.kobe_u.copris._
+import jp.kobe_u.{sugar => javaSugar}
+import jp.kobe_u.sugar.expression.{Expression => SugarExpr}
+
 import scala.collection._
-import jp.ac.kobe_u.cs.{sugar => javaSugar}
-import jp.ac.kobe_u.cs.sugar.expression.{Expression => SugarExpr}
 
 /**
  * Class for analyzing SAT solver log output
@@ -105,6 +106,7 @@ class Sat4j(command: String, opts: Seq[String]) extends SatSolver(command, opts)
   import org.sat4j.reader.DimacsReader
   import org.sat4j.specs.IProblem
   import org.sat4j.specs.ISolver
+  import org.sat4j.specs.ContradictionException
   import org.sat4j.specs.TimeoutException
   import java.io.BufferedWriter
   import java.io.OutputStreamWriter
@@ -112,19 +114,19 @@ class Sat4j(command: String, opts: Seq[String]) extends SatSolver(command, opts)
   override def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
     val sat4jSolver: ISolver = SolverFactory.newDefault()
     val reader: Reader = new DimacsReader(sat4jSolver)
-    solver.checkTimeout
-    val problem: IProblem = reader.parseInstance(satFileName)
     val writer = new BufferedWriter(new OutputStreamWriter(
       new FileOutputStream(outFileName), "UTF-8"))
-    solver.checkTimeout
-    if (solver.timer != null && solver.timeout > 0) {
-      val rest: Long = solver.timer.restTime
-      if (rest > 0) {
-        // println("sat4j timeout " + rest)
-        sat4jSolver.setTimeoutMs(rest)
-      }
-    }
     try {
+      solver.checkTimeout
+      val problem: IProblem = reader.parseInstance(satFileName)
+      solver.checkTimeout
+      if (solver.timer != null && solver.timeout > 0) {
+	val rest: Long = solver.timer.restTime
+	if (rest > 0) {
+          // println("sat4j timeout " + rest)
+          sat4jSolver.setTimeoutMs(rest)
+	}
+      }
       if (problem.isSatisfiable()) {
         writer.write("SAT\n")
         val model = problem.model()
@@ -138,8 +140,10 @@ class Sat4j(command: String, opts: Seq[String]) extends SatSolver(command, opts)
       } else {
         writer.write("UNSAT\n")
       }
-      writer.close()
     } catch {
+      case e: ContradictionException => {
+	writer.write("UNSAT\n")
+      }
       case e: InterruptedException => {
         // println("kill sat4j interrupted")
         solver.raiseTimeout
@@ -202,6 +206,8 @@ object Sat4j extends Sat4j("sat4j", Seq.empty)
  * Object to translate CSP to a list of Sugar expressions
  */
 object Translator {
+  private var sugarVarNameMap: Map[Var,String] = Map.empty
+  private var sugarBoolNameMap: Map[Bool,String] = Map.empty
   def createSugarExpr(x: SugarExpr, xs: SugarExpr*) =
     SugarExpr.create(x, xs.toArray)
   def toSugarName(name: String, is: String*): String =
@@ -216,9 +222,17 @@ object Translator {
         "$%04x".format(c.toInt)
     }
   def toSugarName(x: Var): String =
-    toSugarName(x.name, x.is: _*)
+    sugarVarNameMap.getOrElse(x, {
+      val s = toSugarName(x.name, x.is: _*)
+      sugarVarNameMap += x -> s
+      s
+    })
   def toSugarName(p: Bool): String =
-    toSugarName(p.name, p.is: _*)
+    sugarBoolNameMap.getOrElse(p, {
+      val s = toSugarName(p.name, p.is: _*)
+      sugarBoolNameMap += p -> s
+      s
+    })
   def toSugar(x: Term): SugarExpr = x match {
     case NIL =>
       SugarExpr.NIL
@@ -330,19 +344,28 @@ object Translator {
   }
   def toSugarBool(csp: CSP, p: Bool) =
     SugarExpr.create(SugarExpr.BOOL_DEFINITION, toSugar(p))
-  def toSugar(csp: CSP): Iterable[SugarExpr] = {
-    val buff = scala.collection.mutable.ListBuffer.empty[SugarExpr]
-    csp.variables.foreach(buff += toSugarInt(csp, _))
-    csp.bools.foreach(buff += toSugarBool(csp, _))
-    csp.constraints.foreach(buff += toSugar(_))
-    buff
+  def toSugar(csp: CSP): java.util.ArrayList[SugarExpr] = {
+    val expressions = new java.util.ArrayList[SugarExpr]()
+    // println("Translating integer variables")
+    csp.variables.foreach(v => expressions.add(toSugarInt(csp, v)))
+    // println("Translating boolean variables")
+    csp.bools.foreach(p => expressions.add(toSugarBool(csp, p)))
+    // println("Translating constraints")
+    // csp.constraints.foreach(c => expressions.add(toSugar(c)))
+    val n = csp.constraints.size
+    for (i <- 0 until n) {
+      // if (i % 10000 == 0)
+      // println("Translating " + i + "/" + n + " constraints")
+      expressions.add(toSugar(csp.constraints(i)))
+    }
+    expressions
   }
-  def toSugarDelta(csp: CSP): Iterable[SugarExpr] = {
-    val buff = scala.collection.mutable.ListBuffer.empty[SugarExpr]
-    csp.variablesDelta.foreach(buff += toSugarInt(csp, _))
-    csp.boolsDelta.foreach(buff += toSugarBool(csp, _))
-    csp.constraintsDelta.foreach(buff += toSugar(_))
-    buff
+  def toSugarDelta(csp: CSP): java.util.ArrayList[SugarExpr] = {
+    val expressions = new java.util.ArrayList[SugarExpr]()
+    csp.variablesDelta.foreach(v => expressions.add(toSugarInt(csp, v)))
+    csp.boolsDelta.foreach(p => expressions.add(toSugarBool(csp, p)))
+    csp.constraintsDelta.foreach(c => expressions.add(toSugar(c)))
+    expressions
   }
 }
 
@@ -370,33 +393,37 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
     encoder.outputMap(mapFileName)
   }
   def encode: Boolean = {
-    val expressions = new java.util.ArrayList[SugarExpr]()
-    Translator.toSugar(csp).foreach(expressions.add(_))
+    // println("Translating")
+    val expressions = Translator.toSugar(csp)
     solver.checkTimeout
+    // println("Converting")
     converter.convert(expressions)
     solver.checkTimeout
     expressions.clear
     SugarExpr.clear
+    // println("Propagating")
     sugarCSP.propagate
     solver.checkTimeout
     if (sugarCSP.isUnsatisfiable)
       false
     else {
+      // println("Simplifying")
       sugarCSP.simplify
       solver.checkTimeout
+      // println("Encoding")
       encoder.encode(satFileName, false)
       solver.checkTimeout
       encoder.outputMap(mapFileName)
+      // println("Done")
       commit
       true
     }
   }
   def encodeDelta: Unit = {
     sugarCSP.cancel
-    val expressions = new java.util.ArrayList[SugarExpr]()
-    Translator.toSugarDelta(csp).foreach(expressions.add(_))
+    val expressions = Translator.toSugarDelta(csp)
     solver.checkTimeout
-    javaSugar.converter.Converter.INCREMENTAL_PROPAGATE = false
+    javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = false
     converter.convert(expressions)
     solver.checkTimeout
     expressions.clear
@@ -410,18 +437,24 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
     if (encoder.decode(outFileName)) {
       val intNameValues = mutable.Map.empty[String,Int]
       for (v <- JavaConversions.asScalaBuffer(sugarCSP.getIntegerVariables))
-        if (! v.isAux() && ! v.getName().startsWith("_"))
+        if (! v.isAux())
           intNameValues += v.getName -> v.getValue
       var intValues = Map.empty[Var,Int]
-      for (v <- csp.variables)
-        intValues += v -> intNameValues(Translator.toSugarName(v))
+      for (x <- csp.variables) {
+	val s = Translator.toSugarName(x)
+	if (intNameValues.contains(s))
+          intValues += x -> intNameValues(s)
+      }
       val boolNameValues = mutable.Map.empty[String,Boolean]
       for (v <- JavaConversions.asScalaBuffer(sugarCSP.getBooleanVariables))
-        if (! v.isAux() && ! v.getName().startsWith("_"))
+        if (! v.isAux())
           boolNameValues += v.getName -> v.getValue
       var boolValues = Map.empty[Bool,Boolean]
-      for (p <- csp.bools)
-        boolValues += p -> boolNameValues(Translator.toSugarName(p))
+      for (p <- csp.bools) {
+	val s = Translator.toSugarName(p)
+	if (boolNameValues.contains(s))
+          boolValues += p -> boolNameValues(s)
+      }
       Some(Solution(intValues, boolValues))
     } else {
       None
@@ -479,8 +512,10 @@ class Solver(csp: CSP,
     }
     measureTime("time", "decode") {
       val sat = encoder.decode(outFileName) match {
-        case None =>
+        case None => {
+	  solution = null
           false
+	}
         case Some(sol) => {
           solution = sol
           true
@@ -497,9 +532,9 @@ class Solver(csp: CSP,
   }
   def findNextBody: Boolean = {
     measureTime("time", "encode") {
-      val cs1 = for (x <- csp.variables)
+      val cs1 = for (x <- csp.variables if ! x.aux)
                 yield Eq(x, Num(solution(x)))
-      val cs2 = for (p <- csp.bools)
+      val cs2 = for (p <- csp.bools if ! p.aux)
                 yield if (solution(p)) p else Not(p)
       csp.add(Not(And(And(cs1), And(cs2))))
       addDelta
@@ -582,8 +617,9 @@ class Sugar(val csp: CSP, var solver: Solver) extends CoprisTrait {
     import java.io._
     val writer = new BufferedWriter(new OutputStreamWriter(
       new FileOutputStream(fileName)))
-    for (expr <- Translator.toSugar(csp))
-      writer.write(expr.toString + "\n")
+    val expressions = Translator.toSugar(csp)
+    for (i <- 0 until expressions.size)
+      writer.write(expressions.get(i).toString + "\n")
     writer.close
   }
 }
