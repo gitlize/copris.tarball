@@ -698,6 +698,18 @@ trait CSPTrait {
   def int(xs: Iterable[Term], value: Int): Iterable[Term] =
     int(xs, Domain(value))
 
+  /** Adds a 0-1 integer variable */
+  def boolInt(x: Var): Var
+  /** Adds 0-1 integer variables */
+  def boolInt(xs: Iterable[Term]): Iterable[Term] = {
+    xs.foreach(_ match {
+      case x: Var => boolInt(x)
+      case _ =>
+        throw new IllegalArgumentException("argument of boolInt declaration should be a Var")
+    })
+    xs
+  }
+
   /** Adds a Boolean variable */
   def bool(p: Bool): Bool
   /** Adds Boolean variables */
@@ -774,6 +786,11 @@ case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
       throw new IllegalArgumentException("duplicate int " + x)
     variablesSet += x; variables = variables :+ x; dom += x -> d; x
   }
+  /**
+   * Adds a 0-1 integer variable
+   */
+  def boolInt(x: Var): Var =
+    int(x, 0, 1)
   /**
    * Adds a Boolean variable
    */

@@ -12,6 +12,15 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.1.0 [2013-09-01 Sun]
+  - Copris version 2.1.0 uses Sugar version 2.1.0 and Sat4j version 2.3.5.
+  - 'solutions' method is added to get an iterator of all solutions.
+  - 'boolInt' method is added to declare 0-1 integer variables.
+  - Implicit conversion from Symbol to Constraint is added in Copris DSL.
+    : boolInt('x)
+    : boolInt('y)
+    : add('x || 'y)
+    : add('x + 'y === 1)
 * Version 2.0.0 [2013-02-15 Fri]
   - Using Sugar version 2.0.0 and Sat4j version 2.3.3
   - Jar files of Sugar and Sat4j are included to Copris package
@@ -32,7 +41,3 @@
     - Names like ~_1~, ~_2~, etc. are used for anonymous variables.
 * Version 1.0.0 [2011-08-28 Sun]
   - Release of the first version.
-* COMMENT 
-# Local Variables:
-# system-time-locale: "C"
-# End:

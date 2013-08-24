@@ -7,6 +7,8 @@ package jp.kobe_u.copris
 case class Vec(xs: Seq[Term]) extends Iterable[Term] {
   /** Returns the iterator of elements */
   def iterator = xs.iterator
+  /** Returns the sequence of elements */
+  def components = xs
   /** Returns the i-th element */
   def apply(i: Int) = xs(i)
   /** Converts to the sequence of terms */
@@ -146,6 +148,8 @@ object Vec {
 case class Matrix(vs: Seq[Vec]) extends Iterable[Vec] {
   /** Returns the iterator of row vectors */
   def iterator = vs.iterator
+  /** Returns the sequence of elements */
+  def components = vs.flatMap(_.components)
   /** Returns the i-th row vector */
   def apply(i: Int) = vs(i)
   /** Returns the (i,j) element */

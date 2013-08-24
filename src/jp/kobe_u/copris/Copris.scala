@@ -8,6 +8,8 @@ package jp.kobe_u.copris
 trait CoprisTrait extends CSPTrait with SolverTrait {
   /** Implicit conversion from scala Symbol to [[jp.kobe_u.copris.Var]]. */
   implicit def symbol2var(s: Symbol) = Var(s.name)
+  /** Implicit conversion from scala Symbol to [[jp.kobe_u.copris.Constraint]]. */
+  implicit def symbol2constraint(s: Symbol) = Ne(Var(s.name), ZERO)
   /** CSP to be used */
   def csp: CSP
   /** Solver to be used */
@@ -21,6 +23,8 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def init: Unit = { csp.init; solver.init }
   /* */
   def int(x: Var, d: Domain) = csp.int(x, d)
+  /* */
+  def boolInt(x: Var) = csp.boolInt(x)
   /* */
   def bool(p: Bool) = csp.bool(p)
   /* */
@@ -39,8 +43,10 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def findOpt = solver.findOpt
   /** Shows the CSP */
   def show = print(csp.output)
-  /** Shows the current solution */
+  /** Returns the current solution */
   def solution = solver.solution
+  /** Returns the iterator of all solutions */
+  def solutions = solver.solutions
   /** Starts the timer (experimental) */
   def startTimer(timeout: Long) = solver.startTimer(timeout)
   /** Stops the timer (experimental) */

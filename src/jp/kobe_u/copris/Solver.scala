@@ -109,6 +109,8 @@ trait SolverTrait {
   def findOpt: Boolean
   /** Returns the current solution */
   def solution: Solution
+  /** Returns the iterator of all solutions */
+  def solutions: Iterator[Solution]
 
   /** Returns the integer variable value of the current solution */
   @deprecated("use apply method of [[jp.kobe_u.copris.Solution]] instead", "1.0.1")
@@ -265,6 +267,32 @@ abstract class AbstractSolver(csp: CSP) extends SolverTrait {
       addSolverStat("result", "find", if (result) 1 else 0)
       result
     }
+  }
+  /* */
+  def solutions: Iterator[Solution] = new Iterator[Solution] {
+    var first = true
+    var lookahead = false
+    var hasNextFlag = false
+    def hasNext: Boolean =
+      if (first) {
+	hasNextFlag = AbstractSolver.this.find
+	first = false
+	lookahead = true
+	hasNextFlag
+      } else if (lookahead) {
+	hasNextFlag
+      } else {
+	hasNextFlag = AbstractSolver.this.findNext
+	lookahead = true
+	hasNextFlag
+      }
+    def next: Solution =
+      if (! hasNext)
+	throw new java.util.NoSuchElementException("next on empty iterator")
+      else {
+	lookahead = false
+	solution
+      }
   }
 }
 

@@ -1,12 +1,12 @@
-VER = v2-0-0
-VERSION = 2.0.0
+VER = v2-1-0
+VERSION = 2.1.0
 
 APP0 = copris
 APP = $(APP0)-$(VER)
 JAR = $(APP).jar
 JARALL = $(APP0)-all-$(VER).jar
 ZIP = $(APP).zip
-SUGAR = sugar-v2-0-0.jar
+SUGAR = sugar-v2-1-0.jar
 SAT4J = org.sat4j.core.jar
 JARS = lib/$(SUGAR):lib/$(SAT4J)
 SRCS = src/jp/kobe_u/*.scala src/jp/kobe_u/copris/*.scala src/jp/kobe_u/copris/sugar/*.scala
@@ -44,9 +44,11 @@ zip:
 	rm -f ../$(ZIP)
 	rm -rf $(APP)
 	mkdir $(APP)
-	cp -pr Makefile src lib docs examples $(APP)
+	cp -pr Makefile src docs examples $(APP)
+	mkdir $(APP)/lib
 	rm -f $(APP)/lib/copris*.jar $(APP)/examples/classes/*
 	cp -pr ../$(JAR) ../$(JARALL) $(APP)/lib
+	cp -pr lib/$(SUGAR) lib/$(SAT4J) $(APP)/lib
 	find $(APP) \( -name .svn -o -name CVS -o -name .cvsignore -o -name '*~' \) -exec rm -r '{}' '+'
 	zip -q -r ../$(ZIP) $(APP)
 	rm -rf $(APP)

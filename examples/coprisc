@@ -1,5 +1,5 @@
 #!/bin/sh
 DIR=`dirname $0`/..
-JARS=$DIR/lib/copris-v2-0-0.jar:$DIR/lib/sugar-v2-0-0.jar:$DIR/lib/org.sat4j.core.jar
+JARS=$DIR/lib/copris-all-v2-1-0.jar
 exec scalac -optimize -cp .:classes:$JARS -d classes $*
 # exec fsc -optimize -cp .:classes:$JARS -d classes $*

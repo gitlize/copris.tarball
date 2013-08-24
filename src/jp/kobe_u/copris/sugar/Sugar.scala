@@ -538,7 +538,7 @@ class Solver(csp: CSP,
                 yield if (solution(p)) p else Not(p)
       csp.add(Not(And(And(cs1), And(cs2))))
       addDelta
-      commit
+      // commit
     }
     satSolve
   }
