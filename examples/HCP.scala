@@ -123,27 +123,22 @@ object HCP extends SugarApp {
     var hamiltonian: Option[List[Int]] = None
     var iteration = 0
     var count = 0
-    if (find) {
-      do {
-	val cycles = getCycles
-	iteration += 1
-	count += cycles.size
-	println("Iteration " + iteration +
-		": " + cycles.size + " cycles found (" + count + " cycles in total)")
-	if (cycles.size == 1) {
-	  hamiltonian = Some(cycles.head)
-	} else {
-	  for (cycle <- cycles) {
-	    val arcs1 = for ((n1,n2) <- arcs(cycle)) yield 'arc(n1,n2) === 0
-	    add(Or(arcs1))
-	    val arcs2 = for ((n1,n2) <- arcs(cycle)) yield 'arc(n2,n1) === 0
-	    add(Or(arcs2))
-	  }
-	  solver.addDelta
-	  csp.commit
-	  solver.commit
+    while (hamiltonian == None && find) {
+      val cycles = getCycles
+      iteration += 1
+      count += cycles.size
+      println("Iteration " + iteration +
+	      ": " + cycles.size + " cycles found (" + count + " cycles in total)")
+      if (cycles.size == 1) {
+	hamiltonian = Some(cycles.head)
+      } else {
+	for (cycle <- cycles) {
+	  val arcs1 = for ((n1,n2) <- arcs(cycle)) yield 'arc(n1,n2) === 0
+	  add(Or(arcs1))
+	  val arcs2 = for ((n1,n2) <- arcs(cycle)) yield 'arc(n2,n1) === 0
+	  add(Or(arcs2))
 	}
-      } while (hamiltonian == None && solver.satSolve)
+      }
     }
     hamiltonian
   }

@@ -54,9 +54,15 @@ sealed abstract class Term extends Expr {
   /** Returns [[jp.kobe_u.copris.Eq]] of Term and Int */
   def === (a: Int) = Eq(this, Num(a))
   /** Returns [[jp.kobe_u.copris.Ne]] of Terms */
+  @deprecated("use =/= instead", "2.2.0")
   def !== (x: Term) = Ne(this, x)
   /** Returns [[jp.kobe_u.copris.Ne]] of Term and Int */
+  @deprecated("use =/= instead", "2.2.0")
   def !== (a: Int) = Ne(this, Num(a))
+  /** Returns [[jp.kobe_u.copris.Ne]] of Terms */
+  def =/= (x: Term) = Ne(this, x)
+  /** Returns [[jp.kobe_u.copris.Ne]] of Term and Int */
+  def =/= (a: Int) = Ne(this, Num(a))
   /** Returns [[jp.kobe_u.copris.Le]] of Terms */
   def <= (x: Term) = Le(this, x)
   /** Returns [[jp.kobe_u.copris.Le]] of Term and Int */
@@ -73,6 +79,8 @@ sealed abstract class Term extends Expr {
   def > (x: Term) = Gt(this, x)
   /** Returns [[jp.kobe_u.copris.Gt]] of Term and Int */
   def > (a: Int) = Gt(this, Num(a))
+  /** Returns this >= 1 */
+  def ? = Ge(this, ONE)
 
   /** Returns the value of the term */
   def value(solution: Solution): Int
@@ -123,7 +131,7 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
     else
       x1.str.compare(x2.str)
   }
-  def value(solution: Solution): Int = solution(this)
+  def value(solution: Solution): Int = solution.intValues(this)
   override def toString =
     if (is.size == 0) name else is.mkString(name + "(", ",", ")")
 }
@@ -164,6 +172,12 @@ object Add {
   def apply(xs: Iterable[Term]) = new Add(xs.toSeq: _*)
 }
 /**
+ * Factory for addition of terms.
+ */
+object Sum {
+  def apply(xs: Iterable[Term]) = new Add(xs.toSeq: _*)
+}
+/**
  * Case class for subtraction of terms.
  * Companion object provies other factory methods.
  */
@@ -199,11 +213,14 @@ object Mul {
  * Case class for division of terms.
  */
 case class Div(x0: Term, x1: Term) extends Term {
-  // TODO wrong for negative values
   def value(solution: Solution): Int = {
     val a0 = x0.value(solution)
     val a1 = x1.value(solution)
-    a0 / a1
+    if (a1 > 0) {
+      if (a0 >= 0) a0/a1 else (a0-a1+1)/a1
+    } else {
+      if (a0 >= 0) (a0-a1-1)/a1 else a0/a1
+    }
   }
 }
 /**
@@ -316,7 +333,7 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
     else
       x1.str.compare(x2.str)
   }
-  def value(solution: Solution): Boolean = solution(this)
+  def value(solution: Solution): Boolean = solution.boolValues(this)
   override def toString =
     if (is.size == 0) name else is.mkString(name + "(", ",", ")")
 }
@@ -440,7 +457,7 @@ object Alldifferent {
  * Case class for Weightedsum global constraints.
  */
 case class Weightedsum(axs: Seq[(Int,Term)], cmp: String, b: Term) extends GlobalConstraint {
-  assert(cmp.matches("eq|ne|lt|le|gt|ge"))
+  require(cmp.matches("eq|ne|lt|le|gt|ge"))
   def value(solution: Solution): Boolean = {
     val sum = axs.map(ax => ax._1 * ax._2.value(solution)).sum
     cmp match {
@@ -601,7 +618,7 @@ case class GlobalCardinalityWithCosts(xs: Seq[Term], card: Seq[(Int,Term)],
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Ccount.html]]
  */
 case class Count(value: Term, xs: Seq[Term], cmp: String, count: Term) extends GlobalConstraint {
-  assert(cmp.matches("eq|ne|lt|le|gt|ge"))
+  require(cmp.matches("eq|ne|lt|le|gt|ge"))
   def value(solution: Solution): Boolean = {
     val a = value.value(solution)
     val c = xs.map(_.value(solution)).count(_ == a)
@@ -634,7 +651,7 @@ abstract class Domain {
  * Case class of interval domain
  */
 case class IntervalDomain(lo: Int, hi: Int) extends Domain {
-  assert(lo <= hi)
+  require(lo <= hi)
   def lb = lo
   def ub = hi
   def contains(a: Int): Boolean = lo <= a && a <= hi

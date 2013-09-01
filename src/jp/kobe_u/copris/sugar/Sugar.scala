@@ -382,12 +382,13 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
     encoder = new javaSugar.encoder.Encoder(sugarCSP)
   }
   def commit: Unit = {
-    csp.commit
+    // csp.commit
     sugarCSP.commit
-    encoder.commit
+    if (! sugarCSP.isUnsatisfiable)
+      encoder.commit
   }
   def cancel: Unit = {
-    csp.cancel
+    // csp.cancel
     sugarCSP.cancel
     encoder.cancel
     encoder.outputMap(mapFileName)
@@ -415,7 +416,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
       solver.checkTimeout
       encoder.outputMap(mapFileName)
       // println("Done")
-      commit
+      // commit
       true
     }
   }
@@ -472,6 +473,8 @@ class Solver(csp: CSP,
   var outFileName: String = null
   var logFileName: String = null
   var encoder: Encoder = null
+  var initial = true
+  var commitFlag = true
   var solution: Solution = null
 
   private def createTempFile(ext: String): String = {
@@ -493,16 +496,21 @@ class Solver(csp: CSP,
     encoder = new Encoder(csp, this, satFileName, mapFileName)
     encoder.init
     solution = null
+    initial = true
     solverStats = Seq(Map.empty)
   }
-  def commit = encoder.commit
-  def cancel = encoder.cancel
-  def addDelta = encoder.encodeDelta
   def encode: Boolean = {
     measureTime("time", "encode") {
       encoder.encode
     }
   }
+  def encodeDelta: Unit = {
+    measureTime("time", "encodeDelta") {
+      encoder.encodeDelta
+    }
+  }
+  @deprecated("use encodeDelta method of [[jp.kobe_u.copris.sugar.Solver]] instead", "2.2.0")
+  def addDelta = encodeDelta
   def satSolve: Boolean = {
     addSolverStat("sat", "variables", encoder.encoder.getSatVariablesCount)
     addSolverStat("sat", "clauses", encoder.encoder.getSatClausesCount)
@@ -526,19 +534,45 @@ class Solver(csp: CSP,
       sat
     }
   }
-  def findBody: Boolean = {
-    encode &&
-    satSolve
+  def commit = {
+    csp.commit; encoder.commit
   }
+  def cancel = {
+    csp.cancel; encoder.cancel
+  }
+  def find(commitFlag: Boolean): Boolean = {
+    this.commitFlag = commitFlag
+    super.find
+  }
+  override def find: Boolean = find(true)
+  def findBody: Boolean = {
+    val result = 
+      if (initial) {
+	initial = false
+	encode && satSolve
+      } else {
+	encodeDelta
+	satSolve
+      }
+    if (commitFlag)
+      commit
+    result
+  }
+  def findNext(commitFlag: Boolean): Boolean = {
+    this.commitFlag = commitFlag
+    super.findNext
+  }
+  override def findNext: Boolean = findNext(false)
   def findNextBody: Boolean = {
     measureTime("time", "encode") {
       val cs1 = for (x <- csp.variables if ! x.aux)
                 yield Eq(x, Num(solution(x)))
       val cs2 = for (p <- csp.bools if ! p.aux)
-                yield if (solution(p)) p else Not(p)
+                yield if (solution.boolValues(p)) p else Not(p)
       csp.add(Not(And(And(cs1), And(cs2))))
-      addDelta
-      // commit
+      encodeDelta
+      if (commitFlag)
+	commit
     }
     satSolve
   }
@@ -548,6 +582,7 @@ class Solver(csp: CSP,
       var lb = csp.dom(v).lb
       var ub = csp.dom(v).ub
       encode
+      commit
       val sat = satSolve
       addSolverStat("result", "find", if (sat) 1 else 0)
       if (sat) {
@@ -589,7 +624,7 @@ class Solver(csp: CSP,
     measureTime("time", "encode") {
       cancel
       csp.add(v >= lb && v <= ub)
-      addDelta
+      encodeDelta
     }
     satSolve
   }
@@ -613,6 +648,8 @@ class Sugar(val csp: CSP, var solver: Solver) extends CoprisTrait {
   }
   def use(newSatSolver: SatSolver): Unit =
     solver.satSolver = newSatSolver
+  def commit = solver.commit
+  def cancel = solver.cancel
   def dump(fileName: String) = {
     import java.io._
     val writer = new BufferedWriter(new OutputStreamWriter(
@@ -637,6 +674,8 @@ object dsl extends CoprisTrait {
     sugarVar.value.use(newSolver)
   def use(satSolver: SatSolver) =
     sugarVar.value.use(satSolver)
+  def commit = solver.commit
+  def cancel = solver.cancel
   def dump(fileName: String) =
     sugarVar.value.dump(fileName)
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>jp.kobe_u.copris.Vec</title>
+          <title>jp.kobe_u.copris.Sum</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
@@ -14,24 +14,24 @@
         </head>
         <body class="value">
       <div id="definition">
-        <a title="Go to companion" href="Vec.html"><img src="../../../lib/object_to_class_big.png" /></a>
+        <img src="../../../lib/object_big.png" />
         <p id="owner"><a name="jp" class="extype" href="../../package.html">jp</a>.<a name="jp.kobe_u" class="extype" href="../package.html">kobe_u</a>.<a name="jp.kobe_u.copris" class="extype" href="package.html">copris</a></p>
-        <h1><a title="Go to companion" href="Vec.html">Vec</a></h1>
+        <h1>Sum</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">object</span>
       <span class="symbol"> 
-        <span class="name">Vec</span>
+        <span class="name">Sum</span>
         
-        <span class="result"> extends <span name="scala.Serializable" class="extype">Serializable</span></span>
+        <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       
-          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Factory for vectors
+          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Factory for addition of terms.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span name="scala.Serializable" class="extype">Serializable</span>, <span name="java.io.Serializable" class="extype">Serializable</span>, AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+          <div class="superTypes hiddenContent">AnyRef, <span name="scala.Any" class="extype">Any</span></div>
         </div></div>
         
 
@@ -47,7 +47,7 @@
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall out"><span>Hide All</span></li>
                 <li class="showall in"><span>Show all</span></li></ol>
-                <ol id="linearization"><li name="jp.kobe_u.copris.Vec" class="in"><span>Vec</span></li><li name="scala.Serializable" class="in"><span>Serializable</span></li><li name="java.io.Serializable" class="in"><span>Serializable</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+                <ol id="linearization"><li name="jp.kobe_u.copris.Sum" class="in"><span>Sum</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
               </div>
           <div id="visbl">
               <span class="filtertype">Visibility</span>
@@ -118,61 +118,17 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#apply" data-isabs="false">
-      <a id="apply(Var,Int):Vec"></a>
+    </li><li visbl="pub" name="jp.kobe_u.copris.Sum#apply" data-isabs="false">
+      <a id="apply(Iterable[Term]):Add"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">apply</span>
         
-        <span class="params">(<span name="x">x: <a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a></span>, <span name="n">n: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
+        <span class="params">(<span name="xs">xs: <span name="scala.collection.Iterable" class="extype">Iterable</span>[<a name="jp.kobe_u.copris.Term" class="extype" href="Term.html">Term</a>]</span>)</span><span class="result">: <a name="jp.kobe_u.copris.Add" class="extype" href="Add.html">Add</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Constructs a vector of specified size</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#apply" data-isabs="false">
-      <a id="apply(Var,Iterable[Any]):Vec"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">apply</span>
-        
-        <span class="params">(<span name="x">x: <a name="jp.kobe_u.copris.Var" class="extype" href="Var.html">Var</a></span>, <span name="is">is: Iterable[<span name="scala.Any" class="extype">Any</span>]</span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Constructs a vector of indexed variables</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#apply" data-isabs="false">
-      <a id="apply(Int,Int*):Vec"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">apply</span>
-        
-        <span class="params">(<span name="i">i: <span name="scala.Int" class="extype">Int</span></span>, <span name="is">is: <span name="scala.Int" class="extype">Int</span>*</span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Constructs a vector from integers</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#apply" data-isabs="false">
-      <a id="apply(Term,Term*):Vec"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">apply</span>
-        
-        <span class="params">(<span name="x">x: <a name="jp.kobe_u.copris.Term" class="extype" href="Term.html">Term</a></span>, <span name="xs">xs: <a name="jp.kobe_u.copris.Term" class="extype" href="Term.html">Term</a>*</span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Constructs a vector from terms</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec#apply" data-isabs="false">
-      <a id="apply(Iterable[Int]):Vec"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">apply</span>
-        
-        <span class="params">(<span name="is">is: Iterable[<span name="scala.Int" class="extype">Int</span>]</span>)</span><span class="result">: <a name="jp.kobe_u.copris.Vec" class="extype" href="Vec.html">Vec</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Constructs a vector from sequence of integers</p>
+      
     </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
       <a id="asInstanceOf[T0]:T0"></a>
       <h4 class="signature">
@@ -300,17 +256,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li visbl="prt" name="jp.kobe_u.copris.Vec#readResolve" data-isabs="false">
-      <a id="readResolve():AnyRef"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">readResolve</span>
-        
-        <span class="params">()</span><span class="result">: AnyRef</span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
       <a id="synchronized[T0](⇒ T0):T0"></a>
       <h4 class="signature">
@@ -380,11 +325,7 @@
 
         
 
-        <div name="scala.Serializable" class="parent">
-              <h3>Inherited from <span name="scala.Serializable" class="extype">Serializable</span></h3>
-            </div><div name="java.io.Serializable" class="parent">
-              <h3>Inherited from <span name="java.io.Serializable" class="extype">Serializable</span></h3>
-            </div><div name="scala.AnyRef" class="parent">
+        <div name="scala.AnyRef" class="parent">
               <h3>Inherited from AnyRef</h3>
             </div><div name="scala.Any" class="parent">
               <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>

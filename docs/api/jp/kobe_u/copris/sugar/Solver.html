@@ -132,17 +132,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#addDelta" data-isabs="false">
-      <a id="addDelta:Unit"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol"> 
-        <span class="name">addDelta</span>
-        
-        <span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
-      </span>
-      </h4>
-      
     </li><li visbl="pub" name="jp.kobe_u.copris.AbstractSolver#addSolverStat" data-isabs="false">
       <a id="addSolverStat(String,String,Number):Unit"></a>
       <h4 class="signature">
@@ -223,6 +212,17 @@
       </span>
       </h4>
       
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#commitFlag" data-isabs="false">
+      <a id="commitFlag:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol"> 
+        <span class="name">commitFlag</span>
+        
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#encode" data-isabs="false">
       <a id="encode:Boolean"></a>
       <h4 class="signature">
@@ -231,6 +231,17 @@
         <span class="name">encode</span>
         
         <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#encodeDelta" data-isabs="false">
+      <a id="encodeDelta:Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">encodeDelta</span>
+        
+        <span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
       </span>
       </h4>
       
@@ -281,7 +292,7 @@
                 <span class="name">@throws</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li visbl="pub" name="jp.kobe_u.copris.AbstractSolver#find" data-isabs="false">
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#find" data-isabs="false">
       <a id="find:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
@@ -291,7 +302,18 @@
         <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Finds the first solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the first solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.AbstractSolver" class="extype" href="../AbstractSolver.html">AbstractSolver</a> → <a name="jp.kobe_u.copris.SolverTrait" class="extype" href="../SolverTrait.html">SolverTrait</a></dd></dl></div>
+      <p class="shortcomment cmt">Finds the first solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the first solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.sugar.Solver" class="extype" href="">Solver</a> → <a name="jp.kobe_u.copris.AbstractSolver" class="extype" href="../AbstractSolver.html">AbstractSolver</a> → <a name="jp.kobe_u.copris.SolverTrait" class="extype" href="../SolverTrait.html">SolverTrait</a></dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#find" data-isabs="false">
+      <a id="find(Boolean):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">find</span>
+        
+        <span class="params">(<span name="commitFlag">commitFlag: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#findBody" data-isabs="false">
       <a id="findBody:Boolean"></a>
       <h4 class="signature">
@@ -303,7 +325,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Body of the <code>find</code> method</p><div class="fullcomment"><div class="comment cmt"><p>Body of the <code>find</code> method</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.sugar.Solver" class="extype" href="">Solver</a> → <a name="jp.kobe_u.copris.AbstractSolver" class="extype" href="../AbstractSolver.html">AbstractSolver</a></dd></dl></div>
-    </li><li visbl="pub" name="jp.kobe_u.copris.AbstractSolver#findNext" data-isabs="false">
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#findNext" data-isabs="false">
       <a id="findNext:Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
@@ -313,7 +335,18 @@
         <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Finds the next solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the next solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.AbstractSolver" class="extype" href="../AbstractSolver.html">AbstractSolver</a> → <a name="jp.kobe_u.copris.SolverTrait" class="extype" href="../SolverTrait.html">SolverTrait</a></dd></dl></div>
+      <p class="shortcomment cmt">Finds the next solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the next solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.sugar.Solver" class="extype" href="">Solver</a> → <a name="jp.kobe_u.copris.AbstractSolver" class="extype" href="../AbstractSolver.html">AbstractSolver</a> → <a name="jp.kobe_u.copris.SolverTrait" class="extype" href="../SolverTrait.html">SolverTrait</a></dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#findNext" data-isabs="false">
+      <a id="findNext(Boolean):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">findNext</span>
+        
+        <span class="params">(<span name="commitFlag">commitFlag: <span name="scala.Boolean" class="extype">Boolean</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#findNextBody" data-isabs="false">
       <a id="findNextBody:Boolean"></a>
       <h4 class="signature">
@@ -413,6 +446,17 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Initializes the solver</p><div class="fullcomment"><div class="comment cmt"><p>Initializes the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="jp.kobe_u.copris.sugar.Solver" class="extype" href="">Solver</a> → <a name="jp.kobe_u.copris.SolverTrait" class="extype" href="../SolverTrait.html">SolverTrait</a></dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#initial" data-isabs="false">
+      <a id="initial:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol"> 
+        <span class="name">initial</span>
+        
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <h4 class="signature">
@@ -724,7 +768,21 @@
 
         <div class="values members" id="values">
               <h3>Deprecated Value Members</h3>
-              <ol><li visbl="pub" name="jp.kobe_u.copris.SolverTrait#value" data-isabs="false">
+              <ol><li visbl="pub" name="jp.kobe_u.copris.sugar.Solver#addDelta" data-isabs="false">
+      <a id="addDelta:Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name deprecated">addDelta</span>
+        
+        <span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p>use encodeDelta method of <a name="jp.kobe_u.copris.sugar.Solver" class="extype" href="">Solver</a> instead</p></dd></dl></div>
+    </li><li visbl="pub" name="jp.kobe_u.copris.SolverTrait#value" data-isabs="false">
       <a id="value(Bool):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>

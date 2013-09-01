@@ -138,7 +138,9 @@ object Vec {
   /** Constructs a vector from integers */
   def apply(i: Int, is: Int*) = new Vec((i +: is).map(Num(_)))
   /** Constructs a vector of indexed variables */
-  def apply(x: Var, is: Seq[Any]) = new Vec(is.map(x(_)))
+  def apply(x: Var, is: Iterable[Any]) = new Vec(is.map(x(_)).toSeq)
+  /** Constructs a vector of specified size */
+  def apply(x: Var, n: Int) = new Vec((0 until n).map(x(_)))
 }
 
 /**
@@ -249,6 +251,9 @@ object Matrix {
   /** Constructs a matrix from vectors */
   def apply(v: Vec, vs: Vec*) = new Matrix(v +: vs)
   /** Constructs a matrix of indexed variables */
-  def apply(x: Var, is: Seq[Any], js: Seq[Any]) =
-    new Matrix(is.map(i => Vec(js.map(j => x(i,j)))))
+  def apply(x: Var, is: Iterable[Any], js: Iterable[Any]) =
+    new Matrix(is.map(i => Vec(js.map(j => x(i,j)).toSeq)).toSeq)
+  /** Constructs a matrix of specified size */
+  def apply(x: Var, m: Int, n: Int) =
+    new Matrix((0 until m).map(i => Vec((0 until n).map(j => x(i,j)))))
 }

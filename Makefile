@@ -1,5 +1,5 @@
-VER = v2-1-0
-VERSION = 2.1.0
+VER = v2-2-0
+VERSION = 2.2.0
 
 APP0 = copris
 APP = $(APP0)-$(VER)

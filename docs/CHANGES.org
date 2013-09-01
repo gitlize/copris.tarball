@@ -12,7 +12,19 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
-* Version 2.1.0 [2013-09-01 Sun]
+* Version 2.2.0 [2013-09-01 Sun]
+  - Method renaming: ~!==~ --> ~=/=~
+    : add('x =/= 'y)
+  - Method addition: x.? returns Ge(x,1)
+    : boolInt('x); boolInt('y)
+    : add('x.? && 'y.?)
+  - Implicit conversion from Symbol to Constraint is removed.
+  - Object Sum is added.  Sum(x1,...,xn) is equivalent to Add(x1,...,xn)
+  - Method renaming: sugar.Solver#addDelta --> encodeDelta
+  - Factory methods of constructing a specified size Vec and Matrix are added.
+    : val vec = Vec('x, 10)
+    : val matrix = Matrix('x, 10, 10)
+* Version 2.1.0 [2013-08-25 Sun]
   - Copris version 2.1.0 uses Sugar version 2.1.0 and Sat4j version 2.3.5.
   - 'solutions' method is added to get an iterator of all solutions.
   - 'boolInt' method is added to declare 0-1 integer variables.
