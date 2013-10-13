@@ -1,15 +1,15 @@
-VER = v2-2-0
-VERSION = 2.2.0
+VER = v2-2-2
+VERSION = 2.2.2
 
 APP0 = copris
 APP = $(APP0)-$(VER)
 JAR = $(APP).jar
 JARALL = $(APP0)-all-$(VER).jar
 ZIP = $(APP).zip
-SUGAR = sugar-v2-1-0.jar
+SUGAR = sugar-v2-1-2.jar
 SAT4J = org.sat4j.core.jar
 JARS = lib/$(SUGAR):lib/$(SAT4J)
-SRCS = src/jp/kobe_u/*.scala src/jp/kobe_u/copris/*.scala src/jp/kobe_u/copris/sugar/*.scala
+SRCS = src/jp/kobe_u/*.scala src/jp/kobe_u/copris/*.scala src/jp/kobe_u/copris/*/*.scala
 WEBPAGE = http://bach.istc.kobe-u.ac.jp/copris/
 WEBTITLE = Copris: Constraint Programming in Scala
 
@@ -20,7 +20,6 @@ SCALADOC  = scaladoc \
 	-doc-version '$(VERSION)' \
 	-classpath classes:$(JARS) \
 	-sourcepath src
-#	-doc-source-url 'http://bach.istc.kobe-u.ac.jp/copris/current/src/€{FILE_PATH}.scala'
 
 all: scalac jar scaladoc zip
 
@@ -32,6 +31,7 @@ scalac:
 
 jar:
 	jar cf ../$(JAR) -C classes .
+	rm -rf classes/*
 	cp -p ../$(JAR) lib/
 	cd lib; jar xf $(JAR) jp; jar xf $(SUGAR) jp; jar xf $(SAT4J) org; jar cf ../../$(JARALL) jp org; rm -r jp org
 	cp -p ../$(JARALL) lib/

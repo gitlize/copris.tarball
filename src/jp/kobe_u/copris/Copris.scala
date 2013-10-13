@@ -6,6 +6,7 @@ package jp.kobe_u.copris
  * scala Symbols to CSP integer variables ([[jp.kobe_u.copris.Var]]).
  */
 trait CoprisTrait extends CSPTrait with SolverTrait {
+  import scala.language.implicitConversions
   /** Implicit conversion from scala Symbol to [[jp.kobe_u.copris.Var]]. */
   implicit def symbol2var(s: Symbol) = Var(s.name)
   // /** Implicit conversion from scala Symbol to [[jp.kobe_u.copris.Constraint]]. */
@@ -20,9 +21,15 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def options(opts: Map[String,String]): Unit =
     solver.options = opts
   /** Initializes the CSP and solver */
-  def init: Unit = { csp.init; solver.init }
+  def init { csp.init; solver.init }
+  /* */
+  def commit { csp.commit; solver.commit }
+  /* */
+  def cancel { csp.cancel; solver.cancel }
   /* */
   def int(x: Var, d: Domain) = csp.int(x, d)
+  /* */
+  def int[A](x: Var, enum: EnumDomain[A]) = csp.int(x, 0, enum.size - 1)
   /* */
   def boolInt(x: Var) = csp.boolInt(x)
   /* */
@@ -43,6 +50,8 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def findOpt = solver.findOpt
   /** Shows the CSP */
   def show = print(csp.output)
+  /* */
+  def dump(fileName: String) { solver.dump(fileName) }
   /** Returns the current solution */
   def solution = solver.solution
   /** Returns the iterator of all solutions */
@@ -51,6 +60,8 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def startTimer(timeout: Long) = solver.startTimer(timeout)
   /** Stops the timer (experimental) */
   def stopTimer = solver.stopTimer
+  /** Returns the info of the solver (experimental) */
+  def info = solver.solverInfo
   /** Returns the status of the solver (experimental) */
   def stats = solver.solverStats
 }
@@ -76,7 +87,7 @@ class Copris(val csp: CSP, var solver: AbstractSolver) extends CoprisTrait {
  */
 object dsl extends CoprisTrait {
   /** Dynamic variable of Copris */
-  val coprisVar = new util.DynamicVariable[Copris](new Copris())
+  val coprisVar = new util.DynamicVariable[CoprisTrait](new Copris())
   /** Returns Copris object */
   def copris = coprisVar.value
   /** Returns CSP */
@@ -87,6 +98,6 @@ object dsl extends CoprisTrait {
   def use(newSolver: AbstractSolver) =
     coprisVar.value.use(newSolver)
   /** Executes the `block` under the specified Copris */
-  def using(copris: Copris = new Copris())(block: => Unit) =
+  def using(copris: CoprisTrait = new Copris())(block: => Unit) =
     coprisVar.withValue(copris) { block }
 }

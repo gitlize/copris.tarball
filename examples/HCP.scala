@@ -41,17 +41,28 @@ object Graph {
   }
 }
 
-abstract class SugarApp extends sugar.Sugar {
+abstract class CoprisApp extends Copris {
   var help = false
   var quiet = false
   var dumpFile: String = null
   def parseOptions(args: List[String]): List[String] = args match {
     case "-h" :: rest =>
       { help = true; parseOptions(rest) }
-    case "-s1" :: solver :: rest =>
-      { use(new sugar.SatSolver1(solver)); parseOptions(rest) }
-    case "-s2" :: solver :: rest =>
-      { use(new sugar.SatSolver2(solver)); parseOptions(rest) }
+    case "-s1" :: solver :: rest => {
+      val satSolver = new sugar.SatSolver1(solver)
+      use(new sugar.Solver(csp, satSolver))
+      parseOptions(rest)
+    }
+    case "-s2" :: solver :: rest => {
+      val satSolver = new sugar.SatSolver2(solver)
+      use(new sugar.Solver(csp, satSolver))
+      parseOptions(rest)
+    }
+    case "-smt" :: solver :: rest => {
+      val smtSolver = new smt.SmtSolver(solver)
+      use(new smt.Solver(csp, smtSolver))
+      parseOptions(rest)
+    }
     case "-dump" :: file :: rest =>
       { dumpFile = file; parseOptions(rest) }
     case "-q" :: rest =>
@@ -60,17 +71,18 @@ abstract class SugarApp extends sugar.Sugar {
       args
   }
   def showOptions = {
-    println("\t-h         : Help")
-    println("\t-q         : Quiet output")
-    println("\t-s1 solver : Use SAT solver (minisat, etc.)")
-    println("\t-s2 solver : Use SAT solver (precosat, etc.)")
+    println("\t-h          : Help")
+    println("\t-q          : Quiet output")
+    println("\t-s1 solver  : Use SAT solver (minisat, etc.)")
+    println("\t-s2 solver  : Use SAT solver (precosat, etc.)")
+    println("\t-smt solver : Use SMT solver (z3, etc.)")
   }
 }
 
 /**
  * Hamiltonian Cycle Problem solver
  */
-object HCP extends SugarApp {
+object HCP extends CoprisApp {
   var graph: Graph = null
   def addition(xs: Seq[Term]): Term = {
     if (xs.size < 8)

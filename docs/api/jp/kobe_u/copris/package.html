@@ -2,927 +2,1140 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>jp.kobe_u.copris</title>
+          <title>copris - Copris version 2.2.2 Core API Specification 2.2.2 - jp.kobe_u.copris</title>
+          <meta name="description" content="copris - Copris version 2.2.2 Core API Specification 2.2.2 - jp.kobe u.copris" />
+          <meta name="keywords" content="copris Copris version 2.2.2 Core API Specification 2.2.2 jp.kobe u.copris" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link type="text/css" media="screen" rel="stylesheet" href="../../../lib/template.css" />
-      <script type="text/javascript" src="../../../lib/jquery.js"></script>
-      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'jp.kobe_u.copris.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
     
         </head>
         <body class="value">
       <div id="definition">
         <img src="../../../lib/package_big.png" />
-        <p id="owner"><a name="jp" class="extype" href="../../package.html">jp</a>.<a name="jp.kobe_u" class="extype" href="../package.html">kobe_u</a></p>
+        <p id="owner"><a href="../../package.html" class="extype" name="jp">jp</a>.<a href="../package.html" class="extype" name="jp.kobe_u">kobe_u</a></p>
         <h1>copris</h1>
       </div>
 
-      <h4 class="signature" id="signature">
-      <span class="kind">package</span>
-      <span class="symbol"> 
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
         <span class="name">copris</span>
-        
-        
       </span>
       </h4>
       
-          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Provides classes for Constraint Programming in Scala.</p><h4>OVERVIEW</h4><p>The following is a sample program in Copris DSL (Domain Specific Language).</p><pre>
-object FirstStep {
-  import jp.kobe_u.copris._
-  import jp.kobe_u.copris.dsl._
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides classes for Constraint Programming in Scala.</p><h4>OVERVIEW</h4><p>The following is a sample program in Copris DSL (Domain Specific Language).</p><pre><span class="kw">object</span> FirstStep {
+<span class="kw">import</span> jp.kobe_u.copris._
+<span class="kw">import</span> jp.kobe_u.copris.dsl._
 
-  def main(args: Array[String]) = {
-    val x = int('x, 0, 7)
-    val y = int('y, 0, 7)
-    add(x + y === 7)
-    add(x * 2 + y * 4 === 20)
-    if (find) {
-      println(solution)
-    }
+<span class="kw">def</span> main(args: <span class="std">Array</span>[<span class="std">String</span>]) = {
+  <span class="kw">val</span> x = int('x, <span class="num">0</span>, <span class="num">7</span>)
+  <span class="kw">val</span> y = int('y, <span class="num">0</span>, <span class="num">7</span>)
+  add(x + y === <span class="num">7</span>)
+  add(x * <span class="num">2</span> + y * <span class="num">4</span> === <span class="num">20</span>)
+  <span class="kw">if</span> (find) {
+    println(solution)
   }
 }
-</pre></div></div>
+}</pre></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="jp.kobe_u.copris"><span>copris</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
 
       <div id="template">
-
-        <div id="mbrsel">
-          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
-          
-          
-          <div id="visbl">
-              <span class="filtertype">Visibility</span>
-              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
-            </div>
-        </div>
-
+        <div id="allMembers">
         
 
-        <div class="types members" id="types">
+        <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" name="jp.kobe_u.copris.Abs" data-isabs="false">
+              <ol><li name="jp.kobe_u.copris.Abs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AbsextendsTermwithProductwithSerializable"></a>
       <a id="Abs:Abs"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Abs.html"><span class="name">Abs</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Abs.html"><span class="name">Abs</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for absolute value of term.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.AbstractSolver" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.AbstractSolver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractSolverextendsSolverTrait"></a>
       <a id="AbstractSolver:AbstractSolver"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="AbstractSolver.html"><span class="name">AbstractSolver</span></a>
-        
-        <span class="result"> extends SolverTrait</span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractSolver.html"><span class="name">AbstractSolver</span></a><span class="result"> extends <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class for CSP solvers
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Add" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Add" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AddextendsTermwithProductwithSerializable"></a>
       <a id="Add:Add"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Add.html"><span class="name">Add</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Add.html"><span class="name">Add</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for addition of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Alldifferent" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Alldifferent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AlldifferentextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Alldifferent:Alldifferent"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Alldifferent.html"><span class="name">Alldifferent</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Alldifferent.html"><span class="name">Alldifferent</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Alldifferent global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.And" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.And" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AndextendsConstraintwithProductwithSerializable"></a>
       <a id="And:And"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="And.html"><span class="name">And</span></a>
-        
-        <span class="params">(<span name="cs">cs: Constraint*</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="And.html"><span class="name">And</span></a><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for conjuction of constaints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Bool" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Bool" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BoolextendsConstraintwithOrdering[jp.kobe_u.copris.Bool]withProductwithSerializable"></a>
       <a id="Bool:Bool"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Bool.html"><span class="name">Bool</span></a>
-        
-        <span class="params">(<span name="name">name: String</span>, <span name="is">is: String*</span>)</span><span class="result"> extends Constraint with Ordering[Bool] with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Bool.html"><span class="name">Bool</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="is">is: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of Boolean variables.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.CSP" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.CSP" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CSPextendsCSPTraitwithProductwithSerializable"></a>
       <a id="CSP:CSP"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="CSP.html"><span class="name">CSP</span></a>
-        
-        <span class="params">(<span name="variables">variables: IndexedSeq[Var]</span>, <span name="bools">bools: IndexedSeq[Bool]</span>, <span name="dom">dom: Map[Var, Domain]</span>, <span name="constraints">constraints: IndexedSeq[Constraint]</span>)</span><span class="result"> extends CSPTrait with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CSP.html"><span class="name">CSP</span></a><span class="params">(<span name="variables">variables: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>, <span name="bools">bools: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>, <span name="dom">dom: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a>] = <span class="defval" name="scala.collection.Map.apply[jp.kobe_u.copris.Var, Nothing]()">...</span></span>, <span name="constraints">constraints: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>)</span><span class="result"> extends <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of CSP (Constraint Satisfaction Problem)</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.CSPTrait" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.CSPTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CSPTraitextendsAnyRef"></a>
       <a id="CSPTrait:CSPTrait"></a>
       <h4 class="signature">
-      <span class="kind">trait</span>
-      <span class="symbol"> 
-        <a href="CSPTrait.html"><span class="name">CSPTrait</span></a>
-        
-        <span class="result"> extends AnyRef</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CSPTrait.html"><span class="name">CSPTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">Trait of CSP (Constraint Satisfaction Problem)
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Constraint" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.Constraint" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ConstraintextendsExpr"></a>
       <a id="Constraint:Constraint"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Constraint.html"><span class="name">Constraint</span></a>
-        
-        <span class="result"> extends Expr</span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Constraint.html"><span class="name">Constraint</span></a><span class="result"> extends <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class of constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Copris" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Copris" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CoprisextendsCoprisTrait"></a>
       <a id="Copris:Copris"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Copris.html"><span class="name">Copris</span></a>
-        
-        <span class="result"> extends CoprisTrait</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Copris.html"><span class="name">Copris</span></a><span class="result"> extends <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
       </h4>
       <p class="comment cmt">Class for Copris DSL which provides methods for CSP and CSP solver.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.CoprisTrait" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.CoprisTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CoprisTraitextendsCSPTraitwithSolverTrait"></a>
       <a id="CoprisTrait:CoprisTrait"></a>
       <h4 class="signature">
-      <span class="kind">trait</span>
-      <span class="symbol"> 
-        <a href="CoprisTrait.html"><span class="name">CoprisTrait</span></a>
-        
-        <span class="result"> extends CSPTrait with SolverTrait</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CoprisTrait.html"><span class="name">CoprisTrait</span></a><span class="result"> extends <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a> with <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></span>
       </span>
       </h4>
       <p class="comment cmt">Trait for Copris DSL which provides methods for CSP and CSP solver.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Count" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Count" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CountextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Count:Count"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Count.html"><span class="name">Count</span></a>
-        
-        <span class="params">(<span name="value">value: Term</span>, <span name="xs">xs: Seq[Term]</span>, <span name="cmp">cmp: String</span>, <span name="count">count: Term</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Count.html"><span class="name">Count</span></a><span class="params">(<span name="value">value: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="cmp">cmp: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Count global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Cumulative" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Cumulative" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CumulativeextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Cumulative:Cumulative"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Cumulative.html"><span class="name">Cumulative</span></a>
-        
-        <span class="params">(<span name="tasks">tasks: Seq[(Term, Term, Term, Term)]</span>, <span name="limit">limit: Term</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Cumulative.html"><span class="name">Cumulative</span></a><span class="params">(<span name="tasks">tasks: <span class="extype" name="scala.collection.Seq">Seq</span>[(<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="limit">limit: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Cumulative global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Disjunctive" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Disjunctive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DisjunctiveextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Disjunctive:Disjunctive"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Disjunctive.html"><span class="name">Disjunctive</span></a>
-        
-        <span class="params">(<span name="tasks">tasks: (Term, Term)*</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Disjunctive.html"><span class="name">Disjunctive</span></a><span class="params">(<span name="tasks">tasks: (<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)*</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Disjunctive global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Div" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Div" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DivextendsTermwithProductwithSerializable"></a>
       <a id="Div:Div"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Div.html"><span class="name">Div</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Div.html"><span class="name">Div</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for division of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Domain" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.Domain" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DomainextendsAnyRef"></a>
       <a id="Domain:Domain"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Domain.html"><span class="name">Domain</span></a>
-        
-        <span class="result"> extends AnyRef</span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Domain.html"><span class="name">Domain</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class of domains.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Element" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Element" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ElementextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Element:Element"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Element.html"><span class="name">Element</span></a>
-        
-        <span class="params">(<span name="i">i: Term</span>, <span name="xs">xs: Seq[Term]</span>, <span name="xi">xi: Term</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Element.html"><span class="name">Element</span></a><span class="params">(<span name="i">i: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="xi">xi: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Element global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Eq" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.EnumDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EnumDomain[A]extendsProductwithSerializable"></a>
+      <a id="EnumDomain[A]:EnumDomain[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="EnumDomain.html"><span class="name">EnumDomain</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="values">values: <span class="extype" name="jp.kobe_u.copris.EnumDomain.A">A</span>*</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Case class of enum domain
+</p>
+    </li><li name="jp.kobe_u.copris.Eq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EqextendsConstraintwithProductwithSerializable"></a>
       <a id="Eq:Eq"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Eq.html"><span class="name">Eq</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Eq.html"><span class="name">Eq</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for equals constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Expr" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.Expr" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ExprextendsAnyRef"></a>
       <a id="Expr:Expr"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Expr.html"><span class="name">Expr</span></a>
-        
-        <span class="result"> extends AnyRef</span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Expr.html"><span class="name">Expr</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class of expressions.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Ge" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Ge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GeextendsConstraintwithProductwithSerializable"></a>
       <a id="Ge:Ge"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Ge.html"><span class="name">Ge</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Ge.html"><span class="name">Ge</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for greater-than-or-equals constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.GlobalCardinality" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.GlobalCardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GlobalCardinalityextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="GlobalCardinality:GlobalCardinality"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="GlobalCardinality.html"><span class="name">GlobalCardinality</span></a>
-        
-        <span class="params">(<span name="xs">xs: Seq[Term]</span>, <span name="card">card: Seq[(Int, Term)]</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GlobalCardinality.html"><span class="name">GlobalCardinality</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="card">card: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for GlobalCardinality global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.GlobalCardinalityWithCosts" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.GlobalCardinalityWithCosts" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GlobalCardinalityWithCostsextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="GlobalCardinalityWithCosts:GlobalCardinalityWithCosts"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="GlobalCardinalityWithCosts.html"><span class="name">GlobalCardinalityWithCosts</span></a>
-        
-        <span class="params">(<span name="xs">xs: Seq[Term]</span>, <span name="card">card: Seq[(Int, Term)]</span>, <span name="table">table: Seq[(Int, Int, Int)]</span>, <span name="cost">cost: Term</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GlobalCardinalityWithCosts.html"><span class="name">GlobalCardinalityWithCosts</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="card">card: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="table">table: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <span class="extype" name="scala.Int">Int</span>, <span class="extype" name="scala.Int">Int</span>)]</span>, <span name="cost">cost: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for GlobalCardinalityWithCosts global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.GlobalConstraint" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.GlobalConstraint" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GlobalConstraintextendsConstraint"></a>
       <a id="GlobalConstraint:GlobalConstraint"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="GlobalConstraint.html"><span class="name">GlobalConstraint</span></a>
-        
-        <span class="result"> extends Constraint</span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GlobalConstraint.html"><span class="name">GlobalConstraint</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class of global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Gt" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Gt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GtextendsConstraintwithProductwithSerializable"></a>
       <a id="Gt:Gt"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Gt.html"><span class="name">Gt</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Gt.html"><span class="name">Gt</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for greater-than constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.If" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.If" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IfextendsTermwithProductwithSerializable"></a>
       <a id="If:If"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="If.html"><span class="name">If</span></a>
-        
-        <span class="params">(<span name="c">c: Constraint</span>, <span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="If.html"><span class="name">If</span></a><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for if expressions.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Iff" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Iff" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IffextendsConstraintwithProductwithSerializable"></a>
       <a id="Iff:Iff"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Iff.html"><span class="name">Iff</span></a>
-        
-        <span class="params">(<span name="c0">c0: Constraint</span>, <span name="c1">c1: Constraint</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Iff.html"><span class="name">Iff</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for if-and-only-if of constaint.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Imp" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Imp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ImpextendsConstraintwithProductwithSerializable"></a>
       <a id="Imp:Imp"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Imp.html"><span class="name">Imp</span></a>
-        
-        <span class="params">(<span name="c0">c0: Constraint</span>, <span name="c1">c1: Constraint</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Imp.html"><span class="name">Imp</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for implication of constaint.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.IntervalDomain" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.IntervalDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IntervalDomainextendsDomainwithProductwithSerializable"></a>
       <a id="IntervalDomain:IntervalDomain"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="IntervalDomain.html"><span class="name">IntervalDomain</span></a>
-        
-        <span class="params">(<span name="lo">lo: Int</span>, <span name="hi">hi: Int</span>)</span><span class="result"> extends Domain with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IntervalDomain.html"><span class="name">IntervalDomain</span></a><span class="params">(<span name="lo">lo: <span class="extype" name="scala.Int">Int</span></span>, <span name="hi">hi: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of interval domain
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Le" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Le" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LeextendsConstraintwithProductwithSerializable"></a>
       <a id="Le:Le"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Le.html"><span class="name">Le</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Le.html"><span class="name">Le</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for less-than-or-equals constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.LexLess" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.LexLess" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LexLessextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="LexLess:LexLess"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="LexLess.html"><span class="name">LexLess</span></a>
-        
-        <span class="params">(<span name="xs">xs: Seq[Term]</span>, <span name="ys">ys: Seq[Term]</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LexLess.html"><span class="name">LexLess</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="ys">ys: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for LexLess global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.LexLesseq" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.LexLesseq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LexLesseqextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="LexLesseq:LexLesseq"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="LexLesseq.html"><span class="name">LexLesseq</span></a>
-        
-        <span class="params">(<span name="xs">xs: Seq[Term]</span>, <span name="ys">ys: Seq[Term]</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LexLesseq.html"><span class="name">LexLesseq</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="ys">ys: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for LexLesseq global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Lt" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Lt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LtextendsConstraintwithProductwithSerializable"></a>
       <a id="Lt:Lt"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Lt.html"><span class="name">Lt</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Lt.html"><span class="name">Lt</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for less-than constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Matrix" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MatrixextendsIterable[jp.kobe_u.copris.Vec]withProductwithSerializable"></a>
       <a id="Matrix:Matrix"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Matrix.html"><span class="name">Matrix</span></a>
-        
-        <span class="params">(<span name="vs">vs: Seq[Vec]</span>)</span><span class="result"> extends Iterable[Vec] with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Matrix.html"><span class="name">Matrix</span></a><span class="params">(<span name="vs">vs: <span class="extype" name="scala.Seq">Seq</span>[<a href="Vec.html" class="extype" name="jp.kobe_u.copris.Vec">Vec</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Vec.html" class="extype" name="jp.kobe_u.copris.Vec">Vec</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for matrices of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Max" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MaxextendsTermwithProductwithSerializable"></a>
       <a id="Max:Max"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Max.html"><span class="name">Max</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Max.html"><span class="name">Max</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for maximum of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Min" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MinextendsTermwithProductwithSerializable"></a>
       <a id="Min:Min"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Min.html"><span class="name">Min</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Min.html"><span class="name">Min</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for minimum of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Mod" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Mod" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ModextendsTermwithProductwithSerializable"></a>
       <a id="Mod:Mod"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Mod.html"><span class="name">Mod</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mod.html"><span class="name">Mod</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for remainder of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Mul" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Mul" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MulextendsTermwithProductwithSerializable"></a>
       <a id="Mul:Mul"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Mul.html"><span class="name">Mul</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Mul.html"><span class="name">Mul</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for multiplication of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Ne" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Ne" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NeextendsConstraintwithProductwithSerializable"></a>
       <a id="Ne:Ne"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Ne.html"><span class="name">Ne</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>, <span name="x1">x1: Term</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Ne.html"><span class="name">Ne</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for not-equals constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Neg" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Neg" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NegextendsTermwithProductwithSerializable"></a>
       <a id="Neg:Neg"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Neg.html"><span class="name">Neg</span></a>
-        
-        <span class="params">(<span name="x0">x0: Term</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Neg.html"><span class="name">Neg</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for negation of term.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Not" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Not" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NotextendsConstraintwithProductwithSerializable"></a>
       <a id="Not:Not"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Not.html"><span class="name">Not</span></a>
-        
-        <span class="params">(<span name="c0">c0: Constraint</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Not.html"><span class="name">Not</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for logical negation of constaint.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Num" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Num" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NumextendsTermwithProductwithSerializable"></a>
       <a id="Num:Num"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Num.html"><span class="name">Num</span></a>
-        
-        <span class="params">(<span name="value">value: Int</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Num.html"><span class="name">Num</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of number terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Nvalue" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Nvalue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NvalueextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Nvalue:Nvalue"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Nvalue.html"><span class="name">Nvalue</span></a>
-        
-        <span class="params">(<span name="count">count: Term</span>, <span name="xs">xs: Seq[Term]</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Nvalue.html"><span class="name">Nvalue</span></a><span class="params">(<span name="count">count: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Nvalue global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Or" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Or" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OrextendsConstraintwithProductwithSerializable"></a>
       <a id="Or:Or"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Or.html"><span class="name">Or</span></a>
-        
-        <span class="params">(<span name="cs">cs: Constraint*</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Or.html"><span class="name">Or</span></a><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for disjuction of constaints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.SetDomain" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.SetDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetDomainextendsDomainwithProductwithSerializable"></a>
       <a id="SetDomain:SetDomain"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="SetDomain.html"><span class="name">SetDomain</span></a>
-        
-        <span class="params">(<span name="values">values: SortedSet[Int]</span>)</span><span class="result"> extends Domain with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetDomain.html"><span class="name">SetDomain</span></a><span class="params">(<span name="values">values: <span class="extype" name="scala.collection.immutable.SortedSet">SortedSet</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of set domain
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Solution" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Solution" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SolutionextendsProductwithSerializable"></a>
       <a id="Solution:Solution"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Solution.html"><span class="name">Solution</span></a>
-        
-        <span class="params">(<span name="intValues">intValues: Map[Var, Int]</span>, <span name="boolValues">boolValues: Map[Bool, Boolean]</span>)</span><span class="result"> extends Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Solution.html"><span class="name">Solution</span></a><span class="params">(<span name="intValues">intValues: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <span class="extype" name="scala.Int">Int</span>]</span>, <span name="boolValues">boolValues: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>, <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for solutions
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.SolverTrait" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.SolverTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SolverTraitextendsAnyRef"></a>
       <a id="SolverTrait:SolverTrait"></a>
       <h4 class="signature">
-      <span class="kind">trait</span>
-      <span class="symbol"> 
-        <a href="SolverTrait.html"><span class="name">SolverTrait</span></a>
-        
-        <span class="result"> extends AnyRef</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SolverTrait.html"><span class="name">SolverTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">Trait for CSP solvers
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Sub" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Sub" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SubextendsTermwithProductwithSerializable"></a>
       <a id="Sub:Sub"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Sub.html"><span class="name">Sub</span></a>
-        
-        <span class="params">(<span name="xs">xs: Term*</span>)</span><span class="result"> extends Term with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Sub.html"><span class="name">Sub</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for subtraction of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Term" data-isabs="true">
+    </li><li name="jp.kobe_u.copris.Term" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TermextendsExpr"></a>
       <a id="Term:Term"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Term.html"><span class="name">Term</span></a>
-        
-        <span class="result"> extends Expr</span>
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Term.html"><span class="name">Term</span></a><span class="result"> extends <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></span>
       </span>
       </h4>
       <p class="comment cmt">Abstract class of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Timer" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Timer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TimerextendsAnyRef"></a>
       <a id="Timer:Timer"></a>
       <h4 class="signature">
-      <span class="kind">class</span>
-      <span class="symbol"> 
-        <a href="Timer.html"><span class="name">Timer</span></a>
-        
-        <span class="result"> extends AnyRef</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Timer.html"><span class="name">Timer</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       <p class="comment cmt">Class Timer (experimental)
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Var" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Var" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VarextendsTermwithOrdering[jp.kobe_u.copris.Var]withProductwithSerializable"></a>
       <a id="Var:Var"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Var.html"><span class="name">Var</span></a>
-        
-        <span class="params">(<span name="name">name: String</span>, <span name="is">is: String*</span>)</span><span class="result"> extends Term with Ordering[Var] with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Var.html"><span class="name">Var</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="is">is: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class of integer variables.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Vec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VecextendsIterable[jp.kobe_u.copris.Term]withProductwithSerializable"></a>
       <a id="Vec:Vec"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Vec.html"><span class="name">Vec</span></a>
-        
-        <span class="params">(<span name="xs">xs: Seq[Term]</span>)</span><span class="result"> extends Iterable[Term] with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Vec.html"><span class="name">Vec</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for vectors of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Weightedsum" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Weightedsum" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WeightedsumextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Weightedsum:Weightedsum"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Weightedsum.html"><span class="name">Weightedsum</span></a>
-        
-        <span class="params">(<span name="axs">axs: Seq[(Int, Term)]</span>, <span name="cmp">cmp: String</span>, <span name="b">b: Term</span>)</span><span class="result"> extends GlobalConstraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Weightedsum.html"><span class="name">Weightedsum</span></a><span class="params">(<span name="axs">axs: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="cmp">cmp: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="b">b: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for Weightedsum global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Xor" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Xor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="XorextendsConstraintwithProductwithSerializable"></a>
       <a id="Xor:Xor"></a>
       <h4 class="signature">
-      <span class="kind">case class</span>
-      <span class="symbol"> 
-        <a href="Xor.html"><span class="name">Xor</span></a>
-        
-        <span class="params">(<span name="c0">c0: Constraint</span>, <span name="c1">c1: Constraint</span>)</span><span class="result"> extends Constraint with Product with Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Xor.html"><span class="name">Xor</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Case class for exclusive-or of constaint.</p>
     </li></ol>
             </div>
-        
+
         
 
-        <div class="values members" id="values">
+        <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li visbl="pub" name="jp.kobe_u.copris.Add" data-isabs="false">
+              <ol><li name="jp.kobe_u.copris.Add" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Add"></a>
       <a id="Add:Add"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Add$.html"><span class="name">Add</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Add$.html"><span class="name">Add</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for addition of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Alldifferent" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Alldifferent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Alldifferent"></a>
       <a id="Alldifferent:Alldifferent"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Alldifferent$.html"><span class="name">Alldifferent</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Alldifferent$.html"><span class="name">Alldifferent</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for Alldifferent global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.And" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.And" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="And"></a>
       <a id="And:And"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="And$.html"><span class="name">And</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="And$.html"><span class="name">And</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for conjunction of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Bool" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Bool" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Bool"></a>
       <a id="Bool:Bool"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Bool$.html"><span class="name">Bool</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Bool$.html"><span class="name">Bool</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="jp.kobe_u.copris.DefaultSolver" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.DefaultSolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultSolver"></a>
       <a id="DefaultSolver:DefaultSolver"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
         <a href="DefaultSolver$.html"><span class="name">DefaultSolver</span></a>
-        
-        <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <p class="comment cmt">Factory for default solver.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Disjunctive" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Disjunctive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Disjunctive"></a>
       <a id="Disjunctive:Disjunctive"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Disjunctive$.html"><span class="name">Disjunctive</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Disjunctive$.html"><span class="name">Disjunctive</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for Disjunctive global constraints.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Domain" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Domain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Domain"></a>
       <a id="Domain:Domain"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
         <a href="Domain$.html"><span class="name">Domain</span></a>
-        
-        <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <p class="comment cmt">Factory for creating domains.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.FALSE" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.FALSE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FALSE"></a>
       <a id="FALSE:FALSE"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="FALSE$.html"><span class="name">FALSE</span></a>
-        
-        <span class="result"> extends Constraint</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FALSE$.html"><span class="name">FALSE</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object of <code>FALSE</code> constraint.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Matrix" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Matrix" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Matrix"></a>
       <a id="Matrix:Matrix"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Matrix$.html"><span class="name">Matrix</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Matrix$.html"><span class="name">Matrix</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for vectors
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Max" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Max"></a>
       <a id="Max:Max"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Max$.html"><span class="name">Max</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Max$.html"><span class="name">Max</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for maximum of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Min" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Min"></a>
       <a id="Min:Min"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Min$.html"><span class="name">Min</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Min$.html"><span class="name">Min</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for minimum of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Mul" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Mul" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Mul"></a>
       <a id="Mul:Mul"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Mul$.html"><span class="name">Mul</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Mul$.html"><span class="name">Mul</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for multiplication of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.NIL" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.NIL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NIL"></a>
       <a id="NIL:NIL"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="NIL$.html"><span class="name">NIL</span></a>
-        
-        <span class="result"> extends Term</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NIL$.html"><span class="name">NIL</span></a><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object of <code>NIL</code> term.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.ONE" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.ONE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ONE"></a>
       <a id="ONE:ONE"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="ONE$.html"><span class="name">ONE</span></a>
-        
-        <span class="result"> extends Num</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ONE$.html"><span class="name">ONE</span></a><span class="result"> extends <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object of number term 1.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Or" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Or" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Or"></a>
       <a id="Or:Or"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Or$.html"><span class="name">Or</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Or$.html"><span class="name">Or</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for disjunction of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Sub" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Sub" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Sub"></a>
       <a id="Sub:Sub"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Sub$.html"><span class="name">Sub</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Sub$.html"><span class="name">Sub</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for subtraction of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Sum" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Sum" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Sum"></a>
       <a id="Sum:Sum"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
         <a href="Sum$.html"><span class="name">Sum</span></a>
-        
-        <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <p class="comment cmt">Factory for addition of terms.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.TRUE" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.TRUE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TRUE"></a>
       <a id="TRUE:TRUE"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="TRUE$.html"><span class="name">TRUE</span></a>
-        
-        <span class="result"> extends Constraint</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TRUE$.html"><span class="name">TRUE</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object of <code>TRUE</code> constraint.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Timer" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Timer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Timer"></a>
       <a id="Timer:Timer"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
         <a href="Timer$.html"><span class="name">Timer</span></a>
-        
-        <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <p class="comment cmt">Object Timer (experimental)
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.Var" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Var" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Var"></a>
       <a id="Var:Var"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Var$.html"><span class="name">Var</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Var$.html"><span class="name">Var</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-    </li><li visbl="pub" name="jp.kobe_u.copris.Vec" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.Vec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Vec"></a>
       <a id="Vec:Vec"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="Vec$.html"><span class="name">Vec</span></a>
-        
-        <span class="result"> extends Serializable</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Vec$.html"><span class="name">Vec</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       <p class="comment cmt">Factory for vectors
 </p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.ZERO" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.ZERO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ZERO"></a>
       <a id="ZERO:ZERO"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="ZERO$.html"><span class="name">ZERO</span></a>
-        
-        <span class="result"> extends Num</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ZERO$.html"><span class="name">ZERO</span></a><span class="result"> extends <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object of number term 0.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.dsl" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.dsl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="dsl"></a>
       <a id="dsl:dsl"></a>
       <h4 class="signature">
-      <span class="kind">object</span>
-      <span class="symbol"> 
-        <a href="dsl$.html"><span class="name">dsl</span></a>
-        
-        <span class="result"> extends CoprisTrait</span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="dsl$.html"><span class="name">dsl</span></a><span class="result"> extends <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
       </h4>
       <p class="comment cmt">Object for Copris DSL which provides methods for CSP and CSP solver.</p>
-    </li><li visbl="pub" name="jp.kobe_u.copris.sugar" data-isabs="false">
+    </li><li name="jp.kobe_u.copris.smt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="smt"></a>
+      <a id="smt:smt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="smt/package.html"><span class="name">smt</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="jp.kobe_u.copris.sugar" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sugar"></a>
       <a id="sugar:sugar"></a>
       <h4 class="signature">
-      <span class="kind">package</span>
-      <span class="symbol"> 
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
         <a href="sugar/package.html"><span class="name">sugar</span></a>
-        
-        
       </span>
       </h4>
       
@@ -932,10 +1145,29 @@ object FirstStep {
         
 
         
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
 
       </div>
-      
+
       <div id="tooltip"></div>
-      
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
     </body>
       </html>

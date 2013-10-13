@@ -3,7 +3,7 @@
 #+EMAIL: 
 #+STARTUP: overview hidestars nologdone
 #+LANGUAGE: en
-#+OPTIONS: toc:t H:3 num:nil author:t creator:t todo:nil pri:nil tags:nil LaTeX:t ^:t @:t
+#+OPTIONS: toc:t H:3 num:nil author:t creator:t todo:nil pri:nil tags:nil LaTeX:t ^:nil @:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="/include/org-common.css">
 #+STYLE: <link rel="stylesheet" type="text/css" href="/include/org-toc-right.css">
 #+INFOJS_OPT: view:showall toc:t tdepth:2 ltoc:nil mouse:#ffffcc path:/include/org-info.js
@@ -12,6 +12,12 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.2.2 [2013-10-13 Sun]
+  - Copris version 2.2.2 uses Sugar version 2.1.2 and Sat4j version 2.3.5.
+  - "jp.kobe_u.copris.smt" package is added
+* Version 2.2.1
+  - Method addition: x.! returns Le(x,0)
+  - Method addition: x.$ returns If(x,1,0)
 * Version 2.2.0 [2013-09-01 Sun]
   - Method renaming: ~!==~ --> ~=/=~
     : add('x =/= 'y)

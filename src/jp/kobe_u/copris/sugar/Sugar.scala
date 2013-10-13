@@ -17,11 +17,11 @@ abstract class SatSolverLogger(file: java.io.File) extends scala.sys.process.Fil
     stat = stat + (key -> value)
   /** Parses the log output and update status */
   def parseLog(s: String): Unit
-  override def out(s: => String): Unit = {
+  override def out(s: => String) {
     super.out(s)
     parseLog(s)
   }
-  override def err(s: => String): Unit = {
+  override def err(s: => String) {
     super.err(s)
     parseLog(s)
   }
@@ -32,8 +32,8 @@ abstract class SatSolverLogger(file: java.io.File) extends scala.sys.process.Fil
 abstract class SatSolver(command: String, opts: Seq[String]) {
   import scala.sys.process._
   /** Runs the SAT solver */
-  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver)
-  protected def runProcess(args: Seq[String], logger: FileProcessLogger, solver: Solver) = {
+  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver): Int
+  protected def runProcess(args: Seq[String], logger: FileProcessLogger, solver: Solver): Int = {
     var process = Process(command, args).run(logger)
     solver.setTimeoutTask {
       // println("kill " + command)
@@ -51,7 +51,7 @@ abstract class SatSolver(command: String, opts: Seq[String]) {
  */
 class SatSolver1(command: String, opts: Seq[String] = Seq.empty) extends SatSolver(command, opts) {
   import scala.sys.process._
-  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
+  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver): Int = {
     val outFile = new java.io.File(outFileName)
     outFile.delete
     val logger = ProcessLogger(outFile)
@@ -63,7 +63,7 @@ class SatSolver1(command: String, opts: Seq[String] = Seq.empty) extends SatSolv
  */
 class SatSolver2(command: String, opts: Seq[String] = Seq.empty) extends SatSolver(command, opts) {
   import scala.sys.process._
-  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
+  def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver): Int = {
     val logger = ProcessLogger(new java.io.File(logFileName))
     runProcess(opts :+ satFileName :+ outFileName, logger, solver)
   }
@@ -73,7 +73,7 @@ class SatSolver2(command: String, opts: Seq[String] = Seq.empty) extends SatSolv
  */
 class MiniSat(command: String, opts: Seq[String]) extends SatSolver2(command, opts) {
   import scala.sys.process._
-  override def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
+  override def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver): Int = {
     val logger = new SatSolverLogger(new java.io.File(logFileName)) {
       val reVariables = """\|\s+Number of variables:\s+(\d+).*""".r
       val reClauses = """\|\s+Number of clauses:\s+(\d+).*""".r
@@ -111,7 +111,7 @@ class Sat4j(command: String, opts: Seq[String]) extends SatSolver(command, opts)
   import java.io.BufferedWriter
   import java.io.OutputStreamWriter
   import java.io.FileOutputStream
-  override def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver) = {
+  override def run(satFileName: String, outFileName: String, logFileName: String, solver: Solver): Int = {
     val sat4jSolver: ISolver = SolverFactory.newDefault()
     val reader: Reader = new DimacsReader(sat4jSolver)
     val writer = new BufferedWriter(new OutputStreamWriter(
@@ -203,9 +203,9 @@ object Glucose extends MiniSat("glucose", Seq.empty)
 object Sat4j extends Sat4j("sat4j", Seq.empty)
 
 /**
- * Object to translate CSP to a list of Sugar expressions
+ * Class for translating CSP to a list of Sugar expressions
  */
-object Translator {
+class Translator {
   private var sugarVarNameMap: Map[Var,String] = Map.empty
   private var sugarBoolNameMap: Map[Bool,String] = Map.empty
   def createSugarExpr(x: SugarExpr, xs: SugarExpr*) =
@@ -373,21 +373,23 @@ object Translator {
  * Class for encoding CSP to SAT
  */
 class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String) {
+  var translator = new Translator()
   var sugarCSP = new javaSugar.csp.CSP()
   var converter = new javaSugar.converter.Converter(sugarCSP)
   var encoder = new javaSugar.encoder.Encoder(sugarCSP)
-  def init: Unit = {
+  def init {
+    translator = new Translator()
     sugarCSP = new javaSugar.csp.CSP()
     converter = new javaSugar.converter.Converter(sugarCSP)
     encoder = new javaSugar.encoder.Encoder(sugarCSP)
   }
-  def commit: Unit = {
+  def commit {
     // csp.commit
     sugarCSP.commit
     if (! sugarCSP.isUnsatisfiable)
       encoder.commit
   }
-  def cancel: Unit = {
+  def cancel {
     // csp.cancel
     sugarCSP.cancel
     encoder.cancel
@@ -395,7 +397,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
   }
   def encode: Boolean = {
     // println("Translating")
-    val expressions = Translator.toSugar(csp)
+    val expressions = translator.toSugar(csp)
     solver.checkTimeout
     // println("Converting")
     converter.convert(expressions)
@@ -420,9 +422,9 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
       true
     }
   }
-  def encodeDelta: Unit = {
+  def encodeDelta {
     sugarCSP.cancel
-    val expressions = Translator.toSugarDelta(csp)
+    val expressions = translator.toSugarDelta(csp)
     solver.checkTimeout
     javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = false
     converter.convert(expressions)
@@ -442,7 +444,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
           intNameValues += v.getName -> v.getValue
       var intValues = Map.empty[Var,Int]
       for (x <- csp.variables) {
-	val s = Translator.toSugarName(x)
+	val s = translator.toSugarName(x)
 	if (intNameValues.contains(s))
           intValues += x -> intNameValues(s)
       }
@@ -452,7 +454,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
           boolNameValues += v.getName -> v.getValue
       var boolValues = Map.empty[Bool,Boolean]
       for (p <- csp.bools) {
-	val s = Translator.toSugarName(p)
+	val s = translator.toSugarName(p)
 	if (boolNameValues.contains(s))
           boolValues += p -> boolNameValues(s)
       }
@@ -466,8 +468,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
 /**
  * Class for Sugar solver
  */
-class Solver(csp: CSP, 
-             var satSolver: SatSolver = Sat4j) extends AbstractSolver(csp) {
+class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(csp) {
   var satFileName: String = null
   var mapFileName: String = null
   var outFileName: String = null
@@ -476,6 +477,7 @@ class Solver(csp: CSP,
   var initial = true
   var commitFlag = true
   var solution: Solution = null
+  init
 
   private def createTempFile(ext: String): String = {
     import java.io.File
@@ -483,28 +485,30 @@ class Solver(csp: CSP,
     file.deleteOnExit
     file.getAbsolutePath
   }
-  def init = {
+  override def init {
     def fileName(key: String, ext: String) = {
       val file = options.getOrElse(key, createTempFile(ext))
       options = options + (key -> file)
       file
     }
+    super.init
     satFileName = fileName("sat", ".cnf")
     mapFileName = fileName("map", ".map")
     outFileName = fileName("out", ".out")
     logFileName = fileName("log", ".log")
+    javaSugar.SugarMain.init()
     encoder = new Encoder(csp, this, satFileName, mapFileName)
     encoder.init
     solution = null
     initial = true
-    solverStats = Seq(Map.empty)
+    addSolverInfo("satFile", satFileName)
   }
   def encode: Boolean = {
     measureTime("time", "encode") {
       encoder.encode
     }
   }
-  def encodeDelta: Unit = {
+  def encodeDelta {
     measureTime("time", "encodeDelta") {
       encoder.encodeDelta
     }
@@ -534,12 +538,8 @@ class Solver(csp: CSP,
       sat
     }
   }
-  def commit = {
-    csp.commit; encoder.commit
-  }
-  def cancel = {
-    csp.cancel; encoder.cancel
-  }
+  def commit { encoder.commit }
+  def cancel { encoder.cancel }
   def find(commitFlag: Boolean): Boolean = {
     this.commitFlag = commitFlag
     super.find
@@ -554,8 +554,10 @@ class Solver(csp: CSP,
 	encodeDelta
 	satSolve
       }
-    if (commitFlag)
+    if (commitFlag) {
+      csp.commit
       commit
+    }
     result
   }
   def findNext(commitFlag: Boolean): Boolean = {
@@ -571,8 +573,10 @@ class Solver(csp: CSP,
                 yield if (solution.boolValues(p)) p else Not(p)
       csp.add(Not(And(And(cs1), And(cs2))))
       encodeDelta
-      if (commitFlag)
+      if (commitFlag) {
+	csp.commit
 	commit
+      }
     }
     satSolve
   }
@@ -582,6 +586,7 @@ class Solver(csp: CSP,
       var lb = csp.dom(v).lb
       var ub = csp.dom(v).ub
       encode
+      csp.commit
       commit
       val sat = satSolve
       addSolverStat("result", "find", if (sat) 1 else 0)
@@ -622,11 +627,22 @@ class Solver(csp: CSP,
   def findOptBoundBody(lb: Int, ub: Int) = {
     val v = csp.objective
     measureTime("time", "encode") {
+      csp.cancel
       cancel
       csp.add(v >= lb && v <= ub)
       encodeDelta
     }
     satSolve
+  }
+  def dump(fileName: String) {
+    import java.io._
+    val translator = new Translator()
+    val expressions = translator.toSugar(csp)
+    val writer = new BufferedWriter(new OutputStreamWriter(
+      new FileOutputStream(fileName)))
+    for (i <- 0 until expressions.size)
+      writer.write(expressions.get(i).toString + "\n")
+    writer.close
   }
 }
 
@@ -648,17 +664,6 @@ class Sugar(val csp: CSP, var solver: Solver) extends CoprisTrait {
   }
   def use(newSatSolver: SatSolver): Unit =
     solver.satSolver = newSatSolver
-  def commit = solver.commit
-  def cancel = solver.cancel
-  def dump(fileName: String) = {
-    import java.io._
-    val writer = new BufferedWriter(new OutputStreamWriter(
-      new FileOutputStream(fileName)))
-    val expressions = Translator.toSugar(csp)
-    for (i <- 0 until expressions.size)
-      writer.write(expressions.get(i).toString + "\n")
-    writer.close
-  }
 }
 
 /**
@@ -674,8 +679,4 @@ object dsl extends CoprisTrait {
     sugarVar.value.use(newSolver)
   def use(satSolver: SatSolver) =
     sugarVar.value.use(satSolver)
-  def commit = solver.commit
-  def cancel = solver.cancel
-  def dump(fileName: String) =
-    sugarVar.value.dump(fileName)
 }

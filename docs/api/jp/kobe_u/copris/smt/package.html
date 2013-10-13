@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>smt - Copris version 2.2.2 Core API Specification 2.2.2 - jp.kobe_u.copris.smt</title>
+          <meta name="description" content="smt - Copris version 2.2.2 Core API Specification 2.2.2 - jp.kobe u.copris.smt" />
+          <meta name="keywords" content="smt Copris version 2.2.2 Core API Specification 2.2.2 jp.kobe u.copris.smt" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'jp.kobe_u.copris.smt.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="jp">jp</a>.<a href="../../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="../package.html" class="extype" name="jp.kobe_u.copris">copris</a></p>
+        <h1>smt</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">smt</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="jp.kobe_u.copris.smt.Encoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EncoderextendsAnyRef"></a>
+      <a id="Encoder:Encoder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Encoder.html"><span class="name">Encoder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for encoding CSP to SMT
+</p>
+    </li><li name="jp.kobe_u.copris.smt.SMT" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SMTextendsCoprisTrait"></a>
+      <a id="SMT:SMT"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SMT.html"><span class="name">SMT</span></a><span class="result"> extends <a href="../CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for SMT DSL
+</p>
+    </li><li name="jp.kobe_u.copris.smt.SmtSolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SmtSolverextendsAnyRef"></a>
+      <a id="SmtSolver:SmtSolver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SmtSolver.html"><span class="name">SmtSolver</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for SMT solvers
+</p>
+    </li><li name="jp.kobe_u.copris.smt.SmtSolverLogger" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SmtSolverLoggerextendsFileProcessLogger"></a>
+      <a id="SmtSolverLogger:SmtSolverLogger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SmtSolverLogger.html"><span class="name">SmtSolverLogger</span></a><span class="result"> extends <span class="extype" name="scala.sys.process.FileProcessLogger">FileProcessLogger</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for analyzing SMT solver log output
+</p>
+    </li><li name="jp.kobe_u.copris.smt.Solver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SolverextendsAbstractSolver"></a>
+      <a id="Solver:Solver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Solver.html"><span class="name">Solver</span></a><span class="result"> extends <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for Sugar solver
+</p>
+    </li><li name="jp.kobe_u.copris.smt.Translator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TranslatorextendsTranslator"></a>
+      <a id="Translator:Translator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Translator.html"><span class="name">Translator</span></a><span class="result"> extends <a href="../sugar/Translator.html" class="extype" name="jp.kobe_u.copris.sugar.Translator">sugar.Translator</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Class for translating CSP to SMT
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="jp.kobe_u.copris.smt.Z3" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Z3"></a>
+      <a id="Z3:Z3"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Z3$.html"><span class="name">Z3</span></a><span class="result"> extends <a href="SmtSolver.html" class="extype" name="jp.kobe_u.copris.smt.SmtSolver">SmtSolver</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Object for Z3 solver (&quot;z3&quot;)
+</p>
+    </li><li name="jp.kobe_u.copris.smt.dsl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="dsl"></a>
+      <a id="dsl:dsl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="dsl$.html"><span class="name">dsl</span></a><span class="result"> extends <a href="../CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Object for SMT DSL
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+    </body>
+      </html>

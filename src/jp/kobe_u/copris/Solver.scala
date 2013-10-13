@@ -101,6 +101,10 @@ class Timer(val timeout: Long) {
 trait SolverTrait {
   /** Initializes the solver */
   def init: Unit
+  /* */
+  def commit: Unit
+  /* */
+  def cancel: Unit
   /** Finds the first solution */
   def find: Boolean
   /** Finds the next solution */
@@ -169,9 +173,14 @@ abstract class AbstractSolver(csp: CSP) extends SolverTrait {
     throw new InterruptedException("Timeout (" + timeout + ") exceeded")
   }
 
+  /** Info of the solver (experimental) */
+  var solverInfo: Map[String,String] = Map.empty
+  /** Adds the info */
+  def addSolverInfo(key: String, value: String) {
+    solverInfo += key -> value
+  }
   /** Status of the solver (experimental) */
-  var solverStats: Seq[Map[String,Map[String,Number]]] =
-    Seq(Map.empty)
+  var solverStats: Seq[Map[String,Map[String,Number]]] = Seq(Map.empty)
   /** Shifts the status (experimental) */
   def shiftSolverStats =
     solverStats = solverStats :+ Map.empty
@@ -210,6 +219,12 @@ abstract class AbstractSolver(csp: CSP) extends SolverTrait {
         raiseTimeout
       }
     }
+  }
+
+  /* */
+  def init {
+    solverInfo = Map.empty
+    solverStats = Seq(Map.empty)
   }
 
   /** Body of the `find` method */
@@ -294,6 +309,8 @@ abstract class AbstractSolver(csp: CSP) extends SolverTrait {
 	solution
       }
   }
+  /* */
+  def dump(fileName: String): Unit
 }
 
 /**

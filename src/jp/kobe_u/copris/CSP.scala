@@ -81,6 +81,8 @@ sealed abstract class Term extends Expr {
   def > (a: Int) = Gt(this, Num(a))
   /** Returns this >= 1 */
   def ? = Ge(this, ONE)
+  /** Returns this <= 0 */
+  def ! = Le(this, ZERO)
 
   /** Returns the value of the term */
   def value(solution: Solution): Int
@@ -120,6 +122,7 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
   var aux = false
   /** Returns a new variable with extra indices given by `is1` */
   def apply(is1: Any*) = {
+    require(is1.forall{ case _: Expr => false case _ => true })
     val v = Var(name, is ++ is1.map(_.toString): _*)
     v.aux = aux
     v
@@ -288,6 +291,10 @@ sealed abstract class Constraint extends Expr {
   def ^ (c: Constraint) = Xor(this, c)
   /** Returns [[jp.kobe_u.copris.Iff]] of Constraints */
   def <==> (c: Constraint) = Iff(this, c)
+  /** Returns If(this, 1, 0) */
+  def toInt = If(this, ONE, ZERO)
+  /** Returns If(this, 1, 0) */
+  def $ = toInt
 
   /** Returns the value of the constraint */
   def value(solution: Solution): Boolean
@@ -322,6 +329,7 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
   var aux = false
   /** Returns a new variable with extra indices given by `is1` */
   def apply(is1: Any*) = {
+    require(is1.forall{ case _: Expr => false case _ => true })
     val p = Bool(name, is ++ is1.map(_.toString): _*)
     p.aux = aux
     p
@@ -679,6 +687,21 @@ object Domain {
   /** Returns [[jp.kobe_u.copris.SetDomain]] */
   def apply(values: Set[Int]) =
     SetDomain(SortedSet(values.toSeq: _*))
+}
+/**
+ * Case class of enum domain
+ */
+case class EnumDomain[A](values: A*) {
+  /** Returns the size of the EnumDomain */
+  def size = values.size
+  /** Returns the i-th value */
+  def apply(i: Int): A = values(i)
+  /** Checks the domain contains the given value */
+  def contains(value: A) = values.contains(value)
+  /** Returns the index of the given value */
+  def id(value: A): Int = values.indexOf(value)
+  override def toString =
+    productPrefix + values.mkString("(", ",", ")")
 }
 
 /**

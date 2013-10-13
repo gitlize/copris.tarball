@@ -4,12 +4,12 @@
  */
 
 import jp.kobe_u.copris._
+import jp.kobe_u.copris.dsl._
 
 /**
  * First-step program in Copris
  */
 object FirstStep {
-  import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
     val x = int('x, 0, 7)
     val y = int('y, 0, 7)
@@ -26,7 +26,6 @@ object FirstStep {
  * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
  */
 object Queens4 {
-  import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
     int('q(1), 1, 4)
     int('q(2), 1, 4)
@@ -46,21 +45,20 @@ object Queens4 {
  * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
  */
 object Queens {
-  import jp.kobe_u.copris.dsl._
   def queens(n: Int) = {
     for (i <- 1 to n) int('q(i), 1, n)
     add(Alldifferent((1 to n).map(i => 'q(i))))
     add(Alldifferent((1 to n).map(i => 'q(i) + i)))
     add(Alldifferent((1 to n).map(i => 'q(i) - i)))
+  }
+  def main(args: Array[String]) = {
+    val n = if (args.size > 0) args(0).toInt else 4
+    queens(n)
     if (find) {
       do {
         println(solution)
       } while (findNext)
     }
-  }
-  def main(args: Array[String]) = {
-    val n = if (args.size > 0) args(0).toInt else 4
-    queens(n)
   }
 }
 
@@ -70,14 +68,17 @@ object Queens {
  * @see [[http://en.wikipedia.org/wiki/Eight_queens_puzzle]]
  */
 object QueensBench {
-  import jp.kobe_u.copris.sugar._
-  import jp.kobe_u.copris.sugar.dsl._
   def queens(n: Int) = {
     for (i <- 1 to n) int('q(i), 1, n)
     add(Alldifferent((1 to n).map(i => 'q(i))))
     add(Alldifferent((1 to n).map(i => 'q(i) + i)))
     add(Alldifferent((1 to n).map(i => 'q(i) - i)))
+  }
+  def main(args: Array[String]) = {
+    val n = if (args.size > 0) args(0).toInt else 4
+    queens(n)
 
+    use(new sugar.Solver(csp))
     var time = scala.compat.Platform.currentTime
     if (find) {
       println(solution)
@@ -85,17 +86,13 @@ object QueensBench {
     time = scala.compat.Platform.currentTime - time
     println(time)
 
-    use(MiniSat)
+    use(new sugar.Solver(csp, new sugar.SatSolver2("minisat")))
     time = scala.compat.Platform.currentTime
     if (find) {
       println(solution)
     }
     time = scala.compat.Platform.currentTime - time
     println(time)
-  }
-  def main(args: Array[String]) = {
-    val n = if (args.size > 0) args(0).toInt else 4
-    queens(n)
   }
 }
 
@@ -104,7 +101,6 @@ object QueensBench {
  * @see [[http://en.wikipedia.org/wiki/Magic_square]]
  */
 object MagicSquare3 {
-  import jp.kobe_u.copris.dsl._
   def main(args: Array[String]) = {
     int('x11, 1, 9); int('x12, 1, 9); int('x13, 1, 9)
     int('x21, 1, 9); int('x22, 1, 9); int('x23, 1, 9)
@@ -134,7 +130,6 @@ object MagicSquare3 {
  * @see [[http://en.wikipedia.org/wiki/Magic_square]]
  */
 object MagicSquare {
-  import jp.kobe_u.copris.dsl._
   def magicSquare(n: Int) = {
     val n2 = n * n
     val sum = n * (n2+1) / 2
@@ -151,16 +146,16 @@ object MagicSquare {
     }
     add(Add(for (i <- 1 to n) yield 'x(i,i)) === sum)
     add(Add(for (i <- 1 to n) yield 'x(i,n-i+1)) === sum)
+  }
+  def main(args: Array[String]) = {
+    val n = if (args.size > 0) args(0).toInt else 3
+    magicSquare(n)
     if (find) {
       for (i <- 1 to n) {
         val as = for (j <- 1 to n) yield solution('x(i,j))
         println(as.map("%3d".format(_)).mkString(""))
       }
     }
-  }
-  def main(args: Array[String]) = {
-    val n = if (args.size > 0) args(0).toInt else 3
-    magicSquare(n)
   }
 }
 
@@ -170,7 +165,6 @@ object MagicSquare {
  * @see [[http://en.wikipedia.org/wiki/Knight_tour]]
  */
 object KnightTour {
-  import jp.kobe_u.copris.sugar.dsl._
   def knightTour(n: Int) = {
     val xs = for (i <- 1 to n; j <- 1 to n) yield 'x(i, j)
     int(xs, 1, n*n)
@@ -179,23 +173,23 @@ object KnightTour {
     for (i <- 1 to n; j <- 1 to n) {
       val cs = for {
         (di, dj) <- moves
-        val i1 = i + di; val j1 = j + dj
+        i1 = i + di; j1 = j + dj
         if 1 <= i1 && i1 <= n && 1 <= j1 && j1 <= n
       } yield 'x(i,j) + 1 === 'x(i1,j1) ||
               ('x(i,j) === n*n && 'x(i1,j1) === 1)
       add(Or(cs))
     }
-    use(sugar.MiniSat)
+  }
+  def main(args: Array[String]) = {
+    val n = if (args.size > 0) args(0).toInt else 6
+    knightTour(n)
+    use(new sugar.Solver(csp, new sugar.SatSolver2("minisat")))
     if (find) {
       for (i <- 1 to n) {
         val as = for (j <- 1 to n) yield solution('x(i,j))
         println(as.map("%3d".format(_)).mkString(""))
       }
     }
-  }
-  def main(args: Array[String]) = {
-    val n = if (args.size > 0) args(0).toInt else 6
-    knightTour(n)
   }
 }
 
@@ -207,12 +201,11 @@ object KnightTour {
  * @see [[http://en.wikipedia.org/wiki/Squaring_the_square]]
  */
 object PerfectSquare {
-  import jp.kobe_u.copris.sugar.dsl._
-  def main(args: Array[String]) = {
-    val size = 112
-    val s =
-      List(2,4,6,7,8,9,11,15,16,17,18,19,24,25,27,29,33,35,37,42,50)
-    val n = s.size
+  val size = 112
+  val s =
+    List(2,4,6,7,8,9,11,15,16,17,18,19,24,25,27,29,33,35,37,42,50)
+  val n = s.size
+  def define {
     for (i <- 0 to n-1) {
       int('x(i), 0, size - s(i))
       int('y(i), 0, size - s(i))
@@ -221,15 +214,21 @@ object PerfectSquare {
       add('x(i) + s(i) <= 'x(j) || 'x(j) + s(j) <= 'x(i) ||
           'y(i) + s(i) <= 'y(j) || 'y(j) + s(j) <= 'y(i))
     }
-    use(sugar.MiniSat)
+  }
+  def showSolution {
+    val a = Array.ofDim[Char](size, size)
+    for {i <- 0 to n-1
+         x <- solution('x(i)) to solution('x(i))+s(i)-1
+         y <- solution('y(i)) to solution('y(i))+s(i)-1}
+    a(x)(y) = ('A' to 'Z')(i)
+    for (x <- 0 to size-1)
+      println((0 to size-1).map(a(x)(_)).mkString(""))
+  }
+  def main(args: Array[String]) = {
+    define
+    use(new sugar.Solver(csp, new sugar.SatSolver2("minisat")))
     if (find) {
-      val a = Array.ofDim[Char](size, size)
-      for {i <- 0 to n-1
-           x <- solution('x(i)) to solution('x(i))+s(i)-1
-           y <- solution('y(i)) to solution('y(i))+s(i)-1}
-        a(x)(y) = ('A' to 'Z')(i)
-      for (x <- 0 to size-1)
-        println((0 to size-1).map(a(x)(_)).mkString(""))
+      showSolution
     }
   }
 }
@@ -241,7 +240,6 @@ object PerfectSquare {
  * MiniSat is used in this program.
  */
 object SquarePacking {
-  import jp.kobe_u.copris.sugar.dsl._
   def showSolution(n: Int, size: Int) {
     val a = Array.ofDim[Char](size, size)
     for (x <- 0 to size-1; y <- 0 to size-1)
@@ -269,7 +267,6 @@ object SquarePacking {
             'y(i) + i <= 'y(j) || 'y(j) + j <= 'y(i))
       }
       add('x(n-1) <= 'x(n) && 'y(n-1) <= 'y(n))
-      use(sugar.MiniSat)
       if (find) {
         showSolution(n, size)
         found = true
@@ -282,6 +279,7 @@ object SquarePacking {
     val n = if (args.size > 0) args(0).toInt else 4
     val area = (1 to n).map(i => i*i).sum
     val size = if (args.size > 1) args(1).toInt else math.ceil(math.sqrt(area)).toInt
+    use(new sugar.Solver(csp, new sugar.SatSolver2("minisat")))
     squares(n, size)
   }
 }
@@ -291,7 +289,6 @@ object SquarePacking {
  * MiniSat is used in this program.
  */
 object OSS {
-  import jp.kobe_u.copris.sugar.dsl._
   val gp03_01 = Seq(
     Seq(661,   6, 333),
     Seq(168, 489, 343),
@@ -307,14 +304,11 @@ object OSS {
     Seq(  3,  12,   5,   1,   1, 101, 419, 137,  91, 230),
     Seq(  5, 324,   1,   1,   2, 183, 332,   4, 147,   1),
     Seq(201,  56, 185, 240,   1,   1,   6, 308,   1,   1))
-  var pt: Seq[Seq[Int]] = null
-  def n = pt.size
-  def lb = pt.map(_.sum).max
-  def ub =
-    (0 until n).map(k => (0 until n).map(i => pt(i)((i + k) % n)).max).sum
-  def main(args: Array[String]) = {
-    // pt = gp03_01
-    pt = gp10_10
+  def define(pt: Seq[Seq[Int]]) {
+    def n = pt.size
+    def lb = pt.map(_.sum).max
+    def ub =
+      (0 until n).map(k => (0 until n).map(i => pt(i)((i + k) % n)).max).sum
     int('makespan, lb, ub)
     minimize('makespan)
     for (i <- 0 until n; j <- 0 until n) {
@@ -331,7 +325,11 @@ object OSS {
         add('s(i,j) + pt(i)(j) <= 's(k,j) ||
             's(k,j) + pt(k)(j) <= 's(i,j))
     }
-    use(sugar.MiniSat)
+  }
+  def main(args: Array[String]) = {
+    // define(gp03_01)
+    define(gp10_10)
+    use(new sugar.Solver(csp, new sugar.SatSolver2("minisat")))
     if (findOpt) {
       println(solution)
     }
