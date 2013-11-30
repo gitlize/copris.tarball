@@ -2,7 +2,6 @@ package jp.kobe_u.copris.smt
 
 import jp.kobe_u.copris._
 import jp.kobe_u.copris.sugar.{Translator => SugarTranslator}
-// import jp.kobe_u.copris.sugar.{Encoder => SugarEncoder}
 import jp.kobe_u.{sugar => javaSugar}
 import jp.kobe_u.sugar.expression.{Expression => SugarExpr}
 
@@ -54,6 +53,7 @@ class SmtSolver(command: String, opts: Seq[String] = Seq.empty) {
     logger.close
     rc
   }
+  override def toString = command
 }
 /**
  * Object for Z3 solver ("z3")
@@ -90,11 +90,13 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
     val expressions = translator.toSugar(csp)
     solver.checkTimeout
     // println("Converting")
-    // no_norm,no_reduce
+    javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true
+    // no_norm,no_reduce,no_decomp_alldiff,replace_args,no_hints
     javaSugar.converter.Converter.NORMALIZE_LINEARSUM = false
     javaSugar.converter.Converter.REDUCE_ARITY = false
-    // javaSugar.converter.Converter.DECOMPOSE_ALLDIFFERENT = false
-    // javaSugar.converter.Converter.HINT_ALLDIFF_PIGEON = false
+    javaSugar.converter.Converter.DECOMPOSE_ALLDIFFERENT = false
+    javaSugar.converter.Converter.REPLACE_ARGUMENTS = true
+    javaSugar.converter.Converter.HINT_ALLDIFF_PIGEON = false
     converter.convert(expressions)
     solver.checkTimeout
     expressions.clear
@@ -106,9 +108,8 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
       false
     else {
       // println("Simplifying")
-      sugarCSP.simplify
-      solver.checkTimeout
-      // println("Encoding")
+      // sugarCSP.simplify
+      // solver.checkTimeout
       val outSmt = new javaSugar.OutputSMT()
       val out = new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter(smtFileName)))
       outSmt.setCSP(sugarCSP)
@@ -127,12 +128,14 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
     val expressions = translator.toSugarDelta(csp)
     solver.checkTimeout
     javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = false
-    // no_norm,no_reduce
+    // no_norm,no_reduce,no_decomp_alldiff,replace_args,no_hints
     javaSugar.converter.Converter.NORMALIZE_LINEARSUM = false
     javaSugar.converter.Converter.REDUCE_ARITY = false
-    // javaSugar.converter.Converter.DECOMPOSE_ALLDIFFERENT = false
-    // javaSugar.converter.Converter.HINT_ALLDIFF_PIGEON = false
+    javaSugar.converter.Converter.DECOMPOSE_ALLDIFFERENT = false
+    javaSugar.converter.Converter.REPLACE_ARGUMENTS = true
+    javaSugar.converter.Converter.HINT_ALLDIFF_PIGEON = false
     converter.convert(expressions)
+    javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true
     solver.checkTimeout
     expressions.clear
     SugarExpr.clear
@@ -144,6 +147,7 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
     outSmt.setFormat("smt")
     outSmt.output()
     out.close()
+    solver.checkTimeout
   }
   def decode(outFileName: String): Option[Solution] = {
     import scala.io.Source
@@ -182,9 +186,10 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
 }
 
 /**
- * Class for Sugar solver
+ * Class for SMT solver
  */
 class Solver(csp: CSP, var smtSolver: SmtSolver = Z3) extends AbstractSolver(csp) {
+  val solverName = "smt"
   var smtFileName: String = null
   var outFileName: String = null
   var encoder: Encoder = null
@@ -213,6 +218,8 @@ class Solver(csp: CSP, var smtSolver: SmtSolver = Z3) extends AbstractSolver(csp
     encoder.init
     solution = null
     initial = true
+    addSolverInfo("solver", solverName)
+    addSolverInfo("smtSolver", smtSolver.toString)
     addSolverInfo("smtFile", smtFileName)
   }
   def encode: Boolean = {
@@ -225,7 +232,7 @@ class Solver(csp: CSP, var smtSolver: SmtSolver = Z3) extends AbstractSolver(csp
       encoder.encodeDelta
     }
   }
-  @deprecated("use encodeDelta method of [[jp.kobe_u.copris.sugar.Solver]] instead", "2.2.0")
+  @deprecated("use encodeDelta method of [[jp.kobe_u.copris.smt.Solver]] instead", "2.2.0")
   def addDelta = encodeDelta
   def smtSolve: Boolean = {
     // addSolverStat("smt", "size", encoder.encoder.getSatFileSize)
@@ -331,7 +338,7 @@ class Solver(csp: CSP, var smtSolver: SmtSolver = Z3) extends AbstractSolver(csp
         false
       }
     } else {
-      throw new javaSugar.SugarException("Objective variable is not defined")
+      throw new RuntimeException("Objective variable is not defined")
     }
   }
   def findOptBoundBody(lb: Int, ub: Int) = {
@@ -344,9 +351,13 @@ class Solver(csp: CSP, var smtSolver: SmtSolver = Z3) extends AbstractSolver(csp
     }
     smtSolve
   }
-  def dump(fileName: String) {
-    val encoder = new Encoder(csp, this, fileName)
-    encoder.encode
+  def dump(fileName: String, format: String) {
+    format match {
+      case "" | "smt" => {
+        val encoder = new Encoder(csp, this, fileName)
+        encoder.encode
+      }
+    }
   }
 }
 
@@ -366,8 +377,10 @@ class SMT(val csp: CSP, var solver: Solver) extends CoprisTrait {
     case sugarSolver: Solver =>
       solver = sugarSolver
   }
-  def use(newSmtSolver: SmtSolver): Unit =
+  def use(newSmtSolver: SmtSolver): Unit = {
     solver.smtSolver = newSmtSolver
+    solver.addSolverInfo("smtSolver", newSmtSolver.toString)
+  }
 }
 
 /**

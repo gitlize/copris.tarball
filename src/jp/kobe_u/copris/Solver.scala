@@ -310,7 +310,7 @@ abstract class AbstractSolver(csp: CSP) extends SolverTrait {
       }
   }
   /* */
-  def dump(fileName: String): Unit
+  def dump(fileName: String, format: String): Unit
 }
 
 /**

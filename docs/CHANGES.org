@@ -12,9 +12,28 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.2.4 [2013-12-01 Sun]
+  - "loader.SugarLoader" and "loader.XCSPLoader" are added.
+  - Format option is added to "dump" command.
+    : dump(fileName, "csp") // outputs CSP file
+    : dump(fileName, "cnf") // outputs CNF file
+* Version 2.2.3 [2013-11-10 Sun]
+  - "jp.kobe_u.copris.jsr331" package is added
+    + [[http://openrules.com/jsr331/][JSR-331]] solver can be used by the following method call in Copris DSL.
+      : use(new jsr331.Solver(csp))
+    + Note that the translation from Copris CSP to JSR-331 CSP is not optimized.
+    + You need to put JSR-331 implemetation jar files
+      (e.g. jsr331.choco.jar and choco-solver-2.1.5-20120603-with-sources.jar)
+      in lib/jsr331 directory.
+      See http://openrules.com/jsr331/downloads.htm.
+  - Expr#variables and Expr#bools methods are added
+  - Undeclared variables and bools are checked in "add" method.
 * Version 2.2.2 [2013-10-13 Sun]
   - Copris version 2.2.2 uses Sugar version 2.1.2 and Sat4j version 2.3.5.
   - "jp.kobe_u.copris.smt" package is added
+    + SMT solver [[http://z3.codeplex.com][Z3]] can be used by the following method call in Copris DSL.
+      : use(new smt.Solver(csp, new smt.SmtSolver("/usr/local/bin/z3"))
+    + Note that the translation from Copris CSP to SMT input file is not optimized.
 * Version 2.2.1
   - Method addition: x.! returns Le(x,0)
   - Method addition: x.$ returns If(x,1,0)

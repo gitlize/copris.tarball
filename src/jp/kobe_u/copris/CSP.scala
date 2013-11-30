@@ -8,7 +8,12 @@ import scala.collection.immutable.SortedSet
  * Abstract class of expressions.
  * [[jp.kobe_u.copris.Term]]s and [[jp.kobe_u.copris.Constraint]]s are expressions.
  */
-abstract class Expr
+abstract class Expr {
+  /** Returns an iterator of occuring variables */
+  def variables: Iterator[Var] = Iterator.empty
+  /** Returns an iterator of occuring Boolean variables */
+  def bools: Iterator[Bool] = Iterator.empty
+}
 
 /**
  * Abstract class of terms.
@@ -92,7 +97,7 @@ sealed abstract class Term extends Expr {
  */
 object NIL extends Term {
   def value(solution: Solution): Int =
-    throw new IllegalArgumentException("value of NIL is not defined")
+    throw new IllegalArgumentException("NIL: value of NIL is not defined")
   override def toString = "nil"
 }
 /**
@@ -122,7 +127,7 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
   var aux = false
   /** Returns a new variable with extra indices given by `is1` */
   def apply(is1: Any*) = {
-    require(is1.forall{ case _: Expr => false case _ => true })
+    require(is1.forall{ case _: Expr => false case _ => true }, "Var: Expr cannot be used as an index")
     val v = Var(name, is ++ is1.map(_.toString): _*)
     v.aux = aux
     v
@@ -134,6 +139,7 @@ case class Var(name: String, is: String*) extends Term with Ordering[Var] {
     else
       x1.str.compare(x2.str)
   }
+  override def variables = Iterator(this)
   def value(solution: Solution): Int = solution.intValues(this)
   override def toString =
     if (is.size == 0) name else is.mkString(name + "(", ",", ")")
@@ -152,12 +158,16 @@ object Var {
  * Case class for absolute value of term.
  */
 case class Abs(x0: Term) extends Term {
+  override def variables = x0.variables
+  override def bools = x0.bools
   def value(solution: Solution): Int = math.abs(x0.value(solution))
 }
 /**
  * Case class for negation of term.
  */
 case class Neg(x0: Term) extends Term {
+  override def variables = x0.variables
+  override def bools = x0.bools
   def value(solution: Solution): Int = - x0.value(solution)
 }
 /**
@@ -165,6 +175,8 @@ case class Neg(x0: Term) extends Term {
  * Companion object provies other factory methods.
  */
 case class Add(xs: Term*) extends Term {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Int = xs.map(_.value(solution)).sum
   override def toString = xs.mkString(productPrefix + "(", ",", ")")
 }
@@ -185,6 +197,8 @@ object Sum {
  * Companion object provies other factory methods.
  */
 case class Sub(xs: Term*) extends Term {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Int = xs.map(_.value(solution)) match {
     case Seq() => 0
     case Seq(a) => a
@@ -203,6 +217,8 @@ object Sub {
  * Companion object provies other factory methods.
  */
 case class Mul(xs: Term*) extends Term {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Int = xs.map(_.value(solution)).product
   override def toString = xs.mkString(productPrefix + "(", ",", ")")
 }
@@ -216,6 +232,8 @@ object Mul {
  * Case class for division of terms.
  */
 case class Div(x0: Term, x1: Term) extends Term {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Int = {
     val a0 = x0.value(solution)
     val a1 = x1.value(solution)
@@ -230,6 +248,8 @@ case class Div(x0: Term, x1: Term) extends Term {
  * Case class for remainder of terms.
  */
 case class Mod(x0: Term, x1: Term) extends Term {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Int = {
     val r = x0.value(solution) % x1.value(solution)
     if (r > 0) r else r + x1.value(solution)
@@ -240,6 +260,8 @@ case class Mod(x0: Term, x1: Term) extends Term {
  * Companion object provies other factory methods.
  */
 case class Max(xs: Term*) extends Term {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Int = xs.map(_.value(solution)).max
   override def toString = xs.mkString(productPrefix + "(", ",", ")")
 }
@@ -254,6 +276,8 @@ object Max {
  * Companion object provies other factory methods.
  */
 case class Min(xs: Term*) extends Term {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Int = xs.map(_.value(solution)).min
   override def toString = xs.mkString(productPrefix + "(", ",", ")")
 }
@@ -267,6 +291,8 @@ object Min {
  * Case class for if expressions.
  */
 case class If(c: Constraint, x0: Term, x1: Term) extends Term {
+  override def variables = c.variables ++ x0.variables ++ x1.variables
+  override def bools = c.bools ++ x0.bools ++ x1.bools
   def value(solution: Solution): Int =
     if (c.value(solution)) x0.value(solution) else x1.value(solution)
 }
@@ -329,7 +355,7 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
   var aux = false
   /** Returns a new variable with extra indices given by `is1` */
   def apply(is1: Any*) = {
-    require(is1.forall{ case _: Expr => false case _ => true })
+    require(is1.forall{ case _: Expr => false case _ => true }, "Bool: Expr cannot be used as an index")
     val p = Bool(name, is ++ is1.map(_.toString): _*)
     p.aux = aux
     p
@@ -341,6 +367,7 @@ case class Bool(name: String, is: String*) extends Constraint with Ordering[Bool
     else
       x1.str.compare(x2.str)
   }
+  override def bools = Iterator(this)
   def value(solution: Solution): Boolean = solution.boolValues(this)
   override def toString =
     if (is.size == 0) name else is.mkString(name + "(", ",", ")")
@@ -359,6 +386,8 @@ object Bool {
  * Case class for logical negation of constaint.
  */
 case class Not(c0: Constraint) extends Constraint {
+  override def variables = c0.variables
+  override def bools = c0.bools
   def value(solution: Solution): Boolean = ! c0.value(solution)
 }
 /**
@@ -366,6 +395,8 @@ case class Not(c0: Constraint) extends Constraint {
  * Companion object provies other factory methods.
  */
 case class And(cs: Constraint*) extends Constraint {
+  override def variables = cs.toIterator.flatMap(_.variables)
+  override def bools = cs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean = cs.forall(_.value(solution))
   override def toString = cs.mkString(productPrefix + "(", ",", ")")
 }
@@ -380,6 +411,8 @@ object And {
  * Companion object provies other factory methods.
  */
 case class Or(cs: Constraint*) extends Constraint {
+  override def variables = cs.toIterator.flatMap(_.variables)
+  override def bools = cs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean = cs.exists(_.value(solution))
   override def toString = cs.mkString(productPrefix + "(", ",", ")")
 }
@@ -393,54 +426,72 @@ object Or {
  * Case class for implication of constaint.
  */
 case class Imp(c0: Constraint, c1: Constraint) extends Constraint {
+  override def variables = c0.variables ++ c1.variables
+  override def bools = c0.bools ++ c1.bools
   def value(solution: Solution): Boolean = ! c0.value(solution) || c1.value(solution)
 }
 /**
  * Case class for exclusive-or of constaint.
  */
 case class Xor(c0: Constraint, c1: Constraint) extends Constraint {
+  override def variables = c0.variables ++ c1.variables
+  override def bools = c0.bools ++ c1.bools
   def value(solution: Solution): Boolean = c0.value(solution) ^ c1.value(solution)
 }
 /**
  * Case class for if-and-only-if of constaint.
  */
 case class Iff(c0: Constraint, c1: Constraint) extends Constraint {
+  override def variables = c0.variables ++ c1.variables
+  override def bools = c0.bools ++ c1.bools
   def value(solution: Solution): Boolean = c0.value(solution) == c1.value(solution)
 }
 /**
  * Case class for equals constraints.
  */
 case class Eq(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) == x1.value(solution)
 }
 /**
  * Case class for not-equals constraints.
  */
 case class Ne(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) != x1.value(solution)
 }
 /**
  * Case class for less-than-or-equals constraints.
  */
 case class Le(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) <= x1.value(solution)
 }
 /**
  * Case class for less-than constraints.
  */
 case class Lt(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) < x1.value(solution)
 }
 /**
  * Case class for greater-than-or-equals constraints.
  */
 case class Ge(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) >= x1.value(solution)
 }
 /**
  * Case class for greater-than constraints.
  */
 case class Gt(x0: Term, x1: Term) extends Constraint {
+  override def variables = x0.variables ++ x1.variables
+  override def bools = x0.bools ++ x1.bools
   def value(solution: Solution): Boolean = x0.value(solution) > x1.value(solution)
 }
 /**
@@ -449,6 +500,8 @@ case class Gt(x0: Term, x1: Term) extends Constraint {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Calldifferent.html]]
  */
 case class Alldifferent(xs: Term*) extends GlobalConstraint {
+  override def variables = xs.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean = {
     val as = xs.map(_.value(solution))
     (0 until as.size).forall(i => (i+1 until as.size).forall(j => as(i) != as(j)))
@@ -465,7 +518,9 @@ object Alldifferent {
  * Case class for Weightedsum global constraints.
  */
 case class Weightedsum(axs: Seq[(Int,Term)], cmp: String, b: Term) extends GlobalConstraint {
-  require(cmp.matches("eq|ne|lt|le|gt|ge"))
+  require(cmp.matches("eq|ne|lt|le|gt|ge"), "Weightedsum: Comparison should be one of eq,ne,lt,le,gt,ge")
+  override def variables = axs.toIterator.flatMap(_._2.variables) ++ b.variables
+  override def bools = axs.toIterator.flatMap(_._2.bools) ++ b.bools
   def value(solution: Solution): Boolean = {
     val sum = axs.map(ax => ax._1 * ax._2.value(solution)).sum
     cmp match {
@@ -485,6 +540,14 @@ case class Weightedsum(axs: Seq[(Int,Term)], cmp: String, b: Term) extends Globa
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Ccumulative.html]]
  */
 case class Cumulative(tasks: Seq[(Term,Term,Term,Term)], limit: Term) extends GlobalConstraint {
+  override def variables = {
+    val vs = for (p <- tasks.toIterator; t <- p.productIterator; v <- t.asInstanceOf[Expr].variables) yield v
+    vs ++ limit.variables
+  }
+  override def bools = {
+    val vs = for (p <- tasks.toIterator; t <- p.productIterator; v <- t.asInstanceOf[Expr].bools) yield v
+    vs ++ limit.bools
+  }
   def value(solution: Solution): Boolean = {
     def value(x: Term) = x.value(solution)
     def taskBlock(task: (Term,Term,Term,Term)) = {
@@ -513,6 +576,8 @@ case class Cumulative(tasks: Seq[(Term,Term,Term,Term)], limit: Term) extends Gl
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Celement.html]]
  */
 case class Element(i: Term, xs: Seq[Term], xi: Term) extends GlobalConstraint {
+  override def variables = i.variables ++ xs.toIterator.flatMap(_.variables) ++ xi.variables
+  override def bools = i.bools ++ xs.toIterator.flatMap(_.bools) ++ xi.bools
   def value(solution: Solution): Boolean = {
     val as = xs.map(_.value(solution))
     as(i.value(solution) - 1) == xi.value(solution)
@@ -526,6 +591,10 @@ case class Element(i: Term, xs: Seq[Term], xi: Term) extends GlobalConstraint {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Cdisjunctive.html]]
  */
 case class Disjunctive(tasks: (Term,Term)*) extends GlobalConstraint {
+  override def variables =
+    for (p <- tasks.toIterator; t <- p.productIterator; v <- t.asInstanceOf[Expr].variables) yield v
+  override def bools =
+    for (p <- tasks.toIterator; t <- p.productIterator; v <- t.asInstanceOf[Expr].bools) yield v
   def value(solution: Solution): Boolean = {
     val ts = tasks.map(task => (task._1.value(solution), task._2.value(solution)))
     (0 until ts.size).forall { i =>
@@ -548,6 +617,8 @@ object Disjunctive {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Clex_less.html]]
  */
 case class LexLess(xs: Seq[Term], ys: Seq[Term]) extends GlobalConstraint {
+  override def variables = xs.toIterator.flatMap(_.variables) ++ ys.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools) ++ ys.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean = {
     def less(as: Seq[Int], bs: Seq[Int]): Boolean =
       if (as.isEmpty || bs.isEmpty)
@@ -564,6 +635,8 @@ case class LexLess(xs: Seq[Term], ys: Seq[Term]) extends GlobalConstraint {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Clex_lesseq.html]]
  */
 case class LexLesseq(xs: Seq[Term], ys: Seq[Term]) extends GlobalConstraint {
+  override def variables = xs.toIterator.flatMap(_.variables) ++ ys.toIterator.flatMap(_.variables)
+  override def bools = xs.toIterator.flatMap(_.bools) ++ ys.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean = {
     def lessEq(as: Seq[Int], bs: Seq[Int]): Boolean =
       if (as.isEmpty || bs.isEmpty)
@@ -580,6 +653,8 @@ case class LexLesseq(xs: Seq[Term], ys: Seq[Term]) extends GlobalConstraint {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Cnvalue.html]]
  */
 case class Nvalue(count: Term, xs: Seq[Term]) extends GlobalConstraint {
+  override def variables = count.variables ++ xs.toIterator.flatMap(_.variables)
+  override def bools = count.bools ++ xs.toIterator.flatMap(_.bools)
   def value(solution: Solution): Boolean =
     xs.map(_.value(solution)).toSet.size == count.value(solution)
   override def toString =
@@ -590,6 +665,8 @@ case class Nvalue(count: Term, xs: Seq[Term]) extends GlobalConstraint {
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Cglobal_cardinality.html]]
  */
 case class GlobalCardinality(xs: Seq[Term], card: Seq[(Int,Term)]) extends GlobalConstraint {
+  override def variables = xs.toIterator.flatMap(_.variables) ++ card.toIterator.flatMap(_._2.variables)
+  override def bools = xs.toIterator.flatMap(_.bools) ++ card.toIterator.flatMap(_._2.bools)
   def value(solution: Solution): Boolean = {
     val as = xs.map(_.value(solution))
     card.forall {
@@ -605,6 +682,8 @@ case class GlobalCardinality(xs: Seq[Term], card: Seq[(Int,Term)]) extends Globa
  */
 case class GlobalCardinalityWithCosts(xs: Seq[Term], card: Seq[(Int,Term)],
                                       table: Seq[(Int,Int,Int)], cost: Term) extends GlobalConstraint {
+  override def variables = xs.toIterator.flatMap(_.variables) ++ card.toIterator.flatMap(_._2.variables) ++ cost.variables
+  override def bools = xs.toIterator.flatMap(_.bools) ++ card.toIterator.flatMap(_._2.bools) ++ cost.bools
   def value(solution: Solution): Boolean = {
     def getCost(i: Int, a: Int) = {
       val j = card.indexWhere(_._1 == a) + 1
@@ -626,7 +705,9 @@ case class GlobalCardinalityWithCosts(xs: Seq[Term], card: Seq[(Int,Term)],
  * @see [[http://www.emn.fr/z-info/sdemasse/gccat/Ccount.html]]
  */
 case class Count(value: Term, xs: Seq[Term], cmp: String, count: Term) extends GlobalConstraint {
-  require(cmp.matches("eq|ne|lt|le|gt|ge"))
+  require(cmp.matches("eq|ne|lt|le|gt|ge"), "Count: Comparison should be one of eq,ne,lt,le,gt,ge")
+  override def variables = value.variables ++ xs.toIterator.flatMap(_.variables) ++ count.variables
+  override def bools = value.bools ++ xs.toIterator.flatMap(_.bools) ++ count.bools
   def value(solution: Solution): Boolean = {
     val a = value.value(solution)
     val c = xs.map(_.value(solution)).count(_ == a)
@@ -659,7 +740,7 @@ abstract class Domain {
  * Case class of interval domain
  */
 case class IntervalDomain(lo: Int, hi: Int) extends Domain {
-  require(lo <= hi)
+  require(lo <= hi, s"IntervalDomain: $lo > $hi")
   def lb = lo
   def ub = hi
   def contains(a: Int): Boolean = lo <= a && a <= hi
@@ -724,7 +805,7 @@ trait CSPTrait {
     xs.foreach(_ match {
       case x: Var => int(x, d)
       case _ =>
-        throw new IllegalArgumentException("argument of int declaration should be a Var")
+        throw new IllegalArgumentException("int: argument of int declaration should be a Var")
     })
     xs
   }
@@ -745,7 +826,7 @@ trait CSPTrait {
     xs.foreach(_ match {
       case x: Var => boolInt(x)
       case _ =>
-        throw new IllegalArgumentException("argument of boolInt declaration should be a Var")
+        throw new IllegalArgumentException("boolInt: argument of boolInt declaration should be a Var")
     })
     xs
   }
@@ -823,7 +904,7 @@ case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
    */
   def int(x: Var, d: Domain): Var = {
     if (variablesSet.contains(x))
-      throw new IllegalArgumentException("duplicate int " + x)
+      throw new IllegalArgumentException("int: duplicate int declaration of " + x)
     variablesSet += x; variables = variables :+ x; dom += x -> d; x
   }
   /**
@@ -836,17 +917,24 @@ case class CSP(var variables: IndexedSeq[Var] = IndexedSeq(),
    */
   def bool(p: Bool): Bool = {
     if (boolsSet.contains(p))
-      throw new IllegalArgumentException("duplicate bool " + p)
+      throw new IllegalArgumentException("bool: duplicate bool declaration of " + p)
     boolsSet += p; bools = bools :+ p; p
   }
   /**
    * Adds constraints
    */
-  def add(cs: Constraint*): Unit =
+  def add(cs: Constraint*): Unit = {
+    val badVariables = cs.toIterator.flatMap(_.variables).filter(! variablesSet.contains(_))
+    val badBools = cs.toIterator.flatMap(_.bools).filter(! boolsSet.contains(_))
+    if (! badVariables.isEmpty)
+      throw new IllegalArgumentException("add: undeclared int variables " + badVariables.mkString(","))
+    if (! badBools.isEmpty)
+      throw new IllegalArgumentException("add: undeclared bool variables " + badBools.mkString(","))
     if (cs.size == 1)
       constraints = constraints :+ cs(0)
     else
       constraints = constraints ++ cs
+  }
   /**
    * Commits the changes made for the CSP.
    */

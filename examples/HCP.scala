@@ -63,6 +63,10 @@ abstract class CoprisApp extends Copris {
       use(new smt.Solver(csp, smtSolver))
       parseOptions(rest)
     }
+    case "-jsr331" :: rest => {
+      use(new jsr331.Solver(csp))
+      parseOptions(rest)
+    }
     case "-dump" :: file :: rest =>
       { dumpFile = file; parseOptions(rest) }
     case "-q" :: rest =>
@@ -76,6 +80,7 @@ abstract class CoprisApp extends Copris {
     println("\t-s1 solver  : Use SAT solver (minisat, etc.)")
     println("\t-s2 solver  : Use SAT solver (precosat, etc.)")
     println("\t-smt solver : Use SMT solver (z3, etc.)")
+    println("\t-jsr331     : Use JSR331 solver")
   }
 }
 

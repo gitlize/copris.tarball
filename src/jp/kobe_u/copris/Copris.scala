@@ -51,7 +51,9 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   /** Shows the CSP */
   def show = print(csp.output)
   /* */
-  def dump(fileName: String) { solver.dump(fileName) }
+  def dump(fileName: String) { solver.dump(fileName, "") }
+  /* */
+  def dump(fileName: String, format: String) { solver.dump(fileName, format) }
   /** Returns the current solution */
   def solution = solver.solution
   /** Returns the iterator of all solutions */

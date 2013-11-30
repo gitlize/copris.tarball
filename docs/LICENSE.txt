@@ -2,8 +2,9 @@ License
 
 Copris (Constraint Programming in Scala) version 1, 2
 
-Copyright (c) 2011, 2012
+Copyright (c) 2011, 2012, 2013
 by Naoyuki Tamura (tamura @ kobe-u.ac.jp),
+   Takehide Soh (soh @ lion.kobe-u.ac.jp),
    Tomoya Tanjo, and
    Mutsunori Banbara (banbara @ kobe-u.ac.jp)
 All rights reserved.

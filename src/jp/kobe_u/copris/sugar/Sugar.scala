@@ -45,6 +45,7 @@ abstract class SatSolver(command: String, opts: Seq[String]) {
     logger.close
     rc
   }
+  override def toString = command
 }
 /**
  * Class for SAT solvers with one argument
@@ -400,6 +401,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
     val expressions = translator.toSugar(csp)
     solver.checkTimeout
     // println("Converting")
+    javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true
     converter.convert(expressions)
     solver.checkTimeout
     expressions.clear
@@ -428,6 +430,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
     solver.checkTimeout
     javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = false
     converter.convert(expressions)
+    javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true
     solver.checkTimeout
     expressions.clear
     SugarExpr.clear
@@ -469,6 +472,7 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
  * Class for Sugar solver
  */
 class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(csp) {
+  val solverName = "sugar"
   var satFileName: String = null
   var mapFileName: String = null
   var outFileName: String = null
@@ -501,6 +505,8 @@ class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(
     encoder.init
     solution = null
     initial = true
+    addSolverInfo("solver", solverName)
+    addSolverInfo("satSolver", satSolver.toString)
     addSolverInfo("satFile", satFileName)
   }
   def encode: Boolean = {
@@ -621,7 +627,7 @@ class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(
         false
       }
     } else {
-      throw new javaSugar.SugarException("Objective variable is not defined")
+      throw new RuntimeException("Objective variable is not defined")
     }
   }
   def findOptBoundBody(lb: Int, ub: Int) = {
@@ -634,7 +640,7 @@ class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(
     }
     satSolve
   }
-  def dump(fileName: String) {
+  def dumpCSP(fileName: String) {
     import java.io._
     val translator = new Translator()
     val expressions = translator.toSugar(csp)
@@ -643,6 +649,22 @@ class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(
     for (i <- 0 until expressions.size)
       writer.write(expressions.get(i).toString + "\n")
     writer.close
+  }
+  def dumpCNF(fileName: String) {
+    import java.io._
+    import java.nio.channels._
+    if (initial) encode else encodeDelta
+    val in = new FileInputStream(satFileName).getChannel()
+    val out = new FileOutputStream(fileName).getChannel()
+    in.transferTo(0, in.size(), out)
+    in.close()
+    out.close()
+  }
+  def dump(fileName: String, format: String) {
+    format match {
+      case "" | "csp" => dumpCSP(fileName)
+      case "cnf" => dumpCNF(fileName)
+    }
   }
 }
 
@@ -662,8 +684,10 @@ class Sugar(val csp: CSP, var solver: Solver) extends CoprisTrait {
     case sugarSolver: Solver =>
       solver = sugarSolver
   }
-  def use(newSatSolver: SatSolver): Unit =
+  def use(newSatSolver: SatSolver): Unit = {
     solver.satSolver = newSatSolver
+    solver.addSolverInfo("satSolver", newSatSolver.toString)
+  }
 }
 
 /**
