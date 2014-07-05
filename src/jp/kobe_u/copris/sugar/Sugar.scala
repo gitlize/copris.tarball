@@ -413,7 +413,8 @@ class Encoder(csp: CSP, solver: Solver, satFileName: String, mapFileName: String
       false
     else {
       // println("Simplifying")
-      sugarCSP.simplify
+      val simplifier = new javaSugar.converter.Simplifier(sugarCSP)
+      simplifier.simplify
       solver.checkTimeout
       // println("Encoding")
       encoder.encode(satFileName, false)

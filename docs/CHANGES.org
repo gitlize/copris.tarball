@@ -12,6 +12,9 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.2.5 [2014-07-06 Sun]
+  - Implementation of PB encodings
+  - Bug fix of "Iff" in JSR331 translation
 * Version 2.2.4 [2013-12-01 Sun]
   - "loader.SugarLoader" and "loader.XCSPLoader" are added.
   - Format option is added to "dump" command.

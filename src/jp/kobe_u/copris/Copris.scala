@@ -17,8 +17,10 @@ trait CoprisTrait extends CSPTrait with SolverTrait {
   def solver: AbstractSolver
   /** Changes the solver to be used */
   def use(newSolver: AbstractSolver): Unit
+  /** Gets the options of the solver */
+  def options = solver.options
   /** Sets the options of the solver */
-  def options(opts: Map[String,String]): Unit =
+  def setOptions(opts: Map[String,String]): Unit =
     solver.options = opts
   /** Initializes the CSP and solver */
   def init { csp.init; solver.init }

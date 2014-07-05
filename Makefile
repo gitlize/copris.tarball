@@ -1,12 +1,12 @@
-VER = v2-2-4
-VERSION = 2.2.4
+VER = v2-2-5
+VERSION = 2.2.5
 
 APP0 = copris
 APP = $(APP0)-$(VER)
 JAR = $(APP).jar
 JARALL = $(APP0)-all-$(VER).jar
 ZIP = $(APP).zip
-SUGAR = lib/sugar-v2-1-3.jar
+SUGAR = lib/sugar-v2-2-1.jar
 SAT4J = lib/org.sat4j.core.jar
 JSR331 = lib/jsr331/jsr331.jar lib/jsr331/log4j-1.2.15.jar lib/jsr331/commons-logging-1.1.jar lib/jsr331/commons-logging-api-1.1.jar
 PROPERTIES = log4j.properties
@@ -33,7 +33,7 @@ scaladoc: docs/api/index.html
 
 zip: build/$(ZIP)
 
-build/$(JAR): $(SRCS)
+build/$(JAR): $(SRCS) $(SUGAR) $(SAT4J) $(JSR331)
 	mkdir -p build
 	mkdir -p classes
 	rm -rf classes/*

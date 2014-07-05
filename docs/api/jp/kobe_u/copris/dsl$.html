@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>dsl - Copris version 2.2.4 Core API Specification 2.2.4 - jp.kobe_u.copris.dsl</title>
-          <meta name="description" content="dsl - Copris version 2.2.4 Core API Specification 2.2.4 - jp.kobe u.copris.dsl" />
-          <meta name="keywords" content="dsl Copris version 2.2.4 Core API Specification 2.2.4 jp.kobe u.copris.dsl" />
+          <title>dsl - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.dsl</title>
+          <meta name="description" content="dsl - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.dsl" />
+          <meta name="keywords" content="dsl Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.dsl" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -684,18 +684,18 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#options" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="options(opts:Map[String,String]):Unit"></a>
-      <a id="options(Map[String,String]):Unit"></a>
+      <a id="options:scala.collection.Map[String,String]"></a>
+      <a id="options:Map[String,String]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">options</span><span class="params">(<span name="opts">opts: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">options</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Sets the options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Sets the options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
+      <p class="shortcomment cmt">Gets the options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Gets the options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#satisfiedBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="satisfiedBy(solution:jp.kobe_u.copris.Solution):Boolean"></a>
       <a id="satisfiedBy(Solution):Boolean"></a>
@@ -709,6 +709,19 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Checks whether the CSP is satisfied by the solution</p><div class="fullcomment"><div class="comment cmt"><p>Checks whether the CSP is satisfied by the solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.CoprisTrait#setOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setOptions(opts:Map[String,String]):Unit"></a>
+      <a id="setOptions(Map[String,String]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setOptions</span><span class="params">(<span name="opts">opts: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Sets the options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#show" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="show:Unit"></a>
       <a id="show:Unit"></a>
@@ -938,7 +951,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@17277b instead">value</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@211fc71 instead">value</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the Boolean variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
@@ -954,7 +967,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2112da instead">value</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@6ad45fc6 instead">value</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the integer variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
@@ -970,7 +983,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@15cb8bd instead">values</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1cdbf6f5 instead">values</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the Boolean variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
@@ -986,7 +999,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@64bd83 instead">values</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2d325da0 instead">values</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the integer variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>

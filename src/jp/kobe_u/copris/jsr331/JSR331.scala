@@ -99,15 +99,19 @@ class Translator(csp: CSP, problem: Jsr331Problem) {
     case Not(c0) =>
       toJsr331(c0).negation()
     case And(cs @ _*) =>
-      cs.map(toJsr331).reduce(_ and _)
+      if (cs.isEmpty) toJsr331(TRUE)
+      else if (cs.size == 1) toJsr331(cs(0))
+      else cs.map(toJsr331).reduce(_ and _)
     case Or(cs @ _*) =>
-      cs.map(toJsr331).reduce(_ or _)
+      if (cs.isEmpty) toJsr331(FALSE)
+      else if (cs.size == 1) toJsr331(cs(0))
+      else cs.map(toJsr331).reduce(_ or _)
     case Imp(c0, c1) =>
       toJsr331(c0).implies(toJsr331(c1))
     case Xor(c0, c1) =>
       toJsr331((c0 || c1) && (! c0 || ! c1))
     case Iff(c0, c1) =>
-      toJsr331((c0 ==> c1) && (c1 ==> c1))
+      toJsr331((c0 ==> c1) && (c1 ==> c0))
     case Eq(x0, x1) =>
       problem.linear(toJsr331(x0), "=", toJsr331(x1))
     case Ne(x0, x1) =>
