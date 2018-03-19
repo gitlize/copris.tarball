@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>And - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.And</title>
-          <meta name="description" content="And - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.And" />
-          <meta name="keywords" content="And Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.And" />
+          <title>And - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris.And</title>
+          <meta name="description" content="And - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris.And" />
+          <meta name="keywords" content="And Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris.And" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -24,9 +28,17 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="And$.html" title="Go to companion"><img src="../../../lib/class_to_object_big.png" /></a>
+        <a href="And$.html" title="See companion object"><img alt="Class/Object" src="../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="jp">jp</a>.<a href="../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="package.html" class="extype" name="jp.kobe_u.copris">copris</a></p>
-        <h1><a href="And$.html" title="Go to companion">And</a></h1>
+        <h1><a href="And$.html" title="See companion object">And</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="And$.html" title="See companion object">object And</a>
+            | <a href="package.html" class="extype" name="jp.kobe_u.copris">package copris</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -54,7 +66,7 @@ Companion object provies other factory methods.
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -67,9 +79,8 @@ Companion object provies other factory methods.
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -92,7 +103,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">And</span><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@&lt;init&gt;(cs:jp.kobe_u.copris.Constraint*):jp.kobe_u.copris.And" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -104,19 +119,6 @@ Companion object provies other factory methods.
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -127,8 +129,12 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -140,7 +146,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@##():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#$" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="$:jp.kobe_u.copris.If"></a>
@@ -153,7 +163,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">$</span><span class="result">: <a href="If.html" class="extype" name="jp.kobe_u.copris.If">If</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@$:jp.kobe_u.copris.If" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns If(this, 1, 0)</p><div class="fullcomment"><div class="comment cmt"><p>Returns If(this, 1, 0)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#&amp;&amp;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&amp;&amp;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.And"></a>
@@ -166,7 +180,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $amp$amp" class="name">&amp;&amp;</span><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result">: <a href="" class="extype" name="jp.kobe_u.copris.And">And</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@&amp;&amp;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.And" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="" class="extype" name="jp.kobe_u.copris.And">jp.kobe_u.copris.And</a> of Constraints</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="" class="extype" name="jp.kobe_u.copris.And">jp.kobe_u.copris.And</a> of Constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#&lt;==&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;==&gt;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Iff"></a>
@@ -179,22 +197,13 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $less$eq$eq$greater" class="name">&lt;==&gt;</span><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result">: <a href="Iff.html" class="extype" name="jp.kobe_u.copris.Iff">Iff</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@&lt;==&gt;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Iff" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Iff.html" class="extype" name="jp.kobe_u.copris.Iff">jp.kobe_u.copris.Iff</a> of Constraints</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Iff.html" class="extype" name="jp.kobe_u.copris.Iff">jp.kobe_u.copris.Iff</a> of Constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -205,8 +214,12 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#==&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==&gt;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Imp"></a>
       <a id="==&gt;(Constraint):Imp"></a>
@@ -218,7 +231,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $eq$eq$greater" class="name">==&gt;</span><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result">: <a href="Imp.html" class="extype" name="jp.kobe_u.copris.Imp">Imp</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@==&gt;(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Imp" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Imp.html" class="extype" name="jp.kobe_u.copris.Imp">jp.kobe_u.copris.Imp</a> of Constraints</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Imp.html" class="extype" name="jp.kobe_u.copris.Imp">jp.kobe_u.copris.Imp</a> of Constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#^" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="^(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Xor"></a>
@@ -231,7 +248,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $up" class="name">^</span><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result">: <a href="Xor.html" class="extype" name="jp.kobe_u.copris.Xor">Xor</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@^(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Xor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Xor.html" class="extype" name="jp.kobe_u.copris.Xor">jp.kobe_u.copris.Xor</a> of Constraints</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Xor.html" class="extype" name="jp.kobe_u.copris.Xor">jp.kobe_u.copris.Xor</a> of Constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -244,7 +265,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.And#bools" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="bools:Iterator[jp.kobe_u.copris.Bool]"></a>
@@ -257,7 +282,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">bools</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@bools:Iterator[jp.kobe_u.copris.Bool]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns an iterator of occuring Boolean variables</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator of occuring Boolean variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.And">And</a> → <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -270,7 +299,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@clone():Object" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -289,7 +322,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">cs</span><span class="result">: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@cs:jp.kobe_u.copris.Constraint*" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -302,7 +339,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -315,7 +356,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -334,7 +379,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -347,7 +396,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -360,7 +413,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -373,7 +430,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -386,7 +447,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -399,7 +464,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#toInt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toInt:jp.kobe_u.copris.If"></a>
@@ -412,7 +481,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">toInt</span><span class="result">: <a href="If.html" class="extype" name="jp.kobe_u.copris.If">If</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@toInt:jp.kobe_u.copris.If" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns If(this, 1, 0)</p><div class="fullcomment"><div class="comment cmt"><p>Returns If(this, 1, 0)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.And#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -425,7 +498,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@toString():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.And">And</a> → AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Constraint#unary_!" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unary_!:jp.kobe_u.copris.Not"></a>
@@ -438,7 +515,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: unary_$bang" class="name">unary_!</span><span class="result">: <a href="Not.html" class="extype" name="jp.kobe_u.copris.Not">Not</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@unary_!:jp.kobe_u.copris.Not" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Not.html" class="extype" name="jp.kobe_u.copris.Not">jp.kobe_u.copris.Not</a> of Constraint</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Not.html" class="extype" name="jp.kobe_u.copris.Not">jp.kobe_u.copris.Not</a> of Constraint</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.And#value" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="value(solution:jp.kobe_u.copris.Solution):Boolean"></a>
@@ -451,7 +532,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">value</span><span class="params">(<span name="solution">solution: <a href="Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@value(solution:jp.kobe_u.copris.Solution):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the value of the constraint</p><div class="fullcomment"><div class="comment cmt"><p>Returns the value of the constraint</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.And">And</a> → <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.And#variables" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="variables:Iterator[jp.kobe_u.copris.Var]"></a>
@@ -464,7 +549,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">variables</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@variables:Iterator[jp.kobe_u.copris.Var]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns an iterator of occuring variables</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator of occuring variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.And">And</a> → <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
@@ -477,7 +566,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -496,7 +589,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -515,7 +612,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -534,7 +635,11 @@ Companion object provies other factory methods.
       <span class="symbol">
         <span title="gt4s: $bar$bar" class="name">||</span><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result">: <a href="Or.html" class="extype" name="jp.kobe_u.copris.Or">Or</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.And@||(c:jp.kobe_u.copris.Constraint):jp.kobe_u.copris.Or" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Or.html" class="extype" name="jp.kobe_u.copris.Or">jp.kobe_u.copris.Or</a> of Constraints</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Or.html" class="extype" name="jp.kobe_u.copris.Or">jp.kobe_u.copris.Or</a> of Constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></dd></dl></div>
     </li></ol>
             </div>
@@ -577,6 +682,7 @@ Companion object provies other factory methods.
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
+
+
     </body>
       </html>

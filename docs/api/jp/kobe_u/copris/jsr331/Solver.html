@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>Solver - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.jsr331.Solver</title>
-          <meta name="description" content="Solver - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.jsr331.Solver" />
-          <meta name="keywords" content="Solver Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.jsr331.Solver" />
+          <title>Solver - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris.jsr331.Solver</title>
+          <meta name="description" content="Solver - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris.jsr331.Solver" />
+          <meta name="keywords" content="Solver Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris.jsr331.Solver" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../index.html';
@@ -24,9 +28,15 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../../../../lib/class_big.png" />
+        <img alt="Class" src="../../../../lib/class_big.png" />
         <p id="owner"><a href="../../../package.html" class="extype" name="jp">jp</a>.<a href="../../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="../package.html" class="extype" name="jp.kobe_u.copris">copris</a>.<a href="package.html" class="extype" name="jp.kobe_u.copris.jsr331">jsr331</a></p>
-        <h1>Solver</h1>
+        <h1>Solver</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="jp.kobe_u.copris.jsr331">package jsr331</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -53,7 +63,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -66,9 +76,8 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -91,7 +100,11 @@
       <span class="symbol">
         <span class="name">Solver</span><span class="params">(<span name="csp">csp: <a href="../CSP.html" class="extype" name="jp.kobe_u.copris.CSP">CSP</a></span>)</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@&lt;init&gt;(csp:jp.kobe_u.copris.CSP):jp.kobe_u.copris.jsr331.Solver" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -103,19 +116,6 @@
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -126,8 +126,12 @@
       <span class="symbol">
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -139,22 +143,13 @@
       <span class="symbol">
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@##():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -165,8 +160,12 @@
       <span class="symbol">
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#addSolverInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addSolverInfo(key:String,value:String):Unit"></a>
       <a id="addSolverInfo(String,String):Unit"></a>
@@ -178,7 +177,11 @@
       <span class="symbol">
         <span class="name">addSolverInfo</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@addSolverInfo(key:String,value:String):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds the info</p><div class="fullcomment"><div class="comment cmt"><p>Adds the info</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#addSolverStat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addSolverStat(name:String,key:String,value:Number):Unit"></a>
@@ -191,7 +194,11 @@
       <span class="symbol">
         <span class="name">addSolverStat</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="java.lang.Number">Number</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@addSolverStat(name:String,key:String,value:Number):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds the current status of <code>name</code> (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Adds the current status of <code>name</code> (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#addSolverStat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addSolverStat(name:String,stat:scala.collection.Map[String,Number]):Unit"></a>
@@ -204,7 +211,11 @@
       <span class="symbol">
         <span class="name">addSolverStat</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="stat">stat: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Number">Number</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@addSolverStat(name:String,stat:scala.collection.Map[String,Number]):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Sets the current status of <code>name</code> (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Sets the current status of <code>name</code> (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -217,7 +228,11 @@
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#cancel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="cancel:Unit"></a>
@@ -230,7 +245,11 @@
       <span class="symbol">
         <span class="name">cancel</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@cancel:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#checkTimeout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkTimeout:Unit"></a>
@@ -243,7 +262,11 @@
       <span class="symbol">
         <span class="name">checkTimeout</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@checkTimeout:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Checks the timeout (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Checks the timeout (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -256,7 +279,11 @@
       <span class="symbol">
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -275,7 +302,11 @@
       <span class="symbol">
         <span class="name">commit</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@commit:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#dump" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="dump(fileName:String,format:String):Unit"></a>
@@ -288,7 +319,11 @@
       <span class="symbol">
         <span class="name">dump</span><span class="params">(<span name="fileName">fileName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="format">format: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@dump(fileName:String,format:String):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#dumpCSP" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="dumpCSP(fileName:String):Unit"></a>
@@ -301,7 +336,11 @@
       <span class="symbol">
         <span class="name">dumpCSP</span><span class="params">(<span name="fileName">fileName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@dumpCSP(fileName:String):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -314,7 +353,11 @@
       <span class="symbol">
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a>
@@ -327,7 +370,11 @@
       <span class="symbol">
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#error" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="error(msg:String):RuntimeException"></a>
@@ -340,7 +387,11 @@
       <span class="symbol">
         <span class="name">error</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.RuntimeException">RuntimeException</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@error(msg:String):RuntimeException" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -353,7 +404,11 @@
       <span class="symbol">
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -372,7 +427,11 @@
       <span class="symbol">
         <span class="name">find</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@find:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the first solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the first solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#findBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findBody:Boolean"></a>
@@ -385,7 +444,11 @@
       <span class="symbol">
         <span class="name">findBody</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findBody:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Body of the <code>find</code> method</p><div class="fullcomment"><div class="comment cmt"><p>Body of the <code>find</code> method</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#findNext" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findNext:Boolean"></a>
@@ -398,7 +461,11 @@
       <span class="symbol">
         <span class="name">findNext</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findNext:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the next solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the next solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#findNextBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findNextBody:Boolean"></a>
@@ -411,7 +478,11 @@
       <span class="symbol">
         <span class="name">findNextBody</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findNextBody:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Body of the <code>findNext</code> method</p><div class="fullcomment"><div class="comment cmt"><p>Body of the <code>findNext</code> method</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#findOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findOpt:Boolean"></a>
@@ -424,7 +495,11 @@
       <span class="symbol">
         <span class="name">findOpt</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findOpt:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the optimum solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the optimum solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#findOptBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findOptBody:Boolean"></a>
@@ -437,7 +512,11 @@
       <span class="symbol">
         <span class="name">findOptBody</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findOptBody:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Body of the <code>findOpt</code> method</p><div class="fullcomment"><div class="comment cmt"><p>Body of the <code>findOpt</code> method</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#findOptBound" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findOptBound(lb:Int,ub:Int):Boolean"></a>
@@ -450,7 +529,11 @@
       <span class="symbol">
         <span class="name">findOptBound</span><span class="params">(<span name="lb">lb: <span class="extype" name="scala.Int">Int</span></span>, <span name="ub">ub: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findOptBound(lb:Int,ub:Int):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds a solution within the given bounds</p><div class="fullcomment"><div class="comment cmt"><p>Finds a solution within the given bounds</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#findOptBoundBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findOptBoundBody(lb:Int,ub:Int):Boolean"></a>
@@ -463,7 +546,11 @@
       <span class="symbol">
         <span class="name">findOptBoundBody</span><span class="params">(<span name="lb">lb: <span class="extype" name="scala.Int">Int</span></span>, <span name="ub">ub: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@findOptBoundBody(lb:Int,ub:Int):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Body of the <code>findOptBound</code> method</p><div class="fullcomment"><div class="comment cmt"><p>Body of the <code>findOptBound</code> method</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
@@ -476,7 +563,11 @@
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#getSolverStat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getSolverStat(name:String):scala.collection.Map[String,Number]"></a>
@@ -489,7 +580,11 @@
       <span class="symbol">
         <span class="name">getSolverStat</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Number">Number</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@getSolverStat(name:String):scala.collection.Map[String,Number]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Gets the last status of ~name~ (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Gets the last status of ~name~ (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -502,7 +597,11 @@
       <span class="symbol">
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#init" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="init:Unit"></a>
@@ -515,7 +614,11 @@
       <span class="symbol">
         <span class="name">init</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@init:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Initializes the solver</p><div class="fullcomment"><div class="comment cmt"><p>Initializes the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -528,7 +631,11 @@
       <span class="symbol">
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#measureTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="measureTime[T](name:String,key:String)(block:=&gt;T):T"></a>
@@ -541,7 +648,11 @@
       <span class="symbol">
         <span class="name">measureTime</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="block">block: ⇒ <span class="extype" name="jp.kobe_u.copris.AbstractSolver.measureTime.T">T</span></span>)</span><span class="result">: <span class="extype" name="jp.kobe_u.copris.AbstractSolver.measureTime.T">T</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@measureTime[T](name:String,key:String)(block:=&gt;T):T" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Measures the time spent for executing <code>block</code> (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Measures the time spent for executing <code>block</code> (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -554,7 +665,11 @@
       <span class="symbol">
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -567,7 +682,11 @@
       <span class="symbol">
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -580,7 +699,11 @@
       <span class="symbol">
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#options" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="options:scala.collection.Map[String,String]"></a>
@@ -593,7 +716,11 @@
       <span class="symbol">
         <span class="name">options</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@options:scala.collection.Map[String,String]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#problem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="problem:javax.constraints.Problem"></a>
@@ -606,7 +733,11 @@
       <span class="symbol">
         <span class="name">problem</span><span class="result">: <span class="extype" name="javax.constraints.Problem">Problem</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@problem:javax.constraints.Problem" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.AbstractSolver#raiseTimeout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="raiseTimeout:Nothing"></a>
@@ -619,7 +750,11 @@
       <span class="symbol">
         <span class="name">raiseTimeout</span><span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@raiseTimeout:Nothing" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Raises the interrupted exception for timeout (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Raises the interrupted exception for timeout (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#setTimeoutTask" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setTimeoutTask(task:=&gt;Unit):Unit"></a>
@@ -632,7 +767,11 @@
       <span class="symbol">
         <span class="name">setTimeoutTask</span><span class="params">(<span name="task">task: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@setTimeoutTask(task:=&gt;Unit):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Specifies the clean-up tasks of the timeout (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Specifies the clean-up tasks of the timeout (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#shiftSolverStats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="shiftSolverStats:Unit"></a>
@@ -645,7 +784,11 @@
       <span class="symbol">
         <span class="name">shiftSolverStats</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@shiftSolverStats:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Shifts the status (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Shifts the status (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#solution" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solution:jp.kobe_u.copris.Solution"></a>
@@ -658,7 +801,11 @@
       <span class="symbol">
         <span class="name">solution</span><span class="result">: <a href="../Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solution:jp.kobe_u.copris.Solution" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.jsr331.Solver">Solver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#solutionIterator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="solutionIterator:javax.constraints.SolutionIterator"></a>
@@ -671,7 +818,11 @@
       <span class="symbol">
         <span class="name">solutionIterator</span><span class="result">: <span class="extype" name="javax.constraints.SolutionIterator">SolutionIterator</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solutionIterator:javax.constraints.SolutionIterator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.AbstractSolver#solutions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solutions:Iterator[jp.kobe_u.copris.Solution]"></a>
@@ -684,7 +835,11 @@
       <span class="symbol">
         <span class="name">solutions</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="../Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solutions:Iterator[jp.kobe_u.copris.Solution]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the iterator of all solutions</p><div class="fullcomment"><div class="comment cmt"><p>Returns the iterator of all solutions</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a> → <a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#solver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="solver:javax.constraints.Solver"></a>
@@ -697,7 +852,11 @@
       <span class="symbol">
         <span class="name">solver</span><span class="result">: <span class="extype" name="javax.constraints.Solver">javax.constraints.Solver</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solver:javax.constraints.Solver" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.AbstractSolver#solverInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solverInfo:scala.collection.Map[String,String]"></a>
@@ -710,7 +869,11 @@
       <span class="symbol">
         <span class="name">solverInfo</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solverInfo:scala.collection.Map[String,String]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Info of the solver (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Info of the solver (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#solverStats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solverStats:Seq[scala.collection.Map[String,scala.collection.Map[String,Number]]]"></a>
@@ -723,7 +886,11 @@
       <span class="symbol">
         <span class="name">solverStats</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Number">Number</span>]]]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@solverStats:Seq[scala.collection.Map[String,scala.collection.Map[String,Number]]]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Status of the solver (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Status of the solver (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#startTimer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="startTimer(t:Long):Unit"></a>
@@ -736,7 +903,11 @@
       <span class="symbol">
         <span class="name">startTimer</span><span class="params">(<span name="t">t: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@startTimer(t:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Starts the timer (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Starts the timer (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#stopTimer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stopTimer:Unit"></a>
@@ -749,7 +920,11 @@
       <span class="symbol">
         <span class="name">stopTimer</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@stopTimer:Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Stops the timer (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Stops the timer (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -762,7 +937,11 @@
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#timeout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="timeout:Long"></a>
@@ -775,7 +954,11 @@
       <span class="symbol">
         <span class="name">timeout</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@timeout:Long" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Timeout value in miliseconds (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Timeout value in miliseconds (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.AbstractSolver#timer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="timer:jp.kobe_u.copris.Timer"></a>
@@ -788,7 +971,11 @@
       <span class="symbol">
         <span class="name">timer</span><span class="result">: <a href="../Timer.html" class="extype" name="jp.kobe_u.copris.Timer">Timer</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@timer:jp.kobe_u.copris.Timer" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Timer (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Timer (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -801,7 +988,11 @@
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@toString():String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.jsr331.Solver#translated" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="translated:Boolean"></a>
@@ -814,7 +1005,11 @@
       <span class="symbol">
         <span class="name">translated</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@translated:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.jsr331.Solver#translator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="translator:jp.kobe_u.copris.jsr331.Translator"></a>
@@ -827,7 +1022,11 @@
       <span class="symbol">
         <span class="name">translator</span><span class="result">: <a href="Translator.html" class="extype" name="jp.kobe_u.copris.jsr331.Translator">Translator</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@translator:jp.kobe_u.copris.jsr331.Translator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
@@ -840,7 +1039,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -859,7 +1062,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -878,7 +1085,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -902,9 +1113,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1160c101 instead">value</span><span class="params">(<span name="p">p: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@27e1c83 instead">value</span><span class="params">(<span name="p">p: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@value(p:jp.kobe_u.copris.Bool):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the Boolean variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -918,9 +1133,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@671f3190 instead">value</span><span class="params">(<span name="x">x: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@66b3c476 instead">value</span><span class="params">(<span name="x">x: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@value(x:jp.kobe_u.copris.Var):Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the integer variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -934,9 +1153,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@30ef19d4 instead">values</span><span class="params">(<span name="p">p: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@46c2ed8d instead">values</span><span class="params">(<span name="p">p: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="../Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@values(p:jp.kobe_u.copris.Bool,ps:jp.kobe_u.copris.Bool*):Seq[Boolean]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the Boolean variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -950,9 +1173,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@2188c665 instead">values</span><span class="params">(<span name="x">x: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4ee8ba7f instead">values</span><span class="params">(<span name="x">x: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="../Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.jsr331.Solver@values(x:jp.kobe_u.copris.Var,xs:jp.kobe_u.copris.Var*):Seq[Int]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the integer variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -986,6 +1213,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+
+
     </body>
       </html>

@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>Copris - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.Copris</title>
-          <meta name="description" content="Copris - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.Copris" />
-          <meta name="keywords" content="Copris Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.Copris" />
+          <title>Copris - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris.Copris</title>
+          <meta name="description" content="Copris - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris.Copris" />
+          <meta name="keywords" content="Copris Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris.Copris" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -24,9 +28,15 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../../../lib/class_big.png" />
+        <img alt="Class" src="../../../lib/class_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="jp">jp</a>.<a href="../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="package.html" class="extype" name="jp.kobe_u.copris">copris</a></p>
-        <h1>Copris</h1>
+        <h1>Copris</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="jp.kobe_u.copris">package copris</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -52,7 +62,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -65,9 +75,8 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -90,7 +99,11 @@
       <span class="symbol">
         <span class="name">Copris</span><span class="params">()</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@&lt;init&gt;():jp.kobe_u.copris.Copris" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Constructs Copris with empty CSP and <a href="DefaultSolver$.html" class="extype" name="jp.kobe_u.copris.DefaultSolver">jp.kobe_u.copris.DefaultSolver</a></p>
     </li><li name="jp.kobe_u.copris.Copris#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;init&gt;(csp:jp.kobe_u.copris.CSP):jp.kobe_u.copris.Copris"></a>
@@ -103,7 +116,11 @@
       <span class="symbol">
         <span class="name">Copris</span><span class="params">(<span name="csp">csp: <a href="CSP.html" class="extype" name="jp.kobe_u.copris.CSP">CSP</a></span>)</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@&lt;init&gt;(csp:jp.kobe_u.copris.CSP):jp.kobe_u.copris.Copris" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Constructs Copris with the given CSP and <a href="DefaultSolver$.html" class="extype" name="jp.kobe_u.copris.DefaultSolver">jp.kobe_u.copris.DefaultSolver</a></p>
     </li><li name="jp.kobe_u.copris.Copris#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;init&gt;(csp:jp.kobe_u.copris.CSP,solver:jp.kobe_u.copris.AbstractSolver):jp.kobe_u.copris.Copris"></a>
@@ -116,9 +133,12 @@
       <span class="symbol">
         <span class="name">Copris</span><span class="params">(<span name="csp">csp: <a href="CSP.html" class="extype" name="jp.kobe_u.copris.CSP">CSP</a></span>, <span name="solver">solver: <a href="AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></span>)</span>
       </span>
-      </h4>
-      <p class="shortcomment cmt">Constructs Copris with the given CSP and solver
-</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@&lt;init&gt;(csp:jp.kobe_u.copris.CSP,solver:jp.kobe_u.copris.AbstractSolver):jp.kobe_u.copris.Copris" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Constructs Copris with the given CSP and solver</p>
     </li></ol>
             </div>
 
@@ -129,19 +149,6 @@
         <div id="values" class="values members">
               <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -152,8 +159,12 @@
       <span class="symbol">
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -165,22 +176,13 @@
       <span class="symbol">
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@##():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -191,8 +193,12 @@
       <span class="symbol">
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#add" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="add(cs:jp.kobe_u.copris.Constraint*):Unit"></a>
       <a id="add(Constraint*):Unit"></a>
@@ -204,7 +210,11 @@
       <span class="symbol">
         <span class="name">add</span><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@add(cs:jp.kobe_u.copris.Constraint*):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds a constraint</p><div class="fullcomment"><div class="comment cmt"><p>Adds a constraint</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#add" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="add(cs:Iterable[jp.kobe_u.copris.Constraint]):Unit"></a>
@@ -217,7 +227,11 @@
       <span class="symbol">
         <span class="name">add</span><span class="params">(<span name="cs">cs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@add(cs:Iterable[jp.kobe_u.copris.Constraint]):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds constraints</p><div class="fullcomment"><div class="comment cmt"><p>Adds constraints</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -230,7 +244,11 @@
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#bool" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="bool(p:jp.kobe_u.copris.Bool):jp.kobe_u.copris.Bool"></a>
@@ -243,7 +261,11 @@
       <span class="symbol">
         <span class="name">bool</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@bool(p:jp.kobe_u.copris.Bool):jp.kobe_u.copris.Bool" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds a Boolean variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds a Boolean variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#bool" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="bool(ps:Iterable[jp.kobe_u.copris.Bool]):Iterable[jp.kobe_u.copris.Bool]"></a>
@@ -256,7 +278,11 @@
       <span class="symbol">
         <span class="name">bool</span><span class="params">(<span name="ps">ps: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@bool(ps:Iterable[jp.kobe_u.copris.Bool]):Iterable[jp.kobe_u.copris.Bool]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds Boolean variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds Boolean variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#boolInt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="boolInt(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var"></a>
@@ -269,7 +295,11 @@
       <span class="symbol">
         <span class="name">boolInt</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@boolInt(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds a 0-1 integer variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds a 0-1 integer variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#boolInt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="boolInt(xs:Iterable[jp.kobe_u.copris.Term]):Iterable[jp.kobe_u.copris.Term]"></a>
@@ -282,7 +312,11 @@
       <span class="symbol">
         <span class="name">boolInt</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@boolInt(xs:Iterable[jp.kobe_u.copris.Term]):Iterable[jp.kobe_u.copris.Term]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds 0-1 integer variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds 0-1 integer variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#cancel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="cancel:Unit"></a>
@@ -295,7 +329,11 @@
       <span class="symbol">
         <span class="name">cancel</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@cancel:Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -308,7 +346,11 @@
       <span class="symbol">
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@clone():Object" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -327,7 +369,11 @@
       <span class="symbol">
         <span class="name">commit</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@commit:Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Copris#csp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="csp:jp.kobe_u.copris.CSP"></a>
@@ -340,7 +386,11 @@
       <span class="symbol">
         <span class="name">csp</span><span class="result">: <a href="CSP.html" class="extype" name="jp.kobe_u.copris.CSP">CSP</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@csp:jp.kobe_u.copris.CSP" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">CSP to be used</p><div class="fullcomment"><div class="comment cmt"><p>CSP to be used</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.Copris">Copris</a> → <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#dump" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="dump(fileName:String,format:String):Unit"></a>
@@ -353,7 +403,11 @@
       <span class="symbol">
         <span class="name">dump</span><span class="params">(<span name="fileName">fileName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="format">format: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@dump(fileName:String,format:String):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#dump" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="dump(fileName:String):Unit"></a>
@@ -366,7 +420,11 @@
       <span class="symbol">
         <span class="name">dump</span><span class="params">(<span name="fileName">fileName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@dump(fileName:String):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -379,7 +437,11 @@
       <span class="symbol">
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a>
@@ -392,7 +454,11 @@
       <span class="symbol">
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -405,7 +471,11 @@
       <span class="symbol">
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -424,7 +494,11 @@
       <span class="symbol">
         <span class="name">find</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@find:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the first solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the first solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#findNext" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findNext:Boolean"></a>
@@ -437,7 +511,11 @@
       <span class="symbol">
         <span class="name">findNext</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@findNext:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the next solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the next solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#findOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="findOpt:Boolean"></a>
@@ -450,7 +528,11 @@
       <span class="symbol">
         <span class="name">findOpt</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@findOpt:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Finds the optimum solution</p><div class="fullcomment"><div class="comment cmt"><p>Finds the optimum solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
@@ -463,7 +545,11 @@
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -476,7 +562,11 @@
       <span class="symbol">
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#info" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="info:scala.collection.Map[String,String]"></a>
@@ -489,7 +579,11 @@
       <span class="symbol">
         <span class="name">info</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@info:scala.collection.Map[String,String]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the info of the solver (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Returns the info of the solver (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#init" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="init:Unit"></a>
@@ -502,7 +596,11 @@
       <span class="symbol">
         <span class="name">init</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@init:Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Initializes the CSP and solver</p><div class="fullcomment"><div class="comment cmt"><p>Initializes the CSP and solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int[A](x:jp.kobe_u.copris.Var,enum:jp.kobe_u.copris.EnumDomain[A]):jp.kobe_u.copris.Var"></a>
@@ -515,7 +613,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="enum">enum: <a href="EnumDomain.html" class="extype" name="jp.kobe_u.copris.EnumDomain">EnumDomain</a>[<span class="extype" name="jp.kobe_u.copris.CoprisTrait.int.A">A</span>]</span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int[A](x:jp.kobe_u.copris.Var,enum:jp.kobe_u.copris.EnumDomain[A]):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(x:jp.kobe_u.copris.Var,d:jp.kobe_u.copris.Domain):jp.kobe_u.copris.Var"></a>
@@ -528,7 +630,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="d">d: <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(x:jp.kobe_u.copris.Var,d:jp.kobe_u.copris.Domain):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds an integer variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds an integer variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(xs:Iterable[jp.kobe_u.copris.Term],value:Int):Iterable[jp.kobe_u.copris.Term]"></a>
@@ -541,7 +647,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(xs:Iterable[jp.kobe_u.copris.Term],value:Int):Iterable[jp.kobe_u.copris.Term]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds integer variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds integer variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(xs:Iterable[jp.kobe_u.copris.Term],lo:Int,hi:Int):Iterable[jp.kobe_u.copris.Term]"></a>
@@ -554,7 +664,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="lo">lo: <span class="extype" name="scala.Int">Int</span></span>, <span name="hi">hi: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(xs:Iterable[jp.kobe_u.copris.Term],lo:Int,hi:Int):Iterable[jp.kobe_u.copris.Term]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds integer variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds integer variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(xs:Iterable[jp.kobe_u.copris.Term],d:scala.collection.Set[Int]):Iterable[jp.kobe_u.copris.Term]"></a>
@@ -567,7 +681,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="d">d: <span class="extype" name="scala.collection.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(xs:Iterable[jp.kobe_u.copris.Term],d:scala.collection.Set[Int]):Iterable[jp.kobe_u.copris.Term]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds integer variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds integer variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(xs:Iterable[jp.kobe_u.copris.Term],d:jp.kobe_u.copris.Domain):Iterable[jp.kobe_u.copris.Term]"></a>
@@ -580,7 +698,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="d">d: <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a></span>)</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(xs:Iterable[jp.kobe_u.copris.Term],d:jp.kobe_u.copris.Domain):Iterable[jp.kobe_u.copris.Term]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds integer variables</p><div class="fullcomment"><div class="comment cmt"><p>Adds integer variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(x:jp.kobe_u.copris.Var,value:Int):jp.kobe_u.copris.Var"></a>
@@ -593,7 +715,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(x:jp.kobe_u.copris.Var,value:Int):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds an integer variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds an integer variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(x:jp.kobe_u.copris.Var,lo:Int,hi:Int):jp.kobe_u.copris.Var"></a>
@@ -606,7 +732,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="lo">lo: <span class="extype" name="scala.Int">Int</span></span>, <span name="hi">hi: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(x:jp.kobe_u.copris.Var,lo:Int,hi:Int):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds an integer variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds an integer variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait#int" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="int(x:jp.kobe_u.copris.Var,d:scala.collection.Set[Int]):jp.kobe_u.copris.Var"></a>
@@ -619,7 +749,11 @@
       <span class="symbol">
         <span class="name">int</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="d">d: <span class="extype" name="scala.collection.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@int(x:jp.kobe_u.copris.Var,d:scala.collection.Set[Int]):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Adds an integer variable</p><div class="fullcomment"><div class="comment cmt"><p>Adds an integer variable</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -632,7 +766,11 @@
       <span class="symbol">
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#maximize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="maximize(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var"></a>
@@ -645,7 +783,11 @@
       <span class="symbol">
         <span class="name">maximize</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@maximize(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Specifies objective variable to be maximized</p><div class="fullcomment"><div class="comment cmt"><p>Specifies objective variable to be maximized</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#minimize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="minimize(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var"></a>
@@ -658,7 +800,11 @@
       <span class="symbol">
         <span class="name">minimize</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@minimize(x:jp.kobe_u.copris.Var):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Specifies objective variable to be minimized</p><div class="fullcomment"><div class="comment cmt"><p>Specifies objective variable to be minimized</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -671,7 +817,11 @@
       <span class="symbol">
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -684,7 +834,11 @@
       <span class="symbol">
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -697,7 +851,11 @@
       <span class="symbol">
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#options" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="options:scala.collection.Map[String,String]"></a>
@@ -710,7 +868,11 @@
       <span class="symbol">
         <span class="name">options</span><span class="result">: <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@options:scala.collection.Map[String,String]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Gets the options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Gets the options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#satisfiedBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="satisfiedBy(solution:jp.kobe_u.copris.Solution):Boolean"></a>
@@ -723,7 +885,11 @@
       <span class="symbol">
         <span class="name">satisfiedBy</span><span class="params">(<span name="solution">solution: <a href="Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@satisfiedBy(solution:jp.kobe_u.copris.Solution):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Checks whether the CSP is satisfied by the solution</p><div class="fullcomment"><div class="comment cmt"><p>Checks whether the CSP is satisfied by the solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#setOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setOptions(opts:Map[String,String]):Unit"></a>
@@ -736,7 +902,11 @@
       <span class="symbol">
         <span class="name">setOptions</span><span class="params">(<span name="opts">opts: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@setOptions(opts:Map[String,String]):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Sets the options of the solver</p><div class="fullcomment"><div class="comment cmt"><p>Sets the options of the solver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#show" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="show:Unit"></a>
@@ -749,7 +919,11 @@
       <span class="symbol">
         <span class="name">show</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@show:Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Shows the CSP</p><div class="fullcomment"><div class="comment cmt"><p>Shows the CSP</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#solution" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solution:jp.kobe_u.copris.Solution"></a>
@@ -762,7 +936,11 @@
       <span class="symbol">
         <span class="name">solution</span><span class="result">: <a href="Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@solution:jp.kobe_u.copris.Solution" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#solutions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solutions:Iterator[jp.kobe_u.copris.Solution]"></a>
@@ -775,7 +953,11 @@
       <span class="symbol">
         <span class="name">solutions</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@solutions:Iterator[jp.kobe_u.copris.Solution]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the iterator of all solutions</p><div class="fullcomment"><div class="comment cmt"><p>Returns the iterator of all solutions</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a> → <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Copris#solver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="solver:jp.kobe_u.copris.AbstractSolver"></a>
@@ -788,7 +970,11 @@
       <span class="symbol">
         <span class="name">solver</span><span class="result">: <a href="AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@solver:jp.kobe_u.copris.AbstractSolver" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Solver to be used</p><div class="fullcomment"><div class="comment cmt"><p>Solver to be used</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.Copris">Copris</a> → <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#startTimer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="startTimer(timeout:Long):Unit"></a>
@@ -801,7 +987,11 @@
       <span class="symbol">
         <span class="name">startTimer</span><span class="params">(<span name="timeout">timeout: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@startTimer(timeout:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Starts the timer (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Starts the timer (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#stats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stats:Seq[scala.collection.Map[String,scala.collection.Map[String,Number]]]"></a>
@@ -814,7 +1004,11 @@
       <span class="symbol">
         <span class="name">stats</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.collection.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Number">Number</span>]]]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@stats:Seq[scala.collection.Map[String,scala.collection.Map[String,Number]]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the status of the solver (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Returns the status of the solver (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#stopTimer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stopTimer:Unit"></a>
@@ -827,7 +1021,11 @@
       <span class="symbol">
         <span class="name">stopTimer</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@stopTimer:Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Stops the timer (experimental)</p><div class="fullcomment"><div class="comment cmt"><p>Stops the timer (experimental)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CoprisTrait#symbol2var" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="symbol2var(s:Symbol):jp.kobe_u.copris.Var"></a>
@@ -840,7 +1038,11 @@
       <span class="symbol">
         <span class="name">symbol2var</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Symbol">Symbol</span></span>)</span><span class="result">: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@symbol2var(s:Symbol):jp.kobe_u.copris.Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Implicit conversion from scala Symbol to <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">jp.kobe_u.copris.Var</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Implicit conversion from scala Symbol to <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">jp.kobe_u.copris.Var</a>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -853,7 +1055,11 @@
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -866,7 +1072,11 @@
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@toString():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Copris#use" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="use(newSolver:jp.kobe_u.copris.AbstractSolver):Unit"></a>
@@ -879,7 +1089,11 @@
       <span class="symbol">
         <span class="name">use</span><span class="params">(<span name="newSolver">newSolver: <a href="AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@use(newSolver:jp.kobe_u.copris.AbstractSolver):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Changes the solver to be used</p><div class="fullcomment"><div class="comment cmt"><p>Changes the solver to be used</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="jp.kobe_u.copris.Copris">Copris</a> → <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
@@ -892,7 +1106,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -911,7 +1129,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -930,7 +1152,11 @@
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -954,9 +1180,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4d819c30 instead">value</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1065f09 instead">value</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@value(p:jp.kobe_u.copris.Bool):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the Boolean variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -970,9 +1200,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@78353b10 instead">value</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@1acf0703 instead">value</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@value(x:jp.kobe_u.copris.Var):Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the integer variable value of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable value of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -986,9 +1220,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@6eb8d517 instead">values</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@4219e848 instead">values</span><span class="params">(<span name="p">p: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a></span>, <span name="ps">ps: <a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@values(p:jp.kobe_u.copris.Bool,ps:jp.kobe_u.copris.Bool*):Seq[Boolean]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the Boolean variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Boolean variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -1002,9 +1240,13 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@28ae11cb instead">values</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name deprecated" title="Deprecated: (Since version 1.0.1) use apply method of scala.tools.nsc.doc.base.MemberLookupBase$$anon$1@179e0823 instead">values</span><span class="params">(<span name="x">x: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a></span>, <span name="xs">xs: <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>*</span>)</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Copris@values(x:jp.kobe_u.copris.Var,xs:jp.kobe_u.copris.Var*):Seq[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the integer variable values of the current solution</p><div class="fullcomment"><div class="comment cmt"><p>Returns the integer variable values of the current solution</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></dd><dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -1040,6 +1282,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
+
+
     </body>
       </html>

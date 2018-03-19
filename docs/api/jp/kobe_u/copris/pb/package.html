@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>pb - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.pb</title>
-          <meta name="description" content="pb - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.pb" />
-          <meta name="keywords" content="pb Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.pb" />
+          <title>pb - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris.pb</title>
+          <meta name="description" content="pb - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris.pb" />
+          <meta name="keywords" content="pb Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris.pb" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../index.html';
@@ -24,9 +28,13 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img src="../../../../lib/package_big.png" />
+        <img alt="Package" src="../../../../lib/package_big.png" />
         <p id="owner"><a href="../../../package.html" class="extype" name="jp">jp</a>.<a href="../../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="../package.html" class="extype" name="jp.kobe_u.copris">copris</a></p>
-        <h1>pb</h1>
+        <h1>pb</h1><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -69,8 +77,12 @@
       <span class="symbol">
         <a href="Encoder.html"><span class="name">Encoder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for encoding CSP to PB
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@EncoderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for encoding CSP to PB
 </p>
     </li><li name="jp.kobe_u.copris.pb.PB" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PBextendsCoprisTrait"></a>
@@ -83,8 +95,12 @@
       <span class="symbol">
         <a href="PB.html"><span class="name">PB</span></a><span class="result"> extends <a href="../CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for PB DSL
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@PBextendsCoprisTrait" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for PB DSL
 </p>
     </li><li name="jp.kobe_u.copris.pb.PbSolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="PbSolverextendsAnyRef"></a>
@@ -97,8 +113,12 @@
       <span class="symbol">
         <a href="PbSolver.html"><span class="name">PbSolver</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for PB solvers
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@PbSolverextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for PB solvers
 </p>
     </li><li name="jp.kobe_u.copris.pb.PbSolverLogger" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="PbSolverLoggerextendsFileProcessLogger"></a>
@@ -111,8 +131,30 @@
       <span class="symbol">
         <a href="PbSolverLogger.html"><span class="name">PbSolverLogger</span></a><span class="result"> extends <span class="extype" name="scala.sys.process.FileProcessLogger">FileProcessLogger</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for analyzing PB solver log output
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@PbSolverLoggerextendsFileProcessLogger" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for analyzing PB solver log output
+</p>
+    </li><li name="jp.kobe_u.copris.pb.Sat4j" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Sat4jextendsPbSolver"></a>
+      <a id="Sat4j:Sat4j"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Sat4j.html"><span class="name">Sat4j</span></a><span class="result"> extends <a href="PbSolver.html" class="extype" name="jp.kobe_u.copris.pb.PbSolver">PbSolver</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@Sat4jextendsPbSolver" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for Sat4j solver
 </p>
     </li><li name="jp.kobe_u.copris.pb.Solver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SolverextendsAbstractSolver"></a>
@@ -125,8 +167,12 @@
       <span class="symbol">
         <a href="Solver.html"><span class="name">Solver</span></a><span class="result"> extends <a href="../AbstractSolver.html" class="extype" name="jp.kobe_u.copris.AbstractSolver">AbstractSolver</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for PB solver
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@SolverextendsAbstractSolver" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for solvers
 </p>
     </li><li name="jp.kobe_u.copris.pb.Translator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TranslatorextendsTranslator"></a>
@@ -139,8 +185,12 @@
       <span class="symbol">
         <a href="Translator.html"><span class="name">Translator</span></a><span class="result"> extends <a href="../sugar/Translator.html" class="extype" name="jp.kobe_u.copris.sugar.Translator">sugar.Translator</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for translating CSP to PB
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@TranslatorextendsTranslator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for translating CSP to PB
 </p>
     </li></ol>
             </div>
@@ -160,8 +210,30 @@
       <span class="symbol">
         <a href="Clasp$.html"><span class="name">Clasp</span></a><span class="result"> extends <a href="PbSolver.html" class="extype" name="jp.kobe_u.copris.pb.PbSolver">PbSolver</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object for clasp solver (&quot;clasp&quot;)
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@Clasp" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object for clasp solver (&quot;clasp&quot;)
+</p>
+    </li><li name="jp.kobe_u.copris.pb.Sat4j" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Sat4j"></a>
+      <a id="Sat4j:Sat4j"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Sat4j$.html"><span class="name">Sat4j</span></a><span class="result"> extends <a href="Sat4j.html" class="extype" name="jp.kobe_u.copris.pb.Sat4j">Sat4j</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@Sat4j" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object for Sat4j solver
 </p>
     </li><li name="jp.kobe_u.copris.pb.dsl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="dsl"></a>
@@ -174,8 +246,12 @@
       <span class="symbol">
         <a href="dsl$.html"><span class="name">dsl</span></a><span class="result"> extends <a href="../CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object for PB DSL
+      </h4><span class="permalink">
+      <a href="../../../../index.html#jp.kobe_u.copris.pb.package@dsl" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object for PB DSL
 </p>
     </li></ol>
             </div>
@@ -202,6 +278,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+
+
     </body>
       </html>

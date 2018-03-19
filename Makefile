@@ -1,13 +1,13 @@
-VER = v2-2-5
-VERSION = 2.2.5
+VER = v2-2-8
+VERSION = 2.2.8
 
 APP0 = copris
 APP = $(APP0)-$(VER)
 JAR = $(APP).jar
 JARALL = $(APP0)-all-$(VER).jar
 ZIP = $(APP).zip
-SUGAR = lib/sugar-v2-2-1.jar
-SAT4J = lib/org.sat4j.core.jar
+SUGAR = lib/sugar-v2-3-3.jar
+SAT4J = lib/sat4j-pb.jar
 JSR331 = lib/jsr331/jsr331.jar lib/jsr331/log4j-1.2.15.jar lib/jsr331/commons-logging-1.1.jar lib/jsr331/commons-logging-api-1.1.jar
 PROPERTIES = log4j.properties
 JARS = $(SUGAR):$(SAT4J):lib/jsr331/"*"

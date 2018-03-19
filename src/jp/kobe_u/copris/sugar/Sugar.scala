@@ -345,12 +345,21 @@ class Translator {
   }
   def toSugarBool(csp: CSP, p: Bool) =
     SugarExpr.create(SugarExpr.BOOL_DEFINITION, toSugar(p))
-  def toSugar(csp: CSP): java.util.ArrayList[SugarExpr] = {
+  def toSugar(csp: CSP, outputObjective: Boolean = true): java.util.ArrayList[SugarExpr] = {
     val expressions = new java.util.ArrayList[SugarExpr]()
     // println("Translating integer variables")
     csp.variables.foreach(v => expressions.add(toSugarInt(csp, v)))
     // println("Translating boolean variables")
     csp.bools.foreach(p => expressions.add(toSugarBool(csp, p)))
+    if (outputObjective && csp.objective != null) {
+      // println("Translating objective variable")
+      val x = createSugarExpr(
+        SugarExpr.OBJECTIVE_DEFINITION,
+        if (csp.isMinimize) SugarExpr.MINIMIZE else SugarExpr.MAXIMIZE,
+        toSugar(csp.objective)
+      )
+      expressions.add(x)
+    }
     // println("Translating constraints")
     // csp.constraints.foreach(c => expressions.add(toSugar(c)))
     val n = csp.constraints.size
@@ -592,10 +601,11 @@ class Solver(csp: CSP, var satSolver: SatSolver = Sat4j) extends AbstractSolver(
     if (csp.variables.contains(v)) {
       var lb = csp.dom(v).lb
       var ub = csp.dom(v).ub
-      encode
-      csp.commit
-      commit
-      val sat = satSolve
+      val sat = encode && {
+        csp.commit
+        commit
+        satSolve
+      }
       addSolverStat("result", "find", if (sat) 1 else 0)
       if (sat) {
         var lastSolution = solution

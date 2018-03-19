@@ -87,7 +87,7 @@ class Encoder(csp: CSP, solver: Solver, smtFileName: String) {
   }
   def encode: Boolean = {
     // println("Translating")
-    val expressions = translator.toSugar(csp)
+    val expressions = translator.toSugar(csp, false)
     solver.checkTimeout
     // println("Converting")
     javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true

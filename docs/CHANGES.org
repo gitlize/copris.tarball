@@ -12,6 +12,14 @@
 * Overview
   This document describes the major changes of
   [[http://bach.istc.kobe-u.ac.jp/copris/][Copris]] (Constraint Programming in Scala).
+* Version 2.2.8 [2018-03-19 Mon]
+  - Uses Sugar version 2.3.3
+* Version 2.2.7 [2016-12-15 Thu]
+  - Runs on Scala 2.11
+  - Uses Sugar version 2.3.2
+* Version 2.2.6
+  - Uses Sugar version 2.3.0
+  - Bug fix in "findOpt" when the given CSP is UNSAT
 * Version 2.2.5 [2014-07-06 Sun]
   - Implementation of PB encodings
   - Bug fix of "Iff" in JSR331 translation

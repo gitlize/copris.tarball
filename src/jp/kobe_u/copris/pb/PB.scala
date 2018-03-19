@@ -33,7 +33,7 @@ abstract class PbSolverLogger(file: java.io.File) extends scala.sys.process.File
 class PbSolver(command: String, opts: Seq[String] = Seq.empty) {
   import scala.sys.process._
   /** Runs the PB solver */
-  def run(pbFileName: String, outFileName: String, solver: Solver): Int = {
+  def run(pbFileName: String, outFileName: String, solver: Solver, optimize: Boolean): Int = {
     val outFile = new java.io.File(outFileName)
     outFile.delete
     val logger = new PbSolverLogger(outFile) {
@@ -56,6 +56,87 @@ class PbSolver(command: String, opts: Seq[String] = Seq.empty) {
   override def toString = command
 }
 /**
+ * Class for Sat4j solver
+ */
+class Sat4j(command: String, opts: Seq[String]) extends PbSolver(command, opts) {
+  import scala.collection.JavaConversions
+  import org.sat4j.pb.SolverFactory
+  import org.sat4j.reader.Reader
+  import org.sat4j.pb.reader.OPBReader2012
+  import org.sat4j.specs.IProblem
+  import org.sat4j.pb.IPBSolver
+  import org.sat4j.specs.ContradictionException
+  import org.sat4j.specs.TimeoutException
+  import java.io.BufferedWriter
+  import java.io.OutputStreamWriter
+  import java.io.FileOutputStream
+  override def run(pbFileName: String, outFileName: String, solver: Solver, optimize: Boolean): Int = {
+    val sat4jSolver: IPBSolver =
+      if (optimize) SolverFactory.newDefaultOptimizer()
+      else SolverFactory.newDefault()
+    val reader: Reader = new OPBReader2012(sat4jSolver)
+    val writer = new BufferedWriter(new OutputStreamWriter(
+      new FileOutputStream(outFileName), "UTF-8"))
+    try {
+      solver.checkTimeout
+      val problem: IProblem = reader.parseInstance(pbFileName)
+      solver.checkTimeout
+      if (solver.timer != null && solver.timeout > 0) {
+	val rest: Long = solver.timer.restTime
+	if (rest > 0) {
+          // println("sat4j timeout " + rest)
+          sat4jSolver.setTimeoutMs(rest)
+	}
+      }
+      if (problem.isSatisfiable()) {
+        writer.write("s SATISFIABLE\n")
+        writer.write("v")
+        val model = problem.model()
+        for (i <- 0 until model.length) {
+          writer.write(" ");
+          if (model(i) < 0)
+            writer.write("-x" + (- model(i)))
+          else
+            writer.write("x" + model(i))
+        }
+        writer.write("\n")
+      } else {
+        writer.write("s UNSATISFIABLE\n")
+      }
+    } catch {
+      case e: ContradictionException => {
+        writer.write("s UNSATISFIABLE\n")
+      }
+      case e: InterruptedException => {
+        // println("kill sat4j interrupted")
+        solver.raiseTimeout
+      }
+      case e: TimeoutException => {
+        // println("kill sat4j")
+        solver.raiseTimeout
+      }
+      case e: Exception => {
+        println(e)
+        throw e
+      }
+    } finally {
+      writer.close()
+      sat4jSolver.setTimeoutMs(0)
+      sat4jSolver.reset
+      // println("reset sat4j")
+    }
+    val stat = JavaConversions.mapAsScalaMap(sat4jSolver.getStat)
+    solver.addSolverStat("sat4j", stat)
+    sat4jSolver.setTimeoutMs(0)
+    sat4jSolver.reset
+    0
+  }
+}
+/**
+ * Object for Sat4j solver
+ */
+object Sat4j extends Sat4j("sat4j", Seq.empty)
+/**
  * Object for clasp solver ("clasp")
  */
 object Clasp extends PbSolver("clasp", Seq.empty)
@@ -68,7 +149,8 @@ class Translator extends SugarTranslator
 /**
  * Class for encoding CSP to PB
  */
-class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String, encoding: String = "binary") {
+class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String,
+              encoding: String = "binary", nativeOptimizer: Boolean = true) {
   val pbEncoding = encoding match {
     case "direct" => {
       javaSugar.pb.PBEncoder.Encoding.DIRECT_ENCODING
@@ -77,12 +159,16 @@ class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String,
       javaSugar.pb.PBEncoder.Encoding.ORDER_ENCODING
     }
     case s if s.matches("compact=\\d+") => {
-      javaSugar.pb.PBEncoder.BASE = s.replace("compact=", "").toInt
+      javaSugar.pb.PBEncoder.BASE = s.split("=")(1).toInt
       javaSugar.pb.PBEncoder.Encoding.COMPACT_ORDER_ENCODING
     }
     case "log" | "binary" => {
       javaSugar.pb.PBEncoder.BASE = 2
       javaSugar.pb.PBEncoder.Encoding.COMPACT_ORDER_ENCODING
+    }
+    case s if s.matches("mixed=\\d+") => {
+      javaSugar.pb.PBEncoder.MIXED_BASE = s.split("=")(1).toInt
+      javaSugar.pb.PBEncoder.Encoding.MIXED_ENCODING
     }
   }
   var translator = new Translator()
@@ -108,12 +194,13 @@ class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String,
     sugarCSP.cancel
     encoder.outputMap(mapFileName)
   }
-  def encode: Boolean = {
+  def encode(nativeOptimizer: Boolean): Boolean = {
     // println("Translating")
-    val expressions = translator.toSugar(csp)
+    val expressions = translator.toSugar(csp, nativeOptimizer)
     solver.checkTimeout
     // println("Converting")
     javaSugar.converter.Converter.INCREMENTAL_PROPAGATION = true
+    javaSugar.converter.Converter.REDUCE_ARITY = false
     converter.convert(expressions)
     solver.checkTimeout
     expressions.clear
@@ -125,9 +212,11 @@ class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String,
       false
     else {
       // println("Simplifying")
-      val simplifier = new javaSugar.converter.Simplifier(sugarCSP)
-      simplifier.simplify
-      solver.checkTimeout
+      if (false) {
+        val simplifier = new javaSugar.converter.Simplifier(sugarCSP)
+        simplifier.simplify
+        solver.checkTimeout
+      }
       // println("Encoding")
       encoder.encode()
       solver.checkTimeout
@@ -182,9 +271,10 @@ class Encoder(csp: CSP, solver: Solver, pbFileName: String, mapFileName: String,
 }
 
 /**
- * Class for PB solver
+ * Class for solvers
  */
-class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binary") extends AbstractSolver(csp) {
+class Solver(csp: CSP, var pbSolver: PbSolver = Clasp,
+             encoding: String = "binary", nativeOptimizer: Boolean = true) extends AbstractSolver(csp) {
   val solverName = "pb"
   var pbFileName: String = null
   var mapFileName: String = null
@@ -212,7 +302,7 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
     mapFileName = fileName("map", ".map")
     outFileName = fileName("out", ".out")
     javaSugar.SugarMain.init()
-    encoder = new Encoder(csp, this, pbFileName, mapFileName, encoding)
+    encoder = new Encoder(csp, this, pbFileName, mapFileName, encoding, nativeOptimizer)
     encoder.init
     solution = null
     initial = true
@@ -223,7 +313,7 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
   }
   def encode: Boolean = {
     measureTime("time", "encode") {
-      encoder.encode
+      encoder.encode(nativeOptimizer)
     }
   }
   def encodeDelta {
@@ -233,10 +323,10 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
   }
   @deprecated("use encodeDelta method of [[jp.kobe_u.copris.pb.Solver]] instead", "2.2.0")
   def addDelta = encodeDelta
-  def pbSolve: Boolean = {
+  def pbSolve(optimize: Boolean): Boolean = {
     // addSolverStat("pb", "size", encoder.encoder.getSatFileSize)
     measureTime("time", "find") {
-      pbSolver.run(pbFileName, outFileName, this)
+      pbSolver.run(pbFileName, outFileName, this, optimize)
     }
     measureTime("time", "decode") {
       val sat = encoder.decode(outFileName) match {
@@ -265,10 +355,10 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
     val result = 
       if (initial) {
 	initial = false
-	encode && pbSolve
+	encode && pbSolve(false)
       } else {
 	encodeDelta
-	pbSolve
+	pbSolve(false)
       }
     if (commitFlag) {
       csp.commit
@@ -294,9 +384,20 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
 	commit
       }
     }
-    pbSolve
+    pbSolve(false)
   }
-  def findOptBody: Boolean = {
+  def findOptBodyNative: Boolean = {
+    encode
+    csp.commit
+    commit
+    val result = pbSolve(true)
+    addSolverStat("result", "find", if (result) 1 else 0)
+    result
+  }
+  def findOptBoundBodyNative(lb: Int, ub: Int) = {
+      throw new RuntimeException("findOptBoundBody is not implemented")
+  }
+  def findOptBodyBinary: Boolean = {
     val v = csp.objective
     if (csp.variables.contains(v)) {
       var lb = csp.dom(v).lb
@@ -304,7 +405,7 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
       encode
       csp.commit
       commit
-      val sat = pbSolve
+      val sat = pbSolve(false)
       addSolverStat("result", "find", if (sat) 1 else 0)
       if (sat) {
         var lastSolution = solution
@@ -340,7 +441,7 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
       throw new RuntimeException("Objective variable is not defined")
     }
   }
-  def findOptBoundBody(lb: Int, ub: Int) = {
+  def findOptBoundBodyBinary(lb: Int, ub: Int) = {
     val v = csp.objective
     measureTime("time", "encode") {
       csp.cancel
@@ -348,13 +449,25 @@ class Solver(csp: CSP, var pbSolver: PbSolver = Clasp, encoding: String = "binar
       csp.add(v >= lb && v <= ub)
       encodeDelta
     }
-    pbSolve
+    pbSolve(false)
+  }
+  def findOptBody: Boolean = {
+    if (nativeOptimizer)
+      findOptBodyNative
+    else
+      findOptBodyBinary
+  }
+  def findOptBoundBody(lb: Int, ub: Int) = {
+    if (nativeOptimizer)
+      findOptBoundBodyNative(lb, ub)
+    else
+      findOptBoundBodyBinary(lb, ub)
   }
   def dump(fileName: String, format: String) {
     format match {
       case "" | "pb" => {
         val encoder = new Encoder(csp, this, fileName, mapFileName, encoding)
-        encoder.encode
+        encoder.encode(true)
       }
     }
   }

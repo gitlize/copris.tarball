@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>copris - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris</title>
-          <meta name="description" content="copris - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris" />
-          <meta name="keywords" content="copris Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris" />
+          <title>copris - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris</title>
+          <meta name="description" content="copris - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris" />
+          <meta name="keywords" content="copris Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -24,9 +28,13 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img src="../../../lib/package_big.png" />
+        <img alt="Package" src="../../../lib/package_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="jp">jp</a>.<a href="../package.html" class="extype" name="jp.kobe_u">kobe_u</a></p>
-        <h1>copris</h1>
+        <h1>copris</h1><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -40,18 +48,18 @@
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Provides classes for Constraint Programming in Scala.</p><h4>OVERVIEW</h4><p>The following is a sample program in Copris DSL (Domain Specific Language).</p><pre><span class="kw">object</span> FirstStep {
-<span class="kw">import</span> jp.kobe_u.copris._
-<span class="kw">import</span> jp.kobe_u.copris.dsl._
+  <span class="kw">import</span> jp.kobe_u.copris._
+  <span class="kw">import</span> jp.kobe_u.copris.dsl._
 
-<span class="kw">def</span> main(args: <span class="std">Array</span>[<span class="std">String</span>]) = {
-  <span class="kw">val</span> x = int('x, <span class="num">0</span>, <span class="num">7</span>)
-  <span class="kw">val</span> y = int('y, <span class="num">0</span>, <span class="num">7</span>)
-  add(x + y === <span class="num">7</span>)
-  add(x * <span class="num">2</span> + y * <span class="num">4</span> === <span class="num">20</span>)
-  <span class="kw">if</span> (find) {
-    println(solution)
+  <span class="kw">def</span> main(args: <span class="std">Array</span>[<span class="std">String</span>]) = {
+    <span class="kw">val</span> x = int('x, <span class="num">0</span>, <span class="num">7</span>)
+    <span class="kw">val</span> y = int('y, <span class="num">0</span>, <span class="num">7</span>)
+    add(x + y === <span class="num">7</span>)
+    add(x * <span class="num">2</span> + y * <span class="num">4</span> === <span class="num">20</span>)
+    <span class="kw">if</span> (find) {
+      println(solution)
+    }
   }
-}
 }</pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -65,7 +73,7 @@
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -78,9 +86,8 @@
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -105,8 +112,12 @@
       <span class="symbol">
         <a href="Abs.html"><span class="name">Abs</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for absolute value of term.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@AbsextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for absolute value of term.</p>
     </li><li name="jp.kobe_u.copris.AbstractSolver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="AbstractSolverextendsSolverTrait"></a>
       <a id="AbstractSolver:AbstractSolver"></a>
@@ -118,10 +129,14 @@
       <span class="symbol">
         <a href="AbstractSolver.html"><span class="name">AbstractSolver</span></a><span class="result"> extends <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class for CSP solvers
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@AbstractSolverextendsSolverTrait" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class for CSP solvers
 </p>
-    </li><li name="jp.kobe_u.copris.Add" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="jp.kobe_u.copris.Add" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AddextendsTermwithProductwithSerializable"></a>
       <a id="Add:Add"></a>
       <h4 class="signature">
@@ -132,9 +147,15 @@
       <span class="symbol">
         <a href="Add.html"><span class="name">Add</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for addition of terms.</p>
-    </li><li name="jp.kobe_u.copris.Alldifferent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@AddextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for addition of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for addition of terms.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Alldifferent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AlldifferentextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Alldifferent:Alldifferent"></a>
       <h4 class="signature">
@@ -145,9 +166,14 @@
       <span class="symbol">
         <a href="Alldifferent.html"><span class="name">Alldifferent</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Alldifferent global constraints.</p>
-    </li><li name="jp.kobe_u.copris.And" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@AlldifferentextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Alldifferent global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Alldifferent global constraints.
+Companion object provies other factory methods.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Calldifferent.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Calldifferent.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.And" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="AndextendsConstraintwithProductwithSerializable"></a>
       <a id="And:And"></a>
       <h4 class="signature">
@@ -158,9 +184,15 @@
       <span class="symbol">
         <a href="And.html"><span class="name">And</span></a><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for conjuction of constaints.</p>
-    </li><li name="jp.kobe_u.copris.Bool" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@AndextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for conjuction of constaints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for conjuction of constaints.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Bool" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="BoolextendsConstraintwithOrdering[jp.kobe_u.copris.Bool]withProductwithSerializable"></a>
       <a id="Bool:Bool"></a>
       <h4 class="signature">
@@ -171,9 +203,13 @@
       <span class="symbol">
         <a href="Bool.html"><span class="name">Bool</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="is">is: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of Boolean variables.</p>
-    </li><li name="jp.kobe_u.copris.CSP" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@BoolextendsConstraintwithOrdering[jp.kobe_u.copris.Bool]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of Boolean variables.</p><div class="fullcomment"><div class="comment cmt"><p>Case class of Boolean variables.</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the primary name of the variable</p></dd><dt class="param">is</dt><dd class="cmt"><p>the indices of the variable (optional)</p></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.CSP" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CSPextendsCSPTraitwithProductwithSerializable"></a>
       <a id="CSP:CSP"></a>
       <h4 class="signature">
@@ -182,10 +218,18 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="CSP.html"><span class="name">CSP</span></a><span class="params">(<span name="variables">variables: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>, <span name="bools">bools: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>, <span name="dom">dom: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a>] = <span class="defval" name="scala.collection.Map.apply[jp.kobe_u.copris.Var, Nothing]()">...</span></span>, <span name="constraints">constraints: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>] = <span class="defval" name="scala.collection.immutable.IndexedSeq.apply[Nothing]()">...</span></span>)</span><span class="result"> extends <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="CSP.html"><span class="name">CSP</span></a><span class="params">(<span name="variables">variables: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>] = <span class="symbol">IndexedSeq()</span></span>, <span name="bools">bools: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>] = <span class="symbol">IndexedSeq()</span></span>, <span name="dom">dom: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a>] = <span class="symbol">Map()</span></span>, <span name="constraints">constraints: <span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[<a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>] = <span class="symbol">IndexedSeq()</span></span>)</span><span class="result"> extends <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of CSP (Constraint Satisfaction Problem)</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CSPextendsCSPTraitwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of CSP (Constraint Satisfaction Problem)</p><div class="fullcomment"><div class="comment cmt"><p>Case class of CSP (Constraint Satisfaction Problem)</p></div><dl class="paramcmts block"><dt class="param">variables</dt><dd class="cmt"><p>integer variables</p></dd><dt class="param">bools</dt><dd class="cmt"><p>Boolean variables</p></dd><dt class="param">dom</dt><dd class="cmt"><p>domains of integer variables</p></dd><dt class="param">constraints</dt><dd class="cmt"><p>constraints
+case class CSP(var variables: Seq[Var] = Seq.empty,
+               var bools: Seq[Bool] = Seq.empty,
+               var dom: Map[Var,Domain] = Map.empty,
+               var constraints: Seq[Constraint] = Seq.empty)</p></dd></dl></div>
     </li><li name="jp.kobe_u.copris.CSPTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="CSPTraitextendsAnyRef"></a>
       <a id="CSPTrait:CSPTrait"></a>
@@ -197,10 +241,14 @@
       <span class="symbol">
         <a href="CSPTrait.html"><span class="name">CSPTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Trait of CSP (Constraint Satisfaction Problem)
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CSPTraitextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Trait of CSP (Constraint Satisfaction Problem)
 </p>
-    </li><li name="jp.kobe_u.copris.Constraint" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="jp.kobe_u.copris.Constraint" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ConstraintextendsExpr"></a>
       <a id="Constraint:Constraint"></a>
       <h4 class="signature">
@@ -211,8 +259,15 @@
       <span class="symbol">
         <a href="Constraint.html"><span class="name">Constraint</span></a><span class="result"> extends <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class of constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ConstraintextendsExpr" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class of constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Abstract class of constraints.</p><p>Operators defined in this class create a new expression.
+For example, <code>c &amp;&amp; d</code> returns a new term <code>And(c, d)</code>
+when <code>c</code> and <code>d</code> are constraints.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Copris" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="CoprisextendsCoprisTrait"></a>
       <a id="Copris:Copris"></a>
@@ -224,9 +279,13 @@
       <span class="symbol">
         <a href="Copris.html"><span class="name">Copris</span></a><span class="result"> extends <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class for Copris DSL which provides methods for CSP and CSP solver.</p>
-    </li><li name="jp.kobe_u.copris.CoprisTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CoprisextendsCoprisTrait" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class for Copris DSL which provides methods for CSP and CSP solver.</p>
+    </li><li name="jp.kobe_u.copris.CoprisTrait" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="CoprisTraitextendsCSPTraitwithSolverTrait"></a>
       <a id="CoprisTrait:CoprisTrait"></a>
       <h4 class="signature">
@@ -237,9 +296,16 @@
       <span class="symbol">
         <a href="CoprisTrait.html"><span class="name">CoprisTrait</span></a><span class="result"> extends <a href="CSPTrait.html" class="extype" name="jp.kobe_u.copris.CSPTrait">CSPTrait</a> with <a href="SolverTrait.html" class="extype" name="jp.kobe_u.copris.SolverTrait">SolverTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Trait for Copris DSL which provides methods for CSP and CSP solver.</p>
-    </li><li name="jp.kobe_u.copris.Count" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CoprisTraitextendsCSPTraitwithSolverTrait" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Trait for Copris DSL which provides methods for CSP and CSP solver.</p><div class="fullcomment"><div class="comment cmt"><p>Trait for Copris DSL which provides methods for CSP and CSP solver.
+This trait also provides implicit conversion of converting
+scala Symbols to CSP integer variables (<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">jp.kobe_u.copris.Var</a>).
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Count" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CountextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Count:Count"></a>
       <h4 class="signature">
@@ -250,9 +316,13 @@
       <span class="symbol">
         <a href="Count.html"><span class="name">Count</span></a><span class="params">(<span name="value">value: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="cmp">cmp: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Count global constraints.</p>
-    </li><li name="jp.kobe_u.copris.Cumulative" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CountextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Count global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Count global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Ccount.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Ccount.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.Cumulative" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="CumulativeextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Cumulative:Cumulative"></a>
       <h4 class="signature">
@@ -263,9 +333,13 @@
       <span class="symbol">
         <a href="Cumulative.html"><span class="name">Cumulative</span></a><span class="params">(<span name="tasks">tasks: <span class="extype" name="scala.collection.Seq">Seq</span>[(<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="limit">limit: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Cumulative global constraints.</p>
-    </li><li name="jp.kobe_u.copris.Disjunctive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@CumulativeextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Cumulative global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Cumulative global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Ccumulative.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Ccumulative.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.Disjunctive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DisjunctiveextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Disjunctive:Disjunctive"></a>
       <h4 class="signature">
@@ -276,8 +350,13 @@
       <span class="symbol">
         <a href="Disjunctive.html"><span class="name">Disjunctive</span></a><span class="params">(<span name="tasks">tasks: (<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)*</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Disjunctive global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@DisjunctiveextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Disjunctive global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Disjunctive global constraints.
+Companion object provies other factory methods.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Cdisjunctive.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Cdisjunctive.html</a></p></span></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Div" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DivextendsTermwithProductwithSerializable"></a>
       <a id="Div:Div"></a>
@@ -289,9 +368,13 @@
       <span class="symbol">
         <a href="Div.html"><span class="name">Div</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for division of terms.</p>
-    </li><li name="jp.kobe_u.copris.Domain" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@DivextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for division of terms.</p>
+    </li><li name="jp.kobe_u.copris.Domain" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="DomainextendsAnyRef"></a>
       <a id="Domain:Domain"></a>
       <h4 class="signature">
@@ -302,9 +385,15 @@
       <span class="symbol">
         <a href="Domain.html"><span class="name">Domain</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class of domains.</p>
-    </li><li name="jp.kobe_u.copris.Element" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@DomainextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class of domains.</p><div class="fullcomment"><div class="comment cmt"><p>Abstract class of domains.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Element" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ElementextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Element:Element"></a>
       <h4 class="signature">
@@ -315,8 +404,12 @@
       <span class="symbol">
         <a href="Element.html"><span class="name">Element</span></a><span class="params">(<span name="i">i: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="xi">xi: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Element global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ElementextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Element global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Element global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Celement.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Celement.html</a></p></span></dd></dl></div>
     </li><li name="jp.kobe_u.copris.EnumDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="EnumDomain[A]extendsProductwithSerializable"></a>
       <a id="EnumDomain[A]:EnumDomain[A]"></a>
@@ -328,8 +421,12 @@
       <span class="symbol">
         <a href="EnumDomain.html"><span class="name">EnumDomain</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="values">values: <span class="extype" name="jp.kobe_u.copris.EnumDomain.A">A</span>*</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of enum domain
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@EnumDomain[A]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of enum domain
 </p>
     </li><li name="jp.kobe_u.copris.Eq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="EqextendsConstraintwithProductwithSerializable"></a>
@@ -342,9 +439,13 @@
       <span class="symbol">
         <a href="Eq.html"><span class="name">Eq</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for equals constraints.</p>
-    </li><li name="jp.kobe_u.copris.Expr" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@EqextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for equals constraints.</p>
+    </li><li name="jp.kobe_u.copris.Expr" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ExprextendsAnyRef"></a>
       <a id="Expr:Expr"></a>
       <h4 class="signature">
@@ -355,8 +456,14 @@
       <span class="symbol">
         <a href="Expr.html"><span class="name">Expr</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class of expressions.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ExprextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class of expressions.</p><div class="fullcomment"><div class="comment cmt"><p>Abstract class of expressions.
+<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">jp.kobe_u.copris.Term</a>s and <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">jp.kobe_u.copris.Constraint</a>s are expressions.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Ge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="GeextendsConstraintwithProductwithSerializable"></a>
       <a id="Ge:Ge"></a>
@@ -368,9 +475,13 @@
       <span class="symbol">
         <a href="Ge.html"><span class="name">Ge</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for greater-than-or-equals constraints.</p>
-    </li><li name="jp.kobe_u.copris.GlobalCardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@GeextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for greater-than-or-equals constraints.</p>
+    </li><li name="jp.kobe_u.copris.GlobalCardinality" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="GlobalCardinalityextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="GlobalCardinality:GlobalCardinality"></a>
       <h4 class="signature">
@@ -381,9 +492,13 @@
       <span class="symbol">
         <a href="GlobalCardinality.html"><span class="name">GlobalCardinality</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="card">card: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for GlobalCardinality global constraints.</p>
-    </li><li name="jp.kobe_u.copris.GlobalCardinalityWithCosts" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@GlobalCardinalityextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for GlobalCardinality global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for GlobalCardinality global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Cglobal_cardinality.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Cglobal_cardinality.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.GlobalCardinalityWithCosts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="GlobalCardinalityWithCostsextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="GlobalCardinalityWithCosts:GlobalCardinalityWithCosts"></a>
       <h4 class="signature">
@@ -394,8 +509,12 @@
       <span class="symbol">
         <a href="GlobalCardinalityWithCosts.html"><span class="name">GlobalCardinalityWithCosts</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="card">card: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="table">table: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <span class="extype" name="scala.Int">Int</span>, <span class="extype" name="scala.Int">Int</span>)]</span>, <span name="cost">cost: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for GlobalCardinalityWithCosts global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@GlobalCardinalityWithCostsextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for GlobalCardinalityWithCosts global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for GlobalCardinalityWithCosts global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Cglobal_cardinality_with_costs.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Cglobal_cardinality_with_costs.html</a></p></span></dd></dl></div>
     </li><li name="jp.kobe_u.copris.GlobalConstraint" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="GlobalConstraintextendsConstraint"></a>
       <a id="GlobalConstraint:GlobalConstraint"></a>
@@ -407,8 +526,12 @@
       <span class="symbol">
         <a href="GlobalConstraint.html"><span class="name">GlobalConstraint</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class of global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@GlobalConstraintextendsConstraint" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class of global constraints.</p>
     </li><li name="jp.kobe_u.copris.Gt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="GtextendsConstraintwithProductwithSerializable"></a>
       <a id="Gt:Gt"></a>
@@ -420,8 +543,12 @@
       <span class="symbol">
         <a href="Gt.html"><span class="name">Gt</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for greater-than constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@GtextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for greater-than constraints.</p>
     </li><li name="jp.kobe_u.copris.If" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="IfextendsTermwithProductwithSerializable"></a>
       <a id="If:If"></a>
@@ -433,8 +560,12 @@
       <span class="symbol">
         <a href="If.html"><span class="name">If</span></a><span class="params">(<span name="c">c: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for if expressions.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@IfextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for if expressions.</p>
     </li><li name="jp.kobe_u.copris.Iff" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="IffextendsConstraintwithProductwithSerializable"></a>
       <a id="Iff:Iff"></a>
@@ -446,8 +577,12 @@
       <span class="symbol">
         <a href="Iff.html"><span class="name">Iff</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for if-and-only-if of constaint.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@IffextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for if-and-only-if of constaint.</p>
     </li><li name="jp.kobe_u.copris.Imp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ImpextendsConstraintwithProductwithSerializable"></a>
       <a id="Imp:Imp"></a>
@@ -459,8 +594,12 @@
       <span class="symbol">
         <a href="Imp.html"><span class="name">Imp</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for implication of constaint.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ImpextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for implication of constaint.</p>
     </li><li name="jp.kobe_u.copris.IntervalDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="IntervalDomainextendsDomainwithProductwithSerializable"></a>
       <a id="IntervalDomain:IntervalDomain"></a>
@@ -472,8 +611,12 @@
       <span class="symbol">
         <a href="IntervalDomain.html"><span class="name">IntervalDomain</span></a><span class="params">(<span name="lo">lo: <span class="extype" name="scala.Int">Int</span></span>, <span name="hi">hi: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of interval domain
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@IntervalDomainextendsDomainwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of interval domain
 </p>
     </li><li name="jp.kobe_u.copris.Le" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="LeextendsConstraintwithProductwithSerializable"></a>
@@ -486,9 +629,13 @@
       <span class="symbol">
         <a href="Le.html"><span class="name">Le</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for less-than-or-equals constraints.</p>
-    </li><li name="jp.kobe_u.copris.LexLess" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@LeextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for less-than-or-equals constraints.</p>
+    </li><li name="jp.kobe_u.copris.LexLess" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="LexLessextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="LexLess:LexLess"></a>
       <h4 class="signature">
@@ -499,9 +646,13 @@
       <span class="symbol">
         <a href="LexLess.html"><span class="name">LexLess</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="ys">ys: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for LexLess global constraints.</p>
-    </li><li name="jp.kobe_u.copris.LexLesseq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@LexLessextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for LexLess global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for LexLess global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Clex_less.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Clex_less.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.LexLesseq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="LexLesseqextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="LexLesseq:LexLesseq"></a>
       <h4 class="signature">
@@ -512,8 +663,12 @@
       <span class="symbol">
         <a href="LexLesseq.html"><span class="name">LexLesseq</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>, <span name="ys">ys: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for LexLesseq global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@LexLesseqextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for LexLesseq global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for LexLesseq global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Clex_lesseq.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Clex_lesseq.html</a></p></span></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Lt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="LtextendsConstraintwithProductwithSerializable"></a>
       <a id="Lt:Lt"></a>
@@ -525,9 +680,13 @@
       <span class="symbol">
         <a href="Lt.html"><span class="name">Lt</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for less-than constraints.</p>
-    </li><li name="jp.kobe_u.copris.Matrix" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@LtextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for less-than constraints.</p>
+    </li><li name="jp.kobe_u.copris.Matrix" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MatrixextendsIterable[jp.kobe_u.copris.Vec]withProductwithSerializable"></a>
       <a id="Matrix:Matrix"></a>
       <h4 class="signature">
@@ -538,9 +697,15 @@
       <span class="symbol">
         <a href="Matrix.html"><span class="name">Matrix</span></a><span class="params">(<span name="vs">vs: <span class="extype" name="scala.Seq">Seq</span>[<a href="Vec.html" class="extype" name="jp.kobe_u.copris.Vec">Vec</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Vec.html" class="extype" name="jp.kobe_u.copris.Vec">Vec</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for matrices of terms.</p>
-    </li><li name="jp.kobe_u.copris.Max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@MatrixextendsIterable[jp.kobe_u.copris.Vec]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for matrices of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for matrices of terms.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Max" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MaxextendsTermwithProductwithSerializable"></a>
       <a id="Max:Max"></a>
       <h4 class="signature">
@@ -551,9 +716,15 @@
       <span class="symbol">
         <a href="Max.html"><span class="name">Max</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for maximum of terms.</p>
-    </li><li name="jp.kobe_u.copris.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@MaxextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for maximum of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for maximum of terms.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Min" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MinextendsTermwithProductwithSerializable"></a>
       <a id="Min:Min"></a>
       <h4 class="signature">
@@ -564,8 +735,14 @@
       <span class="symbol">
         <a href="Min.html"><span class="name">Min</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for minimum of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@MinextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for minimum of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for minimum of terms.
+Companion object provies other factory methods.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Mod" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ModextendsTermwithProductwithSerializable"></a>
       <a id="Mod:Mod"></a>
@@ -577,9 +754,13 @@
       <span class="symbol">
         <a href="Mod.html"><span class="name">Mod</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for remainder of terms.</p>
-    </li><li name="jp.kobe_u.copris.Mul" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ModextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for remainder of terms.</p>
+    </li><li name="jp.kobe_u.copris.Mul" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="MulextendsTermwithProductwithSerializable"></a>
       <a id="Mul:Mul"></a>
       <h4 class="signature">
@@ -590,8 +771,14 @@
       <span class="symbol">
         <a href="Mul.html"><span class="name">Mul</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for multiplication of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@MulextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for multiplication of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for multiplication of terms.
+Companion object provies other factory methods.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Ne" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NeextendsConstraintwithProductwithSerializable"></a>
       <a id="Ne:Ne"></a>
@@ -603,8 +790,12 @@
       <span class="symbol">
         <a href="Ne.html"><span class="name">Ne</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="x1">x1: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for not-equals constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NeextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for not-equals constraints.</p>
     </li><li name="jp.kobe_u.copris.Neg" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NegextendsTermwithProductwithSerializable"></a>
       <a id="Neg:Neg"></a>
@@ -616,8 +807,12 @@
       <span class="symbol">
         <a href="Neg.html"><span class="name">Neg</span></a><span class="params">(<span name="x0">x0: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for negation of term.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NegextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for negation of term.</p>
     </li><li name="jp.kobe_u.copris.Not" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NotextendsConstraintwithProductwithSerializable"></a>
       <a id="Not:Not"></a>
@@ -629,9 +824,13 @@
       <span class="symbol">
         <a href="Not.html"><span class="name">Not</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for logical negation of constaint.</p>
-    </li><li name="jp.kobe_u.copris.Num" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NotextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for logical negation of constaint.</p>
+    </li><li name="jp.kobe_u.copris.Num" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="NumextendsTermwithProductwithSerializable"></a>
       <a id="Num:Num"></a>
       <h4 class="signature">
@@ -642,9 +841,13 @@
       <span class="symbol">
         <a href="Num.html"><span class="name">Num</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of number terms.</p>
-    </li><li name="jp.kobe_u.copris.Nvalue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NumextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of number terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class of number terms.</p></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>the value of the number term</p></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.Nvalue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="NvalueextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Nvalue:Nvalue"></a>
       <h4 class="signature">
@@ -655,9 +858,13 @@
       <span class="symbol">
         <a href="Nvalue.html"><span class="name">Nvalue</span></a><span class="params">(<span name="count">count: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>, <span name="xs">xs: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Nvalue global constraints.</p>
-    </li><li name="jp.kobe_u.copris.Or" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NvalueextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Nvalue global constraints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for Nvalue global constraints.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="http://www.emn.fr/z-info/sdemasse/gccat/Cnvalue.html" target="_blank">http://www.emn.fr/z-info/sdemasse/gccat/Cnvalue.html</a></p></span></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.Or" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="OrextendsConstraintwithProductwithSerializable"></a>
       <a id="Or:Or"></a>
       <h4 class="signature">
@@ -668,8 +875,14 @@
       <span class="symbol">
         <a href="Or.html"><span class="name">Or</span></a><span class="params">(<span name="cs">cs: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a>*</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for disjuction of constaints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@OrextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for disjuction of constaints.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for disjuction of constaints.
+Companion object provies other factory methods.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.SetDomain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SetDomainextendsDomainwithProductwithSerializable"></a>
       <a id="SetDomain:SetDomain"></a>
@@ -681,8 +894,12 @@
       <span class="symbol">
         <a href="SetDomain.html"><span class="name">SetDomain</span></a><span class="params">(<span name="values">values: <span class="extype" name="scala.collection.immutable.SortedSet">SortedSet</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <a href="Domain.html" class="extype" name="jp.kobe_u.copris.Domain">Domain</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of set domain
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@SetDomainextendsDomainwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of set domain
 </p>
     </li><li name="jp.kobe_u.copris.Solution" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SolutionextendsProductwithSerializable"></a>
@@ -695,8 +912,12 @@
       <span class="symbol">
         <a href="Solution.html"><span class="name">Solution</span></a><span class="params">(<span name="intValues">intValues: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <span class="extype" name="scala.Int">Int</span>]</span>, <span name="boolValues">boolValues: <span class="extype" name="scala.collection.Map">Map</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>, <span class="extype" name="scala.Boolean">Boolean</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for solutions
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@SolutionextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for solutions
 </p>
     </li><li name="jp.kobe_u.copris.SolverTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="SolverTraitextendsAnyRef"></a>
@@ -709,10 +930,14 @@
       <span class="symbol">
         <a href="SolverTrait.html"><span class="name">SolverTrait</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Trait for CSP solvers
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@SolverTraitextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Trait for CSP solvers
 </p>
-    </li><li name="jp.kobe_u.copris.Sub" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="jp.kobe_u.copris.Sub" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SubextendsTermwithProductwithSerializable"></a>
       <a id="Sub:Sub"></a>
       <h4 class="signature">
@@ -723,9 +948,15 @@
       <span class="symbol">
         <a href="Sub.html"><span class="name">Sub</span></a><span class="params">(<span name="xs">xs: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for subtraction of terms.</p>
-    </li><li name="jp.kobe_u.copris.Term" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@SubextendsTermwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for subtraction of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for subtraction of terms.
+Companion object provies other factory methods.
+</p></div></div>
+    </li><li name="jp.kobe_u.copris.Term" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="TermextendsExpr"></a>
       <a id="Term:Term"></a>
       <h4 class="signature">
@@ -736,8 +967,15 @@
       <span class="symbol">
         <a href="Term.html"><span class="name">Term</span></a><span class="result"> extends <a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Abstract class of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@TermextendsExpr" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract class of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Abstract class of terms.</p><p>Operators defined in this class create a new expression.
+For example, <code>x + y</code> returns a new term <code>Add(x, y)</code>
+when <code>x</code> and <code>y</code> are terms.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Timer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TimerextendsAnyRef"></a>
       <a id="Timer:Timer"></a>
@@ -749,10 +987,14 @@
       <span class="symbol">
         <a href="Timer.html"><span class="name">Timer</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Class Timer (experimental)
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@TimerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class Timer (experimental)
 </p>
-    </li><li name="jp.kobe_u.copris.Var" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="jp.kobe_u.copris.Var" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="VarextendsTermwithOrdering[jp.kobe_u.copris.Var]withProductwithSerializable"></a>
       <a id="Var:Var"></a>
       <h4 class="signature">
@@ -763,9 +1005,13 @@
       <span class="symbol">
         <a href="Var.html"><span class="name">Var</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="is">is: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a> with <span class="extype" name="scala.Ordering">Ordering</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class of integer variables.</p>
-    </li><li name="jp.kobe_u.copris.Vec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@VarextendsTermwithOrdering[jp.kobe_u.copris.Var]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class of integer variables.</p><div class="fullcomment"><div class="comment cmt"><p>Case class of integer variables.</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>the primary name of the variable</p></dd><dt class="param">is</dt><dd class="cmt"><p>the indices of the variable (optional)</p></dd></dl></div>
+    </li><li name="jp.kobe_u.copris.Vec" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="VecextendsIterable[jp.kobe_u.copris.Term]withProductwithSerializable"></a>
       <a id="Vec:Vec"></a>
       <h4 class="signature">
@@ -776,8 +1022,14 @@
       <span class="symbol">
         <a href="Vec.html"><span class="name">Vec</span></a><span class="params">(<span name="xs">xs: <span class="extype" name="scala.Seq">Seq</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Iterable">Iterable</span>[<a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for vectors of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@VecextendsIterable[jp.kobe_u.copris.Term]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for vectors of terms.</p><div class="fullcomment"><div class="comment cmt"><p>Case class for vectors of terms.
+Companion object provies other factory methods.
+</p></div></div>
     </li><li name="jp.kobe_u.copris.Weightedsum" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WeightedsumextendsGlobalConstraintwithProductwithSerializable"></a>
       <a id="Weightedsum:Weightedsum"></a>
@@ -789,8 +1041,12 @@
       <span class="symbol">
         <a href="Weightedsum.html"><span class="name">Weightedsum</span></a><span class="params">(<span name="axs">axs: <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Int">Int</span>, <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a>)]</span>, <span name="cmp">cmp: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="b">b: <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result"> extends <a href="GlobalConstraint.html" class="extype" name="jp.kobe_u.copris.GlobalConstraint">GlobalConstraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for Weightedsum global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@WeightedsumextendsGlobalConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for Weightedsum global constraints.</p>
     </li><li name="jp.kobe_u.copris.Xor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="XorextendsConstraintwithProductwithSerializable"></a>
       <a id="Xor:Xor"></a>
@@ -802,8 +1058,12 @@
       <span class="symbol">
         <a href="Xor.html"><span class="name">Xor</span></a><span class="params">(<span name="c0">c0: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>, <span name="c1">c1: <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Case class for exclusive-or of constaint.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@XorextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Case class for exclusive-or of constaint.</p>
     </li></ol>
             </div>
 
@@ -822,8 +1082,12 @@
       <span class="symbol">
         <a href="Add$.html"><span class="name">Add</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for addition of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Add" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for addition of terms.</p>
     </li><li name="jp.kobe_u.copris.Alldifferent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Alldifferent"></a>
       <a id="Alldifferent:Alldifferent"></a>
@@ -835,8 +1099,12 @@
       <span class="symbol">
         <a href="Alldifferent$.html"><span class="name">Alldifferent</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for Alldifferent global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Alldifferent" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for Alldifferent global constraints.</p>
     </li><li name="jp.kobe_u.copris.And" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="And"></a>
       <a id="And:And"></a>
@@ -848,8 +1116,12 @@
       <span class="symbol">
         <a href="And$.html"><span class="name">And</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for conjunction of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@And" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for conjunction of terms.</p>
     </li><li name="jp.kobe_u.copris.Bool" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Bool"></a>
       <a id="Bool:Bool"></a>
@@ -861,9 +1133,13 @@
       <span class="symbol">
         <a href="Bool$.html"><span class="name">Bool</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Bool" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
-    </li><li name="jp.kobe_u.copris.DefaultSolver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="jp.kobe_u.copris.DefaultSolver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DefaultSolver"></a>
       <a id="DefaultSolver:DefaultSolver"></a>
       <h4 class="signature">
@@ -874,8 +1150,12 @@
       <span class="symbol">
         <a href="DefaultSolver$.html"><span class="name">DefaultSolver</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for default solver.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@DefaultSolver" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for default solver.</p><div class="fullcomment"><div class="comment cmt"><p>Factory for default solver.</p><p><a href="sugar/Solver.html" class="extype" name="jp.kobe_u.copris.sugar.Solver">jp.kobe_u.copris.sugar.Solver</a> is returned as the default solver.</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p><a href="sugar/Solver.html" class="extype" name="jp.kobe_u.copris.sugar.Solver">jp.kobe_u.copris.sugar.Solver</a></p></span></dd></dl></div>
     </li><li name="jp.kobe_u.copris.Disjunctive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Disjunctive"></a>
       <a id="Disjunctive:Disjunctive"></a>
@@ -887,8 +1167,12 @@
       <span class="symbol">
         <a href="Disjunctive$.html"><span class="name">Disjunctive</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for Disjunctive global constraints.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Disjunctive" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for Disjunctive global constraints.</p>
     </li><li name="jp.kobe_u.copris.Domain" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Domain"></a>
       <a id="Domain:Domain"></a>
@@ -900,8 +1184,12 @@
       <span class="symbol">
         <a href="Domain$.html"><span class="name">Domain</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for creating domains.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Domain" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for creating domains.</p>
     </li><li name="jp.kobe_u.copris.FALSE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="FALSE"></a>
       <a id="FALSE:FALSE"></a>
@@ -913,8 +1201,12 @@
       <span class="symbol">
         <a href="FALSE$.html"><span class="name">FALSE</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object of <code>FALSE</code> constraint.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@FALSE" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object of <code>FALSE</code> constraint.</p>
     </li><li name="jp.kobe_u.copris.Matrix" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Matrix"></a>
       <a id="Matrix:Matrix"></a>
@@ -926,8 +1218,12 @@
       <span class="symbol">
         <a href="Matrix$.html"><span class="name">Matrix</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for vectors
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Matrix" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for vectors
 </p>
     </li><li name="jp.kobe_u.copris.Max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Max"></a>
@@ -940,8 +1236,12 @@
       <span class="symbol">
         <a href="Max$.html"><span class="name">Max</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for maximum of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Max" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for maximum of terms.</p>
     </li><li name="jp.kobe_u.copris.Min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Min"></a>
       <a id="Min:Min"></a>
@@ -953,8 +1253,12 @@
       <span class="symbol">
         <a href="Min$.html"><span class="name">Min</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for minimum of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Min" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for minimum of terms.</p>
     </li><li name="jp.kobe_u.copris.Mul" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Mul"></a>
       <a id="Mul:Mul"></a>
@@ -966,8 +1270,12 @@
       <span class="symbol">
         <a href="Mul$.html"><span class="name">Mul</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for multiplication of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Mul" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for multiplication of terms.</p>
     </li><li name="jp.kobe_u.copris.NIL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NIL"></a>
       <a id="NIL:NIL"></a>
@@ -979,8 +1287,12 @@
       <span class="symbol">
         <a href="NIL$.html"><span class="name">NIL</span></a><span class="result"> extends <a href="Term.html" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object of <code>NIL</code> term.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@NIL" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object of <code>NIL</code> term.</p>
     </li><li name="jp.kobe_u.copris.ONE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ONE"></a>
       <a id="ONE:ONE"></a>
@@ -992,8 +1304,12 @@
       <span class="symbol">
         <a href="ONE$.html"><span class="name">ONE</span></a><span class="result"> extends <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object of number term 1.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ONE" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object of number term 1.</p>
     </li><li name="jp.kobe_u.copris.Or" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Or"></a>
       <a id="Or:Or"></a>
@@ -1005,8 +1321,12 @@
       <span class="symbol">
         <a href="Or$.html"><span class="name">Or</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for disjunction of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Or" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for disjunction of terms.</p>
     </li><li name="jp.kobe_u.copris.Sub" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Sub"></a>
       <a id="Sub:Sub"></a>
@@ -1018,8 +1338,12 @@
       <span class="symbol">
         <a href="Sub$.html"><span class="name">Sub</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for subtraction of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Sub" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for subtraction of terms.</p>
     </li><li name="jp.kobe_u.copris.Sum" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Sum"></a>
       <a id="Sum:Sum"></a>
@@ -1031,8 +1355,12 @@
       <span class="symbol">
         <a href="Sum$.html"><span class="name">Sum</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for addition of terms.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Sum" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for addition of terms.</p>
     </li><li name="jp.kobe_u.copris.TRUE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TRUE"></a>
       <a id="TRUE:TRUE"></a>
@@ -1044,8 +1372,12 @@
       <span class="symbol">
         <a href="TRUE$.html"><span class="name">TRUE</span></a><span class="result"> extends <a href="Constraint.html" class="extype" name="jp.kobe_u.copris.Constraint">Constraint</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object of <code>TRUE</code> constraint.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@TRUE" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object of <code>TRUE</code> constraint.</p>
     </li><li name="jp.kobe_u.copris.Timer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Timer"></a>
       <a id="Timer:Timer"></a>
@@ -1057,8 +1389,12 @@
       <span class="symbol">
         <a href="Timer$.html"><span class="name">Timer</span></a>
       </span>
-      </h4>
-      <p class="comment cmt">Object Timer (experimental)
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Timer" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object Timer (experimental)
 </p>
     </li><li name="jp.kobe_u.copris.Var" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Var"></a>
@@ -1071,7 +1407,11 @@
       <span class="symbol">
         <a href="Var$.html"><span class="name">Var</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Var" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.Vec" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Vec"></a>
@@ -1084,8 +1424,12 @@
       <span class="symbol">
         <a href="Vec$.html"><span class="name">Vec</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
-      </h4>
-      <p class="comment cmt">Factory for vectors
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@Vec" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory for vectors
 </p>
     </li><li name="jp.kobe_u.copris.ZERO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ZERO"></a>
@@ -1098,8 +1442,12 @@
       <span class="symbol">
         <a href="ZERO$.html"><span class="name">ZERO</span></a><span class="result"> extends <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object of number term 0.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@ZERO" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object of number term 0.</p>
     </li><li name="jp.kobe_u.copris.dsl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="dsl"></a>
       <a id="dsl:dsl"></a>
@@ -1111,8 +1459,12 @@
       <span class="symbol">
         <a href="dsl$.html"><span class="name">dsl</span></a><span class="result"> extends <a href="CoprisTrait.html" class="extype" name="jp.kobe_u.copris.CoprisTrait">CoprisTrait</a></span>
       </span>
-      </h4>
-      <p class="comment cmt">Object for Copris DSL which provides methods for CSP and CSP solver.</p>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@dsl" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object for Copris DSL which provides methods for CSP and CSP solver.</p>
     </li><li name="jp.kobe_u.copris.jsr331" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="jsr331"></a>
       <a id="jsr331:jsr331"></a>
@@ -1124,7 +1476,11 @@
       <span class="symbol">
         <a href="jsr331/package.html"><span class="name">jsr331</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@jsr331" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.loader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="loader"></a>
@@ -1137,7 +1493,11 @@
       <span class="symbol">
         <a href="loader/package.html"><span class="name">loader</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@loader" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.pb" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="pb"></a>
@@ -1150,7 +1510,11 @@
       <span class="symbol">
         <a href="pb/package.html"><span class="name">pb</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@pb" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.smt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="smt"></a>
@@ -1163,7 +1527,11 @@
       <span class="symbol">
         <a href="smt/package.html"><span class="name">smt</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@smt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li><li name="jp.kobe_u.copris.sugar" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="sugar"></a>
@@ -1176,7 +1544,11 @@
       <span class="symbol">
         <a href="sugar/package.html"><span class="name">sugar</span></a>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.package@sugar" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       
     </li></ol>
             </div>
@@ -1207,6 +1579,7 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
+
+
     </body>
       </html>

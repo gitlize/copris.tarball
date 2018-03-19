@@ -1,14 +1,18 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html >
 <html>
         <head>
-          <title>Term - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe_u.copris.Term</title>
-          <meta name="description" content="Term - Copris version 2.2.5 Core API Specification 2.2.5 - jp.kobe u.copris.Term" />
-          <meta name="keywords" content="Term Copris version 2.2.5 Core API Specification 2.2.5 jp.kobe u.copris.Term" />
+          <title>Term - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe_u.copris.Term</title>
+          <meta name="description" content="Term - Copris version 2.2.8 Core API Specification 2.2.8 - jp.kobe u.copris.Term" />
+          <meta name="keywords" content="Term Copris version 2.2.8 Core API Specification 2.2.8 jp.kobe u.copris.Term" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
       <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
@@ -24,9 +28,15 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../../../lib/class_big.png" />
+        <img alt="Class" src="../../../lib/class_big.png" />
         <p id="owner"><a href="../../package.html" class="extype" name="jp">jp</a>.<a href="../package.html" class="extype" name="jp.kobe_u">kobe_u</a>.<a href="package.html" class="extype" name="jp.kobe_u.copris">copris</a></p>
-        <h1>Term</h1>
+        <h1>Term</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="jp.kobe_u.copris">package copris</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       </div>
 
       <h4 id="signature" class="signature">
@@ -46,9 +56,9 @@ when <code>x</code> and <code>y</code> are terms.
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
-          <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="Abs.html" class="extype" name="jp.kobe_u.copris.Abs">Abs</a>, <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">Add</a>, <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">Div</a>, <a href="If.html" class="extype" name="jp.kobe_u.copris.If">If</a>, <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">Max</a>, <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">Min</a>, <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">Mod</a>, <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">Mul</a>, <a href="NIL$.html" class="extype" name="jp.kobe_u.copris.NIL">NIL</a>, <a href="Neg.html" class="extype" name="jp.kobe_u.copris.Neg">Neg</a>, <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a>, <a href="ONE$.html" class="extype" name="jp.kobe_u.copris.ONE">ONE</a>, <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">Sub</a>, <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <a href="ZERO$.html" class="extype" name="jp.kobe_u.copris.ZERO">ZERO</a></div>
-        </div></div>
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="Abs.html" class="extype" name="jp.kobe_u.copris.Abs">Abs</a>, <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">Add</a>, <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">Div</a>, <a href="If.html" class="extype" name="jp.kobe_u.copris.If">If</a>, <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">Max</a>, <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">Min</a>, <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">Mod</a>, <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">Mul</a>, <a href="NIL$.html" class="extype" name="jp.kobe_u.copris.NIL">NIL</a>, <a href="Neg.html" class="extype" name="jp.kobe_u.copris.Neg">Neg</a>, <a href="Num.html" class="extype" name="jp.kobe_u.copris.Num">Num</a>, <a href="ONE$.html" class="extype" name="jp.kobe_u.copris.ONE">ONE</a>, <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">Sub</a>, <a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>, <a href="ZERO$.html" class="extype" name="jp.kobe_u.copris.ZERO">ZERO</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -58,7 +68,7 @@ when <code>x</code> and <code>y</code> are terms.
               <ol>
                 
                 <li class="alpha in"><span>Alphabetic</span></li>
-                <li class="inherit out"><span>By inheritance</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
               </ol>
             </div>
         <div id="ancestors">
@@ -71,9 +81,8 @@ when <code>x</code> and <code>y</code> are terms.
             <span class="filtertype"></span>
             <ol>
               <li class="hideall out"><span>Hide All</span></li>
-              <li class="showall in"><span>Show all</span></li>
+              <li class="showall in"><span>Show All</span></li>
             </ol>
-            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
           </div>
         <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -83,23 +92,7 @@ when <code>x</code> and <code>y</code> are terms.
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="jp.kobe_u.copris.Term#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():jp.kobe_u.copris.Term"></a>
-      <a id="&lt;init&gt;:Term"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">Term</span><span class="params">()</span>
-      </span>
-      </h4>
-      
-    </li></ol>
-            </div>
+        
 
         
 
@@ -116,7 +109,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">value</span><span class="params">(<span name="solution">solution: <a href="Solution.html" class="extype" name="jp.kobe_u.copris.Solution">Solution</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@value(solution:jp.kobe_u.copris.Solution):Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns the value of the term</p>
     </li></ol>
             </div>
@@ -134,22 +131,13 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $bang" class="name">!</span><span class="result">: <a href="Le.html" class="extype" name="jp.kobe_u.copris.Le">Le</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@!:jp.kobe_u.copris.Le" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns this &lt;= 0</p>
     </li><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="!=(x$1:AnyRef):Boolean"></a>
-      <a id="!=(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
       <h4 class="signature">
@@ -160,8 +148,12 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="##():Int"></a>
       <a id="##():Int"></a>
@@ -173,7 +165,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@##():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Term#%" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="%(a:Int):jp.kobe_u.copris.Mod"></a>
@@ -186,7 +182,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $percent" class="name">%</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">Mod</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@%(a:Int):jp.kobe_u.copris.Mod" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">jp.kobe_u.copris.Mod</a> of Term by Int</p>
     </li><li name="jp.kobe_u.copris.Term#%" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="%(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Mod"></a>
@@ -199,7 +199,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $percent" class="name">%</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">Mod</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@%(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Mod" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Mod.html" class="extype" name="jp.kobe_u.copris.Mod">jp.kobe_u.copris.Mod</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#*" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="*(a:Int):jp.kobe_u.copris.Mul"></a>
@@ -212,7 +216,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $times" class="name">*</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">Mul</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@*(a:Int):jp.kobe_u.copris.Mul" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">jp.kobe_u.copris.Mul</a> of Term with Int</p>
     </li><li name="jp.kobe_u.copris.Term#*" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="*(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Mul"></a>
@@ -225,7 +233,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $times" class="name">*</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">Mul</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@*(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Mul" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Mul.html" class="extype" name="jp.kobe_u.copris.Mul">jp.kobe_u.copris.Mul</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="+(a:Int):jp.kobe_u.copris.Add"></a>
@@ -238,7 +250,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">Add</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@+(a:Int):jp.kobe_u.copris.Add" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">jp.kobe_u.copris.Add</a> of Term with Int</p>
     </li><li name="jp.kobe_u.copris.Term#+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="+(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Add"></a>
@@ -251,7 +267,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">Add</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@+(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Add" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Add.html" class="extype" name="jp.kobe_u.copris.Add">jp.kobe_u.copris.Add</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#-" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="-(a:Int):jp.kobe_u.copris.Sub"></a>
@@ -264,7 +284,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $minus" class="name">-</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">Sub</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@-(a:Int):jp.kobe_u.copris.Sub" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">jp.kobe_u.copris.Sub</a> of Term with Int</p>
     </li><li name="jp.kobe_u.copris.Term#-" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="-(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Sub"></a>
@@ -277,7 +301,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $minus" class="name">-</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">Sub</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@-(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Sub" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Sub.html" class="extype" name="jp.kobe_u.copris.Sub">jp.kobe_u.copris.Sub</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#/" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="/(a:Int):jp.kobe_u.copris.Div"></a>
@@ -290,7 +318,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $div" class="name">/</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">Div</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@/(a:Int):jp.kobe_u.copris.Div" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">jp.kobe_u.copris.Div</a> of Term by Int</p>
     </li><li name="jp.kobe_u.copris.Term#/" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="/(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Div"></a>
@@ -303,7 +335,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $div" class="name">/</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">Div</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@/(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Div" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Div.html" class="extype" name="jp.kobe_u.copris.Div">jp.kobe_u.copris.Div</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#&lt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;(a:Int):jp.kobe_u.copris.Lt"></a>
@@ -316,7 +352,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $less" class="name">&lt;</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Lt.html" class="extype" name="jp.kobe_u.copris.Lt">Lt</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&lt;(a:Int):jp.kobe_u.copris.Lt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Lt.html" class="extype" name="jp.kobe_u.copris.Lt">jp.kobe_u.copris.Lt</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#&lt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Lt"></a>
@@ -329,7 +369,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $less" class="name">&lt;</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Lt.html" class="extype" name="jp.kobe_u.copris.Lt">Lt</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&lt;(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Lt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Lt.html" class="extype" name="jp.kobe_u.copris.Lt">jp.kobe_u.copris.Lt</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#&lt;=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;=(a:Int):jp.kobe_u.copris.Le"></a>
@@ -342,7 +386,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $less$eq" class="name">&lt;=</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Le.html" class="extype" name="jp.kobe_u.copris.Le">Le</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&lt;=(a:Int):jp.kobe_u.copris.Le" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Le.html" class="extype" name="jp.kobe_u.copris.Le">jp.kobe_u.copris.Le</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#&lt;=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&lt;=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Le"></a>
@@ -355,7 +403,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $less$eq" class="name">&lt;=</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Le.html" class="extype" name="jp.kobe_u.copris.Le">Le</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&lt;=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Le" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Le.html" class="extype" name="jp.kobe_u.copris.Le">jp.kobe_u.copris.Le</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#=/=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="=/=(a:Int):jp.kobe_u.copris.Ne"></a>
@@ -368,7 +420,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $eq$div$eq" class="name">=/=</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">Ne</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@=/=(a:Int):jp.kobe_u.copris.Ne" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#=/=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="=/=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Ne"></a>
@@ -381,22 +437,13 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $eq$div$eq" class="name">=/=</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">Ne</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@=/=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Ne" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Terms</p>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="==(x$1:AnyRef):Boolean"></a>
-      <a id="==(AnyRef):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
       <h4 class="signature">
@@ -407,8 +454,12 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Term#===" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="===(a:Int):jp.kobe_u.copris.Eq"></a>
       <a id="===(Int):Eq"></a>
@@ -420,7 +471,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $eq$eq$eq" class="name">===</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Eq.html" class="extype" name="jp.kobe_u.copris.Eq">Eq</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@===(a:Int):jp.kobe_u.copris.Eq" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Eq.html" class="extype" name="jp.kobe_u.copris.Eq">jp.kobe_u.copris.Eq</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#===" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="===(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Eq"></a>
@@ -433,7 +488,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $eq$eq$eq" class="name">===</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Eq.html" class="extype" name="jp.kobe_u.copris.Eq">Eq</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@===(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Eq" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Eq.html" class="extype" name="jp.kobe_u.copris.Eq">jp.kobe_u.copris.Eq</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&gt;(a:Int):jp.kobe_u.copris.Gt"></a>
@@ -446,7 +505,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $greater" class="name">&gt;</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Gt.html" class="extype" name="jp.kobe_u.copris.Gt">Gt</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&gt;(a:Int):jp.kobe_u.copris.Gt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Gt.html" class="extype" name="jp.kobe_u.copris.Gt">jp.kobe_u.copris.Gt</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&gt;(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Gt"></a>
@@ -459,7 +522,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $greater" class="name">&gt;</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Gt.html" class="extype" name="jp.kobe_u.copris.Gt">Gt</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&gt;(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Gt" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Gt.html" class="extype" name="jp.kobe_u.copris.Gt">jp.kobe_u.copris.Gt</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#&gt;=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&gt;=(a:Int):jp.kobe_u.copris.Ge"></a>
@@ -472,7 +539,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $greater$eq" class="name">&gt;=</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Ge.html" class="extype" name="jp.kobe_u.copris.Ge">Ge</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&gt;=(a:Int):jp.kobe_u.copris.Ge" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ge.html" class="extype" name="jp.kobe_u.copris.Ge">jp.kobe_u.copris.Ge</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#&gt;=" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="&gt;=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Ge"></a>
@@ -485,7 +556,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $greater$eq" class="name">&gt;=</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Ge.html" class="extype" name="jp.kobe_u.copris.Ge">Ge</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@&gt;=(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Ge" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ge.html" class="extype" name="jp.kobe_u.copris.Ge">jp.kobe_u.copris.Ge</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#?" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="?:jp.kobe_u.copris.Ge"></a>
@@ -498,7 +573,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $qmark" class="name">?</span><span class="result">: <a href="Ge.html" class="extype" name="jp.kobe_u.copris.Ge">Ge</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@?:jp.kobe_u.copris.Ge" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns this &gt;= 1</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
@@ -511,7 +590,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Expr#bools" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="bools:Iterator[jp.kobe_u.copris.Bool]"></a>
@@ -524,7 +607,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">bools</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="Bool.html" class="extype" name="jp.kobe_u.copris.Bool">Bool</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@bools:Iterator[jp.kobe_u.copris.Bool]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns an iterator of occuring Boolean variables</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator of occuring Boolean variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -537,7 +624,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@clone():Object" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -556,7 +647,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="equals(x$1:Any):Boolean"></a>
@@ -569,7 +664,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -582,7 +681,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -601,7 +704,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -614,7 +721,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -627,7 +738,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Term#max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="max(a:Int):jp.kobe_u.copris.Max"></a>
@@ -640,7 +755,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">max</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">Max</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@max(a:Int):jp.kobe_u.copris.Max" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">jp.kobe_u.copris.Max</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#max" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="max(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Max"></a>
@@ -653,7 +772,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">max</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">Max</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@max(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Max" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Max.html" class="extype" name="jp.kobe_u.copris.Max">jp.kobe_u.copris.Max</a> of Terms</p>
     </li><li name="jp.kobe_u.copris.Term#min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="min(a:Int):jp.kobe_u.copris.Min"></a>
@@ -666,7 +789,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">min</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">Min</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@min(a:Int):jp.kobe_u.copris.Min" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">jp.kobe_u.copris.Min</a> of Term and Int</p>
     </li><li name="jp.kobe_u.copris.Term#min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="min(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Min"></a>
@@ -679,7 +806,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">min</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">Min</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@min(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Min" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Min.html" class="extype" name="jp.kobe_u.copris.Min">jp.kobe_u.copris.Min</a> of Terms</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
@@ -692,7 +823,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
@@ -705,7 +840,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notifyAll():Unit"></a>
@@ -718,7 +857,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -731,7 +874,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
@@ -744,7 +891,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@toString():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="jp.kobe_u.copris.Term#unary_-" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="unary_-:jp.kobe_u.copris.Neg"></a>
@@ -757,7 +908,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: unary_$minus" class="name">unary_-</span><span class="result">: <a href="Neg.html" class="extype" name="jp.kobe_u.copris.Neg">Neg</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@unary_-:jp.kobe_u.copris.Neg" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Neg.html" class="extype" name="jp.kobe_u.copris.Neg">jp.kobe_u.copris.Neg</a> of Term</p>
     </li><li name="jp.kobe_u.copris.Expr#variables" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="variables:Iterator[jp.kobe_u.copris.Var]"></a>
@@ -770,7 +925,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">variables</span><span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[<a href="Var.html" class="extype" name="jp.kobe_u.copris.Var">Var</a>]</span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@variables:Iterator[jp.kobe_u.copris.Var]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns an iterator of occuring variables</p><div class="fullcomment"><div class="comment cmt"><p>Returns an iterator of occuring variables</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Expr.html" class="extype" name="jp.kobe_u.copris.Expr">Expr</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
@@ -783,7 +942,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -802,7 +965,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -821,7 +988,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
@@ -847,7 +1018,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $bang$eq$eq. Deprecated: (Since version 2.2.0) use =/= instead" class="name deprecated">!==</span><span class="params">(<span name="a">a: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">Ne</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@!==(a:Int):jp.kobe_u.copris.Ne" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Term and Int</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Term and Int</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -863,7 +1038,11 @@ when <code>x</code> and <code>y</code> are terms.
       <span class="symbol">
         <span title="gt4s: $bang$eq$eq. Deprecated: (Since version 2.2.0) use =/= instead" class="name deprecated">!==</span><span class="params">(<span name="x">x: <a href="" class="extype" name="jp.kobe_u.copris.Term">Term</a></span>)</span><span class="result">: <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">Ne</a></span>
       </span>
-      </h4>
+      </h4><span class="permalink">
+      <a href="../../../index.html#jp.kobe_u.copris.Term@!==(x:jp.kobe_u.copris.Term):jp.kobe_u.copris.Ne" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
       <p class="shortcomment cmt">Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Terms</p><div class="fullcomment"><div class="comment cmt"><p>Returns <a href="Ne.html" class="extype" name="jp.kobe_u.copris.Ne">jp.kobe_u.copris.Ne</a> of Terms</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@deprecated</span>
               
@@ -895,6 +1074,7 @@ when <code>x</code> and <code>y</code> are terms.
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script>
+
+
     </body>
       </html>
